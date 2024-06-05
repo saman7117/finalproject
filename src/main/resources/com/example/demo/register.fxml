@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.registerController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #262626;">
+         <children>
+            <ImageView fitHeight="242.0" fitWidth="342.0" layoutX="79.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="500.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="user" focusTraversable="false" layoutX="20.0" layoutY="147.0" prefHeight="26.0" prefWidth="458.0" promptText="Username" />
+            <TextField fx:id="mail" focusTraversable="false" layoutX="21.0" layoutY="195.0" prefHeight="26.0" prefWidth="458.0" promptText="Email" />
+            <PasswordField fx:id="pass" focusTraversable="false" layoutX="21.0" layoutY="244.0" prefHeight="26.0" prefWidth="458.0" promptText="Password" />
+            <PasswordField fx:id="Cpass" focusTraversable="false" layoutX="21.0" layoutY="290.0" prefHeight="26.0" prefWidth="458.0" promptText="Confirm Password" />
+            <Text layoutX="158.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register a new account">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="137.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Text>
+            <Button layoutX="133.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#Register" prefHeight="77.0" prefWidth="226.0" style="-fx-background-color: #262626;" text="Register" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="www" layoutX="20.0" layoutY="418.0" text="Have an account ? login">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <TextField fx:id="fname" layoutX="20.0" layoutY="336.0" prefHeight="26.0" prefWidth="226.0" promptText="first name" />
+            <TextField fx:id="lname" layoutX="253.0" layoutY="335.0" prefHeight="26.0" prefWidth="226.0" promptText="last name" />
+            <TextField fx:id="mob" focusTraversable="false" layoutX="20.0" layoutY="384.0" prefHeight="26.0" prefWidth="458.0" promptText="mobile" />
+            <Label fx:id="userlable" layoutX="21.0" layoutY="130.0" />
+            <Label fx:id="passlable" layoutX="20.0" layoutY="228.0" />
+            <Label fx:id="Cpasslable" layoutX="22.0" layoutY="275.0" />
+            <Label fx:id="flable" layoutX="21.0" layoutY="320.0" />
+            <Label fx:id="llable" layoutX="254.0" layoutY="319.0" />
+            <Label fx:id="mlable" layoutX="21.0" layoutY="368.0" />
+            <Label fx:id="maillable" layoutX="22.0" layoutY="179.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

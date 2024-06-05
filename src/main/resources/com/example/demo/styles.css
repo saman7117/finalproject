@@ -1,0 +1,13 @@
+.menu-item {
+    -fx-background-color: #FFA500;
+}
+
+.menu-item:selected {
+    -fx-background-color: #008000;
+}
+.table-column{
+    -fx-background-color:  #feea00;
+}
+.table-column2{
+    -fx-background-color:  #1d1b06;
+}

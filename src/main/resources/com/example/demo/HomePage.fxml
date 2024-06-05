@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" prefHeight="864.0" prefWidth="1536.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HomepageController">
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+    <children>
+      <TableView fx:id="tableView" accessibleRole="TABLE_ROW" fixedCellSize="50.0" layoutX="70.0" layoutY="53.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#newPage" prefHeight="594.0" prefWidth="700.0" style="-fx-background-color: #8e9a9c;" AnchorPane.bottomAnchor="53.39999999999998" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="80.39999999999998" AnchorPane.topAnchor="53.0">
+        <columns>
+            <TableColumn fx:id="marketColumn" editable="false" minWidth="140.0" prefWidth="252.7999267578125" styleClass="menu-item" text="بازار" />
+            <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="229.60003662109375" text="قیمت" />
+            <TableColumn fx:id="changesColumn" minWidth="0.0" prefWidth="163.199951171875" styleClass="table-column" text="تغییرات" />
+            <TableColumn fx:id="maxPriceColumn" minWidth="140.0" prefWidth="336.0" text="بیشترین قیمت" />
+            <TableColumn fx:id="minPriceColumn" minWidth="93.5999755859375" prefWidth="401.60003662109375" styleClass="table-column" text="کمترین قیمت" />
+        </columns>
+      </TableView>
+      <MenuBar fx:id="menu" layoutX="2.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="1457.0" style="-fx-background-color: #626b6c;">
+         <menus>
+            <Menu mnemonicParsing="false" text="Swap &amp; Exchange">
+               <items>
+                   <MenuItem fx:id="Swap" mnemonicParsing="false" onAction="#Swap" styleClass="menu-item" text="Swap" />
+                   <MenuItem fx:id="Exchange" mnemonicParsing="false" onAction="#Exchange" styleClass="menu-item" text="Exchange" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Wallet">
+               <items>
+                   <MenuItem mnemonicParsing="false" styleClass="menu-item" text="Delete" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <ImageView fitHeight="86.0" fitWidth="80.0" layoutX="1459.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
