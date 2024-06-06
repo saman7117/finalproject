@@ -15,13 +15,13 @@
         <URL value="@styles.css" />
     </stylesheets>
     <children>
-      <TableView fx:id="tableView" accessibleRole="TABLE_ROW" fixedCellSize="50.0" layoutX="71.2" layoutY="106.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#newPage" prefHeight="714.0" prefWidth="1435.0" style="-fx-background-color: #1e2228;" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="106.0">
+      <TableView fx:id="tableView" accessibleRole="TABLE_ROW" fixedCellSize="100.0" layoutX="77.0" layoutY="120.8" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#newPage" prefHeight="763.0" prefWidth="1435.0" style="-fx-background-color: #1e2228;" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="121.0">
         <columns>
-            <TableColumn fx:id="marketColumn" editable="false" minWidth="140.0" prefWidth="252.7999267578125" styleClass="menu-item" text="بازار" />
-            <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="229.60003662109375" text="قیمت" />
-            <TableColumn fx:id="changesColumn" minWidth="0.0" prefWidth="163.199951171875" styleClass="table-column" text="تغییرات" />
-            <TableColumn fx:id="maxPriceColumn" minWidth="140.0" prefWidth="336.0" text="بیشترین قیمت" />
-            <TableColumn fx:id="minPriceColumn" editable="false" minWidth="93.5999755859375" prefWidth="445.60003662109375" styleClass="table-column" text="کمترین قیمت" />
+            <TableColumn fx:id="marketColumn" editable="false" minWidth="140.0" prefWidth="251.199951171875" styleClass="menu-item" text="بازار" />
+            <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="284.0" text="قیمت" />
+            <TableColumn fx:id="changesColumn" minWidth="0.0" prefWidth="299.20001220703125" styleClass="table-column" text="تغییرات" />
+            <TableColumn fx:id="maxPriceColumn" minWidth="140.0" prefWidth="294.39990234375" text="بیشترین قیمت" />
+            <TableColumn fx:id="minPriceColumn" editable="false" minWidth="93.5999755859375" prefWidth="301.60009765625" styleClass="table-column" text="کمترین قیمت" />
         </columns>
       </TableView>
         <AnchorPane prefHeight="80.0" prefWidth="1574.0" style="-fx-background-color: #191a1f; -fx-border-width: 2px; -fx-border-radius: 25px;">

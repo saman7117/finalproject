@@ -1,0 +1,13 @@
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: DIMGRAY;
+}
+.chart-plot-background {
+    -fx-background-color: #191a1f;
+}
+.chart-vertical-grid-lines {
+    -fx-background-color: #f1b514;
+}
+.chart-horizontal-grid-lines {
+    -fx-background-color: #f1b514;
+}
