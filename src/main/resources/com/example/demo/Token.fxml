@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo.Token"
+            prefHeight="400.0" prefWidth="600.0">
+    <AnchorPane layoutY="3.0" prefHeight="80.0" prefWidth="1574.0" style="-fx-background-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px; &quot; text=&quot;سامان&quot; textFill=&quot;#ededed&quot; xmlns=&quot;http: //javafx.com/javafx/21&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;font&gt;      &lt;Font size=&quot;24.0&quot; /&gt;   &lt;/font&gt;&lt;/Label&gt;;">
+        <children>
+            <ImageView fitHeight="71.0" fitWidth="200.0" layoutX="1388.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@logo2.jpg" />
+                </image>
+            </ImageView>
+            <Button layoutX="1257.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
+            <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
+            <MenuButton alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="تبادل" />
+                    <MenuItem mnemonicParsing="false" text="انتقال" />
+                    <MenuItem mnemonicParsing="false" text="معاوضه" />
+                </items>
+            </MenuButton>
+            <Button layoutX="855.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="تاریخچه" textFill="#ededed" />
+            <ImageView fitHeight="58.0" fitWidth="78.0" layoutX="11.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Profile.png" />
+                </image>
+            </ImageView>
+            <Label layoutX="76.0" layoutY="23.0" prefHeight="35.0" prefWidth="194.0" style="-fx-text-fill: #f6b716;" text="saman007">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+
+</AnchorPane>

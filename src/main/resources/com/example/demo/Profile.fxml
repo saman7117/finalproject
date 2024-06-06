@@ -1,14 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.demo.Profile"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #191a1f;" stylesheets="@profile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ProfileController">
+   <children>
+      <Label layoutX="1003.0" layoutY="147.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="58.0" prefWidth="357.0" style="-fx-font-size: 32; -fx-text-fill: #eeb90b;" text="سامان هوش ور" />
+      <Label layoutX="1282.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="78.0" style="-fx-font-size: 20; -fx-text-fill: #ededed;" text="ادمین" />
+      <Text fill="#ededed" layoutX="633.0" layoutY="346.0" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="اطلاعات فردی" wrappingWidth="888.7999633789063">
+         <font>
+            <Font name="B Nazanin" size="24.0" />
+         </font>
+      </Text>
+      <Label alignment="CENTER" layoutX="1220.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="سامان" textFill="#ededed">
+         <font>
+            <Font name="B Nazanin" size="32.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1378.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Profile.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="1425.0" layoutY="373.0" prefHeight="46.0" prefWidth="78.0" style="-fx-background-color: #f1b514;" text="نام" textAlignment="CENTER" textFill="#1e1c1c">
+         <font>
+            <Font name="B Nazanin" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="902.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="هوش ور" textFill="#ededed">
+         <font>
+            <Font name="B Nazanin" size="32.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="1103.0" layoutY="373.0" prefHeight="46.0" prefWidth="78.0" style="-fx-background-color: #f1b514;" text="فامیل" textAlignment="CENTER" textFill="#1e1c1c">
+         <font>
+            <Font name="B Nazanin" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="560.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="09044407206" textFill="#ededed">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="763.0" layoutY="373.0" prefHeight="42.0" prefWidth="78.0" style="-fx-background-color: #f1b514;" text="موبایل" textAlignment="CENTER" textFill="#1e1c1c">
+         <font>
+            <Font name="B Nazanin" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="78.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="364.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="alihkhoshdell@gmial.com" textFill="#ededed">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="418.0" layoutY="373.0" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #f1b514;" text="ایمیل" textAlignment="CENTER" textFill="#1e1c1c">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Text fill="#ededed" layoutX="633.0" layoutY="454.0" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="اطلاعات کاربری" wrappingWidth="888.7999633789063">
+         <font>
+            <Font name="B Nazanin" size="24.0" />
+         </font>
+      </Text>
+      <Label alignment="CENTER" layoutX="1217.0" layoutY="480.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="saman83h" textFill="#ededed">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="1425.0" layoutY="480.0" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #f1b514;" text="کاربری" textAlignment="CENTER" textFill="#1e1c1c">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="896.0" layoutY="480.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="31482604" textFill="#ededed">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="1102.0" layoutY="480.0" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #f1b514;" text="رمز" textAlignment="CENTER" textFill="#1e1c1c">
+         <font>
+            <Font name="B Nazanin" size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="3.0" prefHeight="80.0" prefWidth="1574.0" style="-fx-background-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px; &quot; text=&quot;سامان&quot; textFill=&quot;#ededed&quot; xmlns=&quot;http: //javafx.com/javafx/21&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;font&gt;      &lt;Font size=&quot;24.0&quot; /&gt;   &lt;/font&gt;&lt;/Label&gt;;">
+         <children>
+            <ImageView fitHeight="71.0" fitWidth="200.0" layoutX="1388.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo2.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="1257.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
+            <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
+            <MenuButton alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
+              <items>
+                <MenuItem mnemonicParsing="false" text="تبادل" />
+                <MenuItem mnemonicParsing="false" text="انتقال" />
+                  <MenuItem mnemonicParsing="false" text="معاوضه" />
+              </items>
+            </MenuButton>
+            <Button layoutX="855.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="تاریخچه" textFill="#ededed" />
+            <ImageView fitHeight="58.0" fitWidth="78.0" layoutX="11.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Profile.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="76.0" layoutY="23.0" prefHeight="35.0" prefWidth="194.0" style="-fx-text-fill: #f6b716;" text="saman007">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

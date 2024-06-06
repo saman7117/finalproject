@@ -6,7 +6,8 @@
     -fx-background-color: #008000;
 }
 .table-column{
-    -fx-background-color:  #feea00;
+    -fx-background-color:  #1d2329;
+    -fx-text-fill: #ededed;
 }
 .table-column2{
     -fx-background-color:  #1d1b06;

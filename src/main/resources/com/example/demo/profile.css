@@ -1,0 +1,8 @@
+.menu-item {
+    -fx-background-color: #1c212f;
+    -fx-min-width: 200;
+    -fx-pref-width: 200;
+}
+.menu-item:hover {
+    -fx-background-color: #fbd436;
+}
