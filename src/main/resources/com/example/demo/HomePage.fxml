@@ -15,7 +15,7 @@
         <URL value="@styles.css" />
     </stylesheets>
     <children>
-      <TableView fx:id="tableView" accessibleRole="TABLE_ROW" fixedCellSize="100.0" layoutX="77.0" layoutY="120.8" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#newPage" prefHeight="763.0" prefWidth="1435.0" style="-fx-background-color: #1e2228;" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="121.0">
+      <TableView fx:id="tableView" accessibleRole="TABLE_ROW" fixedCellSize="100.0" layoutX="77.0" layoutY="120.8" nodeOrientation="RIGHT_TO_LEFT" prefHeight="763.0" prefWidth="1435.0" style="-fx-background-color: #1e2228;" AnchorPane.bottomAnchor="-20.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="121.0">
         <columns>
             <TableColumn fx:id="marketColumn" editable="false" minWidth="140.0" prefWidth="251.199951171875" styleClass="menu-item" text="بازار" />
             <TableColumn fx:id="priceColumn" minWidth="0.0" prefWidth="284.0" text="قیمت" />

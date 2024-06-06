@@ -26,8 +26,8 @@
       </AnchorPane>
       <AnchorPane layoutX="500.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;">
          <children>
-            <TextField focusTraversable="false" layoutX="32.0" layoutY="273.0" prefHeight="26.0" prefWidth="445.0" promptText="Username" />
-            <PasswordField focusTraversable="false" layoutX="32.0" layoutY="320.0" prefHeight="26.0" prefWidth="446.0" promptText="Password" />
+            <TextField fx:id="userfield" focusTraversable="false" layoutX="32.0" layoutY="273.0" prefHeight="26.0" prefWidth="445.0" promptText="Username" />
+            <PasswordField fx:id="passfield" focusTraversable="false" layoutX="32.0" layoutY="320.0" prefHeight="26.0" prefWidth="446.0" promptText="Password" />
             <Text layoutX="150.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcom!" textAlignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="48.0" />
@@ -58,7 +58,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Button layoutX="149.0" layoutY="391.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="200.0" style="-fx-background-color: #262626;" text="Login" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="loginbtn" layoutX="149.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#goHomePage" prefHeight="62.0" prefWidth="200.0" style="-fx-background-color: #262626;" text="Login" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -73,12 +73,12 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Label layoutX="240.0" layoutY="468.0" text="or">
+            <Label layoutX="240.0" layoutY="493.0" text="or">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@g.jpg" />
                </image>
@@ -91,6 +91,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
+            <Label fx:id="warn" alignment="CENTER" layoutX="168.0" layoutY="394.0" prefHeight="20.0" prefWidth="157.0" textFill="RED" />
          </children>
       </AnchorPane>
    </children>

@@ -134,11 +134,11 @@ public class registerController {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            Stage stage = (Stage)pass.getScene().getWindow();
+            Stage stage = (Stage) userlable.getScene().getWindow();
             stage.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
-            stage.setTitle("Raze Exchange");
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+            Scene scene = new Scene(fxmlLoader.load() , 1000 , 600);
+            stage.setTitle("RAZE Exchange");
             stage.setScene(scene);
             stage.show();
         }
@@ -230,5 +230,15 @@ public class registerController {
             }
         }
         return 0;
+    }
+
+    public void goSignIn() throws IOException{
+        Stage stage = (Stage) userlable.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load() , 1000 , 600);
+        stage.setTitle("RAZE Exchange");
+        stage.setScene(scene);
+        stage.show();
     }
 }
