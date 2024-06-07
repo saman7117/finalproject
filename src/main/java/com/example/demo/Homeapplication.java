@@ -14,7 +14,7 @@ public class Homeapplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 1500, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 1536, 864);
         stage.setTitle("Raze Exchange");
         stage.setScene(scene);
         stage.show();

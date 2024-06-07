@@ -45,12 +45,8 @@
     </AnchorPane>
    <AnchorPane layoutY="75.0" prefHeight="137.0" prefWidth="1574.0">
       <children>
-         <ImageView fx:id="flag" fitHeight="128.0" fitWidth="124.0" layoutX="1401.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@usa.png" />
-            </image>
-         </ImageView>
-         <Label fx:id="Tokenname" layoutX="1253.0" layoutY="41.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="18.0" prefWidth="102.0" text="USD" textFill="#ededed">
+         <ImageView fx:id="flag" fitHeight="128.0" fitWidth="124.0" layoutX="1401.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+         <Label fx:id="Tokenname" layoutX="1253.0" layoutY="41.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="18.0" prefWidth="102.0" textFill="#ededed">
             <font>
                <Font size="32.0" />
             </font>
