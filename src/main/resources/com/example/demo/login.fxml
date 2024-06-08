@@ -28,12 +28,12 @@
          <children>
             <TextField fx:id="userfield" focusTraversable="false" layoutX="32.0" layoutY="273.0" prefHeight="26.0" prefWidth="445.0" promptText="Username" />
             <PasswordField fx:id="passfield" focusTraversable="false" layoutX="32.0" layoutY="320.0" prefHeight="26.0" prefWidth="446.0" promptText="Password" />
-            <Text layoutX="150.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcom!" textAlignment="CENTER">
+            <Text layoutX="150.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="48.0" />
                </font>
             </Text>
-            <Text layoutX="137.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="acces your account" textAlignment="CENTER">
+            <Text layoutX="137.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="access your account" textAlignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>

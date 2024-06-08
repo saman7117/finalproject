@@ -32,7 +32,7 @@
                     </image>
                 </ImageView>
                 <Button layoutX="1257.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
-                <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
+                <Button onMouseClicked="#toWallet" layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
                 <MenuButton layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
                     <items>
                         <MenuItem mnemonicParsing="false" text="تبادل" />

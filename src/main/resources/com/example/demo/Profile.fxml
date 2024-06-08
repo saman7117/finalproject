@@ -10,16 +10,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #191a1f;" stylesheets="@profile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ProfileController">
+<AnchorPane onMouseEntered="#clicked" prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #191a1f;" stylesheets="@profile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ProfileController">
    <children>
-      <Label layoutX="1003.0" layoutY="147.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="58.0" prefWidth="357.0" style="-fx-font-size: 32; -fx-text-fill: #eeb90b;" text="سامان هوش ور" />
+      <Label fx:id="name" layoutX="1003.0" layoutY="147.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="58.0" prefWidth="357.0" style="-fx-font-size: 32; -fx-text-fill: #eeb90b;" text="سامان هوش ور" />
       <Label layoutX="1282.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="78.0" style="-fx-font-size: 20; -fx-text-fill: #ededed;" text="ادمین" />
       <Text fill="#ededed" layoutX="633.0" layoutY="346.0" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="اطلاعات فردی" wrappingWidth="888.7999633789063">
          <font>
             <Font name="B Nazanin" size="24.0" />
          </font>
       </Text>
-      <Label alignment="CENTER" layoutX="1220.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="سامان" textFill="#ededed">
+      <Label fx:id="firstName" alignment="CENTER" layoutX="1220.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="سامان" textFill="#ededed">
          <font>
             <Font name="B Nazanin" size="32.0" />
          </font>
@@ -34,7 +34,7 @@
             <Font name="B Nazanin" size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="902.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="هوش ور" textFill="#ededed">
+      <Label fx:id="lastName" alignment="CENTER" layoutX="902.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="هوش ور" textFill="#ededed">
          <font>
             <Font name="B Nazanin" size="32.0" />
          </font>
@@ -44,7 +44,7 @@
             <Font name="B Nazanin" size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="560.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="09044407206" textFill="#ededed">
+      <Label fx:id="phoneNumber" alignment="CENTER" layoutX="560.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="09044407206" textFill="#ededed">
          <font>
             <Font size="24.0" />
          </font>
@@ -54,7 +54,7 @@
             <Font name="B Nazanin" size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="78.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="364.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="alihkhoshdell@gmial.com" textFill="#ededed">
+      <Label fx:id="Gmail" alignment="CENTER" layoutX="78.0" layoutY="373.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="364.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="alihkhoshdell@gmial.com" textFill="#ededed">
          <font>
             <Font size="24.0" />
          </font>
@@ -69,7 +69,7 @@
             <Font name="B Nazanin" size="24.0" />
          </font>
       </Text>
-      <Label alignment="CENTER" layoutX="1217.0" layoutY="480.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="saman83h" textFill="#ededed">
+      <Label fx:id="username" alignment="CENTER" layoutX="1217.0" layoutY="480.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="saman83h" textFill="#ededed">
          <font>
             <Font size="24.0" />
          </font>
@@ -79,7 +79,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="896.0" layoutY="480.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="31482604" textFill="#ededed">
+      <Label fx:id="Password" alignment="CENTER" layoutX="896.0" layoutY="480.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="224.0" style="-fx-border-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px;" text="31482604" textFill="#ededed">
          <font>
             <Font size="24.0" />
          </font>
@@ -97,7 +97,7 @@
                </image>
             </ImageView>
             <Button layoutX="1257.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
-            <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
+            <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#toWallet" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
             <MenuButton alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
               <items>
                 <MenuItem mnemonicParsing="false" text="تبادل" />
@@ -111,7 +111,7 @@
                   <Image url="@Profile.png" />
                </image>
             </ImageView>
-            <Label layoutX="76.0" layoutY="23.0" prefHeight="35.0" prefWidth="194.0" style="-fx-text-fill: #f6b716;" text="saman007">
+            <Label fx:id="tag" layoutX="76.0" layoutY="23.0" prefHeight="35.0" prefWidth="194.0" style="-fx-text-fill: #f6b716;" text="saman007">
                <font>
                   <Font size="24.0" />
                </font>

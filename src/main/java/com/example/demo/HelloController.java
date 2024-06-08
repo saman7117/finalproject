@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -59,6 +58,24 @@ public class HelloController {
                     Scene scene = new Scene(fxmlLoader.load(), 1536, 864);
                     stage.setTitle("Raze Exchange");
                     stage.setScene(scene);
+                    datas.username = resultSet.getString("fullname");
+                    datas.Gmail = resultSet.getString("email");
+                    datas.Password = p;
+                    datas.phoneNumber = resultSet.getString("mobile");
+                    String name = "";
+                    String lastname = "";
+                    int i = 0;
+                    for (; i < datas.username.length(); i++) {
+                        if (datas.username.charAt(i) == ' ')
+                            break;
+                        else
+                            name += datas.username.charAt(i);
+                    }
+                    for (; i < datas.username.length(); i++) {
+                            lastname += datas.username.charAt(i);
+                    }
+                    datas.firstName = name;
+                    datas.lastName = lastname;
                     stage.show();
                     break;
                 }

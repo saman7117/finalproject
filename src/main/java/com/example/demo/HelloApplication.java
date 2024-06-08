@@ -18,6 +18,10 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
+    public static void go(){
+        launch();
+    }
+
     public static void main(String[] args) {
         launch();
     }

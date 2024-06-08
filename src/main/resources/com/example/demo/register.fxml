@@ -46,7 +46,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="www" layoutX="20.0" layoutY="418.0" onMouseClicked="#goSignIn" text="Have an account ? login">
+            <Label fx:id="www" layoutX="20.0" layoutY="418.0" text="Have an account ? login">
                <font>
                   <Font size="13.0" />
                </font>

@@ -130,7 +130,7 @@ public class registerController {
             try {
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
                 Statement statement = connection.createStatement();
-                statement.executeUpdate("INSERT INTO users (username,password,email,fullname,mobile) VALUES ('" + user.getText() + "','" + pass.getText() + "','" + mail.getText() + "','" + full + "','" + mob.getText() + "')");
+                statement.executeUpdate("INSERT INTO users (username,password,email,fullname,mobile,USD,EUR,GBT,TMN,YEN,Money) VALUES ('" + user.getText() + "','" + pass.getText() + "','" + mail.getText() + "','" + full + "','" + mob.getText() + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 + "','" + 0 +"')");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

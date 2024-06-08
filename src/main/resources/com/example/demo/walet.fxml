@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#clicked" prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #191a1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.WalletController">
+   <children>
+      <AnchorPane prefHeight="80.0" prefWidth="1536.0" style="-fx-background-color: #191a1f; -fx-border-width: 2px; -fx-border-radius: 25px;">
+         <children>
+            <ImageView fitHeight="71.0" fitWidth="200.0" layoutX="1388.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo2.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="1257.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#toProfile" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
+            <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
+            <MenuButton layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="تبادل" />
+                  <MenuItem mnemonicParsing="false" text="انتقال" />
+                  <MenuItem mnemonicParsing="false" text="معاوضه" />
+               </items>
+            </MenuButton>
+            <Button layoutX="855.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="تاریخچه" textFill="#ededed" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="35.0" layoutY="271.0" prefHeight="86.0" prefWidth="1466.0" style="-fx-background-color: #1e2329; -fx-border-radius: 20; -fx-border-color: #2f434e;">
+         <children>
+            <ImageView fitHeight="46.0" fitWidth="43.0" layoutX="1396.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iran.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label layoutX="1395.0" layoutY="63.0" text="TOMAN" textFill="#848e9c">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1241.0" layoutY="17.0" text="قیمت ارز" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1090.0" layoutY="17.0" text="موجودی کل" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="TMNasset" alignment="CENTER" layoutX="1096.0" layoutY="47.0" text="TOMAN 5" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="940.0" layoutY="17.0" text="ارزش دارایی" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="756.0" layoutY="17.0" text="تغییرات 24 ساعت" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="795.0" layoutY="43.0" text="12%" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="414.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: white; -fx-border-color: transparent;" text="معامله">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="296.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #26d1a1;" text="برداشت" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="34.0" layoutY="27.0" text="تاریخچه" textFill="#fca311">
+               <font>
+                  <Font name="B Nazanin" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ImageView fitHeight="37.0" fitWidth="34.0" layoutX="102.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@his.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="624.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@refresh.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="35.0" layoutY="375.0" prefHeight="86.0" prefWidth="1466.0" style="-fx-background-color: #1e2329; -fx-border-radius: 20; -fx-border-color: #2f434e;">
+         <children>
+            <ImageView fitHeight="46.0" fitWidth="43.0" layoutX="1396.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gbt.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label layoutX="1406.0" layoutY="61.0" text="GBT" textFill="#848e9c">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1241.0" layoutY="17.0" text="قیمت ارز" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1090.0" layoutY="17.0" text="موجودی کل" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="GBTasset" alignment="CENTER" layoutX="1096.0" layoutY="47.0" text="TOMAN 5" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="940.0" layoutY="17.0" text="ارزش دارایی" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="756.0" layoutY="17.0" text="تغییرات 24 ساعت" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="795.0" layoutY="43.0" text="12%" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="414.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: white; -fx-border-color: transparent;" text="معامله">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="296.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #26d1a1;" text="برداشت" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="34.0" layoutY="27.0" text="تاریخچه" textFill="#fca311">
+               <font>
+                  <Font name="B Nazanin" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ImageView fitHeight="37.0" fitWidth="34.0" layoutX="102.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@his.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="624.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@refresh.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="35.0" layoutY="479.0" prefHeight="86.0" prefWidth="1466.0" style="-fx-background-color: #1e2329; -fx-border-radius: 20; -fx-border-color: #2f434e;">
+         <children>
+            <ImageView fitHeight="46.0" fitWidth="43.0" layoutX="1396.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@usa.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label layoutX="1405.0" layoutY="61.0" text="USD" textFill="#848e9c">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1241.0" layoutY="17.0" text="قیمت ارز" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1090.0" layoutY="17.0" text="موجودی کل" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="USDasset" alignment="CENTER" layoutX="1096.0" layoutY="47.0" text="TOMAN 5" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="940.0" layoutY="17.0" text="ارزش دارایی" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="756.0" layoutY="17.0" text="تغییرات 24 ساعت" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="795.0" layoutY="43.0" text="12%" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="414.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: white; -fx-border-color: transparent;" text="معامله">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="296.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #26d1a1;" text="برداشت" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="34.0" layoutY="27.0" text="تاریخچه" textFill="#fca311">
+               <font>
+                  <Font name="B Nazanin" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ImageView fitHeight="37.0" fitWidth="34.0" layoutX="102.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@his.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="624.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@refresh.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="35.0" layoutY="583.0" prefHeight="86.0" prefWidth="1466.0" style="-fx-background-color: #1e2329; -fx-border-radius: 20; -fx-border-color: #2f434e;">
+         <children>
+            <ImageView fitHeight="46.0" fitWidth="43.0" layoutX="1396.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@eur.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label layoutX="1406.0" layoutY="61.0" text="EUR" textFill="#848e9c">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1241.0" layoutY="17.0" text="قیمت ارز" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1090.0" layoutY="17.0" text="موجودی کل" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="EURasset" alignment="CENTER" layoutX="1096.0" layoutY="47.0" text="TOMAN 5" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="940.0" layoutY="17.0" text="ارزش دارایی" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="756.0" layoutY="17.0" text="تغییرات 24 ساعت" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="795.0" layoutY="43.0" text="12%" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="414.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: white; -fx-border-color: transparent;" text="معامله">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="296.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #26d1a1;" text="برداشت" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="34.0" layoutY="27.0" text="تاریخچه" textFill="#fca311">
+               <font>
+                  <Font name="B Nazanin" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ImageView fitHeight="37.0" fitWidth="34.0" layoutX="102.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@his.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="624.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@refresh.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="35.0" layoutY="689.0" prefHeight="86.0" prefWidth="1466.0" style="-fx-background-color: #1e2329; -fx-border-radius: 20; -fx-border-color: #2f434e;">
+         <children>
+            <ImageView fitHeight="46.0" fitWidth="43.0" layoutX="1396.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@japan.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label layoutX="1406.0" layoutY="63.0" text="YEN" textFill="#848e9c">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1241.0" layoutY="17.0" text="قیمت ارز" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="1090.0" layoutY="17.0" text="موجودی کل" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="YENasset" alignment="CENTER" layoutX="1096.0" layoutY="47.0" text="TOMAN 5" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="940.0" layoutY="17.0" text="ارزش دارایی" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="756.0" layoutY="17.0" text="تغییرات 24 ساعت" textFill="#82888a">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="795.0" layoutY="43.0" text="12%" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="414.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: white; -fx-border-color: transparent;" text="معامله">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="296.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #26d1a1;" text="برداشت" textFill="WHITE">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="34.0" layoutY="27.0" text="تاریخچه" textFill="#fca311">
+               <font>
+                  <Font name="B Nazanin" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ImageView fitHeight="37.0" fitWidth="34.0" layoutX="102.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@his.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="624.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@refresh.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="43.0" layoutY="114.0" prefHeight="99.0" prefWidth="1466.0" style="-fx-background-color: #1e2329; -fx-border-radius: 20; -fx-border-color: #2f434e;">
+         <children>
+            <ImageView fitHeight="71.0" fitWidth="62.0" layoutX="1380.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@wallet.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="title" layoutX="1319.0" layoutY="26.0" text="والت" textFill="#fca311">
+               <font>
+                  <Font name="B Nazanin" size="36.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="25.0" layoutY="19.0" text="ارزش دارایی" textFill="#82888a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="46.0" layoutY="50.0" text="\$ 17" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="152.0" layoutY="19.0" text="موجودی حساب" textFill="#82888a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="TTasset" alignment="CENTER" layoutX="186.0" layoutY="48.0" text="\$ 17" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

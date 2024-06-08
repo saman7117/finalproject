@@ -117,6 +117,16 @@ public class HomepageController implements Initializable{
             }
           }
         }
+
+        public void toWallet() throws IOException {//:)
+            Stage stage = (Stage)tableView.getScene().getWindow();
+            stage.close();
+            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("walet.fxml"));
+            Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+            stage.setTitle("Raze Exchange");
+            stage.setScene(registerScene);
+            stage.show();
+        }
     }
 
 

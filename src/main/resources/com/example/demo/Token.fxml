@@ -124,167 +124,112 @@
    </AnchorPane>
    <AnchorPane layoutX="903.0" layoutY="245.0" prefHeight="618.0" prefWidth="672.0">
       <children>
-         <Label alignment="CENTER" layoutX="507.0" layoutY="19.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="90.0" text="قیمت" textFill="#84898f">
+         <Label alignment="CENTER" layoutX="379.0" layoutY="24.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="90.0" text="قیمت" textFill="#84898f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="255.0" layoutY="19.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="مجموع" textFill="#84898f">
+         <Label layoutX="127.0" layoutY="24.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="مجموع" textFill="#84898f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="-11.0" layoutY="19.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="157.0" text="مقدار" textFill="#84898f">
+         <Label layoutX="315.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="364.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label layoutX="315.0" layoutY="409.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="404.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label layoutX="315.0" layoutY="129.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="124.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label layoutX="315.0" layoutY="329.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="324.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label layoutX="315.0" layoutY="209.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="204.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label layoutX="315.0" layoutY="249.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="244.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label layoutX="315.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="164.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label layoutX="315.0" layoutY="289.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="284.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label layoutX="315.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="84.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label layoutX="151.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="279.0" layoutY="84.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label layoutX="151.0" layoutY="129.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="279.0" layoutY="124.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label layoutX="151.0" layoutY="209.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="279.0" layoutY="204.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label layoutX="151.0" layoutY="249.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="279.0" layoutY="244.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label layoutX="151.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="279.0" layoutY="164.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label layoutX="315.0" layoutY="449.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="443.0" layoutY="444.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label layoutX="151.0" layoutY="289.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="279.0" layoutY="284.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
+         <Label layoutX="151.0" layoutY="449.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="279.0" layoutY="444.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
+         <Label layoutX="151.0" layoutY="329.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="279.0" layoutY="324.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
+         <Label layoutX="151.0" layoutY="409.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="279.0" layoutY="404.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="279.0" layoutY="364.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="84.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="56989746565" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="124.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="56989746565" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="244.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="56989746565" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="204.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="56989746565" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="164.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="56989746565" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="284.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="496496496464" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="324.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="496496496464" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="404.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="496496496464" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="364.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="496496496464" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label layoutX="38.0" layoutY="444.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="166.0" text="496496496464" textFill="#ededed">
+         <Label layoutX="151.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
