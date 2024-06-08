@@ -76,6 +76,12 @@ public class HelloController {
                     }
                     datas.firstName = name;
                     datas.lastName = lastname;
+                    datas.USD = resultSet.getDouble("USD");
+                    datas.YEN = resultSet.getDouble("YEN");
+                    datas.EUR = resultSet.getDouble("EUR");
+                    datas.TMN = resultSet.getDouble("TMN");
+                    datas.GBT = resultSet.getDouble("GBT");
+                    datas.total = resultSet.getDouble("Money");
                     stage.show();
                     break;
                 }

@@ -10,12 +10,12 @@ public class datas {
     public static String phoneNumber;
     public static String Gmail;
     public static String Password;
-    public static int YEN;
-    public static int USD;
-    public static int EUR;
-    public static int TMN;
-    public static int GBT;
-    public static int total;
+    public static double YEN;
+    public static double USD;
+    public static double EUR;
+    public static double TMN;
+    public static double GBT;
+    public static double total;
 
 
 

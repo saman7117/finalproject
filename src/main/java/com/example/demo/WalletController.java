@@ -28,10 +28,10 @@ public class WalletController{
     private Label TTasset;
 
     public void toProfile() throws IOException {//:(
-        Stage stage = (Stage)title.getScene().getWindow();
-        stage.close();
-        FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Profile.fxml"));
-        Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+        Stage stage = new Stage();
+//        stage.close();
+        FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Swap.fxml"));
+        Scene registerScene = new Scene(registerLoader.load(), 800, 600);
         stage.setTitle("Raze Exchange");
         stage.setScene(registerScene);
         stage.show();
