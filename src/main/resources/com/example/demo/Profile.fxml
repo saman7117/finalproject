@@ -89,7 +89,7 @@
             <Font name="B Nazanin" size="24.0" />
          </font>
       </Label>
-      <AnchorPane layoutY="3.0" prefHeight="80.0" prefWidth="1574.0" style="-fx-background-color: #f1b514; -fx-border-width: 2px; -fx-border-radius: 25px; &quot; text=&quot;سامان&quot; textFill=&quot;#ededed&quot; xmlns=&quot;http: //javafx.com/javafx/21&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;font&gt;      &lt;Font size=&quot;24.0&quot; /&gt;   &lt;/font&gt;&lt;/Label&gt;;">
+      <AnchorPane layoutY="3.0" prefHeight="80.0" prefWidth="1574.0" style="-fx-background-color: #191a1f; -fx-border-width: 2px; -fx-border-radius: 25px;">
          <children>
             <ImageView fitHeight="71.0" fitWidth="200.0" layoutX="1388.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -114,6 +114,12 @@
             <Label fx:id="tag" layoutX="76.0" layoutY="23.0" prefHeight="35.0" prefWidth="194.0" style="-fx-text-fill: #f6b716;" text="saman007">
                <font>
                   <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="time" alignment="CENTER" layoutX="253.0" layoutY="8.0" prefHeight="63.0" prefWidth="126.0" textFill="#f1b514" />
+            <Label fx:id="date" alignment="CENTER" layoutX="446.0" layoutY="8.0" prefHeight="63.0" prefWidth="242.0" textFill="#f1b514">
+               <font>
+                  <Font size="16.0" />
                </font>
             </Label>
          </children>

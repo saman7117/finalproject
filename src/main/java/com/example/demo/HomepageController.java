@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.*;
@@ -8,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -21,6 +23,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -41,6 +45,10 @@ public class HomepageController implements Initializable{
     private TableColumn<Stock, Double> minPriceColumn;
     @FXML
     private ImageView flag = new ImageView();
+    @FXML
+    private Label time;
+    @FXML
+    private Label date;
     ObservableList <Stock> stocks = FXCollections.observableArrayList(
             new Stock("USD", 100.0, 10.0, 120.0, 90.0),
             new Stock("YEN", 150.0, -5.0, 160.0, 140.0),
@@ -48,6 +56,7 @@ public class HomepageController implements Initializable{
             new Stock("GBT", 150.0, -5.0, 160.0, 140.0),
             new Stock("EUR", 150.0, -5.0, 160.0, 140.0)
     );
+    private volatile boolean stop = false;
 
 
     public void newPage() {
@@ -66,6 +75,8 @@ public class HomepageController implements Initializable{
         minPriceColumn.setCellValueFactory(new PropertyValueFactory<Stock , Double>("minPrice"));
 
         tableView.setItems(stocks);
+        showTime();
+        showDate();
     }
 
     public void Swap(){
@@ -127,6 +138,29 @@ public class HomepageController implements Initializable{
             stage.setScene(registerScene);
             stage.show();
         }
+
+        public void showTime(){
+            Thread thread = new Thread(() -> {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss a");
+                while (!stop){
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    final String timenow = simpleDateFormat.format(new Date());
+                    Platform.runLater(() -> {
+                        time.setText(timenow);
+                    });
+                }
+            });
+            thread.start();
+        }
+    private void showDate(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE , MMM dd/yyyy");
+        String datenow = simpleDateFormat.format(new Date());
+        date.setText(datenow);
+    }
     }
 
 
