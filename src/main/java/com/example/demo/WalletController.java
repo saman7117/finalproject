@@ -39,7 +39,7 @@ public class WalletController implements Initializable{
     public void toProfile() throws IOException {//:(
         Stage stage = new Stage();
 //        stage.close();
-        FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Swap.fxml"));
+        FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Transfer.fxml"));
         Scene registerScene = new Scene(registerLoader.load(), 800, 600);
         stage.setTitle("Raze Exchange");
         stage.setScene(registerScene);

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #191a1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.TransferController">
+    <children>
+        <AnchorPane layoutX="46.0" layoutY="61.0" prefHeight="279.0" prefWidth="708.0" style="-fx-background-color: #1e2329;">
+            <children>
+                <MenuButton fx:id="menu" layoutX="438.0" layoutY="182.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="154.0" style="-fx-background-color: #1e2329;" text="USD" textFill="#fca311">
+                    <items>
+                        <MenuItem fx:id="USDitem" mnemonicParsing="false" onAction="#setmenutexttoUSD" text="USD" />
+                        <MenuItem fx:id="TMNitem" mnemonicParsing="false" onAction="#setmenutexttoTMN" text="Toman" />
+                        <MenuItem fx:id="EURitem" mnemonicParsing="false" onAction="#setmenutexttoEUR" text="EUR" />
+                        <MenuItem fx:id="YENitem" mnemonicParsing="false" onAction="#setmenutexttoYEN" text="YEN" />
+                        <MenuItem fx:id="GBTitem" mnemonicParsing="false" onAction="#setmenutexttoGBT" text="GBT" />
+                    </items>
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </MenuButton>
+                <Text fill="#fca311" layoutX="192.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="لطفا نام کاربری شخص مورد نظر را وارد کنید">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="value" alignment="CENTER_RIGHT" layoutX="108.0" layoutY="194.0" prefHeight="33.0" prefWidth="205.0" promptText="مقدار" style="-fx-background-color: #1e2329; -fx-border-color: #fca311; -fx-border-radius: 10;" styleClass="mytextfield" stylesheets="@Swap.css">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+            <TextField fx:id="usernamee" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="65.0" prefHeight="33.0" prefWidth="205.0" promptText="نام کاربری" style="-fx-background-color: #1e2329; -fx-border-color: #fca311; -fx-border-radius: 10;" styleClass="mytextfield" stylesheets="@Swap.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text fill="#fca311" layoutX="211.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="لطفا مقدار و نوع ارز مورد نظر را وارد کنید">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            </children>
+        </AnchorPane>
+        <Button fx:id="confirmbtn" layoutX="316.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#Transfer" prefHeight="59.0" prefWidth="154.0" style="-fx-background-color: #191a1f; -fx-border-color: #2f434e; -fx-border-radius: 20;" text="تایید" textFill="#fca311">
+            <font>
+                <Font name="B Nazanin" size="24.0" />
+            </font>
+        </Button>
+        <Label fx:id="warn" layoutX="351.0" layoutY="341.0" textFill="#ff9523" />
+    </children>
+</AnchorPane>

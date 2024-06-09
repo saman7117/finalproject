@@ -48,8 +48,6 @@ public class HelloController {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
             while (resultSet.next()){
-//                System.out.println(u + " ::: " + resultSet.getString("username"));
-//                System.out.println(p + " ::: " + resultSet.getString("password"));
                 if(u.equals(resultSet.getString("username")) && p.equals(resultSet.getString("password"))){
                     flag = true;
                     Stage stage = (Stage)userfield.getScene().getWindow();
