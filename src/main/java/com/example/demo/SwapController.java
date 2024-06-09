@@ -30,8 +30,8 @@ public class SwapController {
     @FXML
     private Label warn;
 
-    double USDprice = 1.0;
-    double Tomanprince = 42000;
+    double USDprice = datas.USDPrice;
+    double Tomanprince = datas.TMNPrice;
     public void setmenutexttoUSD(){
         frommenu.setText("USD");
     }

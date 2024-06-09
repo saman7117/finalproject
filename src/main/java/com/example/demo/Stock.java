@@ -17,6 +17,10 @@ public class Stock {
         minPrice= v3;
     }
 
+    public Stock() {
+
+    }
+
     public String getMarket() {
         return market;
     }

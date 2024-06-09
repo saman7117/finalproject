@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import java.util.Vector;
-
 public class datas {
     public static String id;
     public static String username;
@@ -16,6 +14,12 @@ public class datas {
     public static double TMN;
     public static double GBT;
     public static double total;
+    public static int[] time;
+    public static double USDPrice;
+    public static double TMNPrice;
+    public static double GBPPrice;
+    public static double EURPrice;
+    public static double YENPrice;
 
 
 
