@@ -34,12 +34,6 @@ public class HelloController {
     }
 
     public void goHomePage() throws IOException{
-        /*Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1536, 864);
-        stage.setTitle("Raze Exchange");
-        stage.setScene(scene);
-        stage.show();*/
         String u = userfield.getText();
         String p = passfield.getText();
         boolean flag = false;
@@ -60,6 +54,7 @@ public class HelloController {
                     datas.Gmail = resultSet.getString("email");
                     datas.Password = p;
                     datas.phoneNumber = resultSet.getString("mobile");
+                    datas.role = resultSet.getString("role");
                     String name = "";
                     String lastname = "";
                     int i = 0;

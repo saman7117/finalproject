@@ -145,7 +145,7 @@ public class HomepageController implements Initializable{
         public void toSwap() throws IOException {//:(
             Stage stage = new Stage();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Swap.fxml"));
-            Scene registerScene = new Scene(registerLoader.load(), 800, 600);
+            Scene registerScene = new Scene(registerLoader.load(), 600, 600);
             stage.setTitle("Raze Exchange");
             stage.setScene(registerScene);
             stage.show();
@@ -153,7 +153,15 @@ public class HomepageController implements Initializable{
         public void toTransfer() throws IOException {//:(
             Stage stage = new Stage();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Transfer.fxml"));
-            Scene registerScene = new Scene(registerLoader.load(), 800, 600);
+            Scene registerScene = new Scene(registerLoader.load(), 600, 600);
+            stage.setTitle("Raze Exchange");
+            stage.setScene(registerScene);
+            stage.show();
+        }
+        public void toBuy() throws IOException {//:(
+            Stage stage = new Stage();
+            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("buy.fxml"));
+            Scene registerScene = new Scene(registerLoader.load(), 600, 600);
             stage.setTitle("Raze Exchange");
             stage.setScene(registerScene);
             stage.show();

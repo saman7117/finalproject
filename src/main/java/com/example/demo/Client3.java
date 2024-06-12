@@ -5,16 +5,9 @@
  */
 package com.example.demo;
 
-/**
- *
- * @author Ramin
- */
 
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+
+import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
@@ -30,6 +23,8 @@ public class Client3 {
 
     DataInputStream reader;
     PrintWriter writer;
+    ObjectInputStream objectInputStream;
+    ObjectOutputStream objectOutputStream;
 
     public Client3() {
         try {
@@ -46,6 +41,12 @@ public class Client3 {
 
             reader = new DataInputStream(fromServerStream);
             writer = new PrintWriter(toServerStream, true);
+            objectInputStream = new ObjectInputStream(mSocket.getInputStream());
+            objectOutputStream = new ObjectOutputStream(mSocket.getOutputStream());
+            datas.MainWriter = writer;
+            datas.MainReader = reader;
+            datas.objectMainReader = objectInputStream;
+            datas.objectOutputStream = objectOutputStream;
 
             // first : read server message
 //            String msg = reader.readLine();
@@ -56,27 +57,20 @@ public class Client3 {
         } catch (UnknownHostException e) {
         } catch (IOException e) {
             System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
     }
-    public void menu() throws IOException {
+    public void menu() throws IOException, ClassNotFoundException {
 
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         String name= "user";
 
         sendName(name);
 
         HelloApplication.go();
-
-//        while(true){
-//            String s = sc.next();
-//            if (s.equals("e")){
-//                String r = sendsignin();
-//                if(r.equals("ok"))
-//                    HelloApplication.go();
-//            }
-//        }
     }
     private void sendName(String name){
         writer.println(name);

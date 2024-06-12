@@ -5,17 +5,19 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #191a1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SwapController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #191a1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SwapController">
    <children>
-      <AnchorPane layoutX="109.0" layoutY="62.0" prefHeight="99.0" prefWidth="582.0" style="-fx-background-color: #1e2329;">
+      <AnchorPane layoutX="15.0" layoutY="104.0" prefHeight="99.0" prefWidth="567.0" style="-fx-background-color: #1e2329; -fx-background-radius: 15;">
          <children>
-            <MenuButton fx:id="frommenu" layoutX="413.0" layoutY="38.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="154.0" style="-fx-background-color: #1e2329;" text="USD" textFill="#fca311">
+            <MenuButton fx:id="frommenu" layoutX="407.0" layoutY="38.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="154.0" style="-fx-background-color: #1e2329;" text="USD" textFill="#fca311">
                <items>
                   <MenuItem fx:id="USDitem" mnemonicParsing="false" onAction="#setmenutexttoUSD" text="USD" />
                   <MenuItem fx:id="TMNitem" mnemonicParsing="false" onAction="#setmenutexttoTMN" text="Toman" />
@@ -27,7 +29,7 @@
                   <Font size="18.0" />
                </font>
             </MenuButton>
-            <Text fill="#fca311" layoutX="543.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="از">
+            <Text fill="#fca311" layoutX="538.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="از">
                <font>
                   <Font size="18.0" />
                </font>
@@ -39,17 +41,19 @@
             </TextField>
          </children>
       </AnchorPane>
-      <Button fx:id="confirmbtn" onMouseClicked="#Confirm" layoutX="316.0" layoutY="365.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="154.0" style="-fx-background-color: #191a1f; -fx-border-color: #2f434e; -fx-border-radius: 20;" text="تایید" textFill="#fca311">
+      <Button fx:id="confirmbtn" layoutX="16.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#Confirm" prefHeight="46.0" prefWidth="567.0" style="-fx-background-color: #fca311; -fx-background-radius: 7;" text="تایید" textFill="#191a1f">
          <font>
-            <Font name="B Nazanin" size="24.0" />
+            <Font name="B Nazanin Bold" size="24.0" />
          </font>
+         <effect>
+            <DropShadow height="37.38" radius="18.775" width="39.72">
+               <color>
+                  <Color red="0.9882352948188782" green="0.6392157077789307" blue="0.06666667014360428" />
+               </color>
+            </DropShadow>
+         </effect>
       </Button>
-      <ImageView fx:id="swapbtn" fitHeight="45.0" fitWidth="64.0" layoutX="372.0" layoutY="177.0" onMouseClicked="#SwapFT" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@swap.png" />
-         </image>
-      </ImageView>
-      <AnchorPane layoutX="102.0" layoutY="232.0" prefHeight="99.0" prefWidth="582.0" style="-fx-background-color: #1e2329;">
+      <AnchorPane layoutX="17.0" layoutY="245.0" prefHeight="99.0" prefWidth="567.0" style="-fx-background-color: #1e2329; -fx-background-radius: 15;">
          <children>
             <Text fill="#fca311" layoutX="543.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="به">
                <font>
@@ -68,7 +72,7 @@
                   <Font size="18.0" />
                </font>
             </MenuButton>
-            <Label fx:id="tovalue" alignment="CENTER_RIGHT" layoutX="52.0" layoutY="33.0" prefHeight="33.0" prefWidth="205.0" style="-fx-background-color: #1e2329; -fx-border-color: #fca319; -fx-border-radius: 10;" text="مقدار معادل" textFill="#b7b7b7">
+            <Label fx:id="tovalue" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="33.0" prefHeight="33.0" prefWidth="205.0" style="-fx-background-color: #1e2329; -fx-border-color: #fca319; -fx-border-radius: 10;" text="مقدار معادل" textFill="#b7b7b7">
                <font>
                   <Font size="14.0" />
                </font>
@@ -76,5 +80,63 @@
          </children>
       </AnchorPane>
       <Label fx:id="warn" layoutX="351.0" layoutY="341.0" textFill="#ff9523" />
+      <Text fill="WHITE" layoutX="532.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="تبادل">
+         <font>
+            <Font name="B Nazanin" size="30.0" />
+         </font>
+      </Text>
+      <Text fill="#a9a9a9" layoutX="267.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="به اسانی و در بستری امن هر ارز را به ارز دیگر تبدیل کنید">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="17.0" layoutY="85.0" prefHeight="1.0" prefWidth="567.0" style="-fx-background-color: #464646; -fx-background-radius: 2;" />
+      <AnchorPane layoutX="17.0" layoutY="398.0" prefHeight="1.0" prefWidth="567.0" style="-fx-background-color: #464646; -fx-background-radius: 2;" />
+      <Text fill="DARKGRAY" layoutX="527.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="نرخ تبدیل">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Label layoutX="17.0" layoutY="365.0" prefHeight="20.0" prefWidth="278.0" text="1 USD = 42500 TMN" textFill="DARKGRAY">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Text fill="DARKGRAY" layoutX="528.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="کمسیون">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Label layoutX="17.0" layoutY="413.0" prefHeight="20.0" prefWidth="110.0" text="2.45 $" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Text fill="DARKGRAY" layoutX="436.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="مقدار کم شده از کیف پول">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Label layoutX="17.0" layoutY="444.0" prefHeight="20.0" prefWidth="110.0" text="710.21 $" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Text fill="DARKGRAY" layoutX="359.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="مقدار مورد انتظار برای ورود به کیف پول">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Label layoutX="17.0" layoutY="475.0" prefHeight="20.0" prefWidth="110.0" text="710.21 $" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="279.0" layoutY="193.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #333c46; -fx-background-radius: 40;" />
+      <ImageView fx:id="swapbtn" fitHeight="46.0" fitWidth="42.0" layoutX="289.0" layoutY="203.0" onMouseClicked="#SwapFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@swap.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

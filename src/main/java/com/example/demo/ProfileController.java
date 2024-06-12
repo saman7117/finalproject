@@ -37,6 +37,8 @@ public class ProfileController implements Initializable {
     private Label time;
     @FXML
     private Label date;
+    @FXML
+    private Label role;
     private volatile boolean stop = false;
 
     public void clicked(){
@@ -48,6 +50,7 @@ public class ProfileController implements Initializable {
         phoneNumber.setText(datas.phoneNumber);
         tag.setText(datas.username);
         username.setText(datas.username);
+        role.setText(datas.role);
     }
 
     public void toWallet() throws IOException {//:)

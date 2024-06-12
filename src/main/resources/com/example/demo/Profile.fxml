@@ -13,7 +13,7 @@
 <AnchorPane onMouseEntered="#clicked" prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #191a1f;" stylesheets="@profile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ProfileController">
    <children>
       <Label fx:id="name" layoutX="1003.0" layoutY="147.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="58.0" prefWidth="357.0" style="-fx-font-size: 32; -fx-text-fill: #eeb90b;" text="سامان هوش ور" />
-      <Label layoutX="1282.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="78.0" style="-fx-font-size: 20; -fx-text-fill: #ededed;" text="ادمین" />
+      <Label fx:id="role" layoutX="1282.0" layoutY="205.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="78.0" style="-fx-font-size: 20; -fx-text-fill: #ededed;" />
       <Text fill="#ededed" layoutX="633.0" layoutY="346.0" nodeOrientation="RIGHT_TO_LEFT" strokeType="OUTSIDE" strokeWidth="0.0" text="اطلاعات فردی" wrappingWidth="888.7999633789063">
          <font>
             <Font name="B Nazanin" size="24.0" />

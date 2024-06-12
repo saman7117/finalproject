@@ -37,7 +37,7 @@
                 <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#toWallet" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
                 <MenuButton layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="تبادل" />
+                        <MenuItem mnemonicParsing="false" onAction="#toBuy" text="خرید" />
                         <MenuItem fx:id="transfer" mnemonicParsing="false" onAction="#toTransfer" text="انتقال" />
                         <MenuItem fx:id="swap" mnemonicParsing="false" onAction="#toSwap" text="معاوضه" />
                     </items>

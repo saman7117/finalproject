@@ -21,13 +21,13 @@
                     <Image url="@logo2.jpg" />
                 </image>
             </ImageView>
-            <Button layoutX="1257.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
-            <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
+            <Button fx:id="profile" layoutX="1257.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#toProfile" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
+            <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#toWallet" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
             <MenuButton alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
                 <items>
                     <MenuItem mnemonicParsing="false" text="تبادل" />
-                    <MenuItem mnemonicParsing="false" text="انتقال" />
-                    <MenuItem mnemonicParsing="false" text="معاوضه" />
+                    <MenuItem mnemonicParsing="false" onAction="#toTransfer" text="انتقال" />
+                    <MenuItem mnemonicParsing="false" onAction="#toSwap" text="معاوضه" />
                 </items>
             </MenuButton>
             <Button layoutX="855.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="تاریخچه" textFill="#ededed" />
@@ -51,6 +51,7 @@
                <Font size="16.0" />
             </font>
          </Label>
+         <Button fx:id="profile1" layoutX="1267.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#toProfile" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
         </children>
     </AnchorPane>
    <AnchorPane layoutX="6.0" layoutY="75.0" prefHeight="142.0" prefWidth="1551.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">

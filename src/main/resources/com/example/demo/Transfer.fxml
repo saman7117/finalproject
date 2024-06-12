@@ -5,53 +5,90 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #191a1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.TransferController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #191a1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.TransferController">
     <children>
-        <AnchorPane layoutX="46.0" layoutY="61.0" prefHeight="279.0" prefWidth="708.0" style="-fx-background-color: #1e2329;">
-            <children>
-                <MenuButton fx:id="menu" layoutX="438.0" layoutY="182.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="154.0" style="-fx-background-color: #1e2329;" text="USD" textFill="#fca311">
-                    <items>
-                        <MenuItem fx:id="USDitem" mnemonicParsing="false" onAction="#setmenutexttoUSD" text="USD" />
-                        <MenuItem fx:id="TMNitem" mnemonicParsing="false" onAction="#setmenutexttoTMN" text="Toman" />
-                        <MenuItem fx:id="EURitem" mnemonicParsing="false" onAction="#setmenutexttoEUR" text="EUR" />
-                        <MenuItem fx:id="YENitem" mnemonicParsing="false" onAction="#setmenutexttoYEN" text="YEN" />
-                        <MenuItem fx:id="GBTitem" mnemonicParsing="false" onAction="#setmenutexttoGBT" text="GBT" />
-                    </items>
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </MenuButton>
-                <Text fill="#fca311" layoutX="192.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="لطفا نام کاربری شخص مورد نظر را وارد کنید">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Text>
-                <TextField fx:id="value" alignment="CENTER_RIGHT" layoutX="108.0" layoutY="194.0" prefHeight="33.0" prefWidth="205.0" promptText="مقدار" style="-fx-background-color: #1e2329; -fx-border-color: #fca311; -fx-border-radius: 10;" styleClass="mytextfield" stylesheets="@Swap.css">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </TextField>
-            <TextField fx:id="usernamee" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="65.0" prefHeight="33.0" prefWidth="205.0" promptText="نام کاربری" style="-fx-background-color: #1e2329; -fx-border-color: #fca311; -fx-border-radius: 10;" styleClass="mytextfield" stylesheets="@Swap.css">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <Text fill="#fca311" layoutX="211.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="لطفا مقدار و نوع ارز مورد نظر را وارد کنید">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            </children>
-        </AnchorPane>
-        <Button fx:id="confirmbtn" layoutX="316.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#Transfer" prefHeight="59.0" prefWidth="154.0" style="-fx-background-color: #191a1f; -fx-border-color: #2f434e; -fx-border-radius: 20;" text="تایید" textFill="#fca311">
-            <font>
-                <Font name="B Nazanin" size="24.0" />
-            </font>
-        </Button>
         <Label fx:id="warn" layoutX="351.0" layoutY="341.0" textFill="#ff9523" />
+        <Button fx:id="confirmbtn" layoutX="16.0" layoutY="534.0" mnemonicParsing="false" onMouseClicked="#Confirm" prefHeight="46.0" prefWidth="567.0" style="-fx-background-color: #fca311; -fx-background-radius: 7;" text="تایید" textFill="#191a1f">
+            <font>
+                <Font name="B Nazanin Bold" size="24.0" />
+            </font>
+            <effect>
+                <DropShadow height="37.38" radius="18.775" width="39.72">
+                    <color>
+                        <Color red="0.9882352948188782" green="0.6392157077789307" blue="0.06666667014360428" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Button>
+        <Text fill="WHITE" layoutX="530.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="انتقال">
+            <font>
+                <Font name="B Nazanin" size="30.0" />
+            </font>
+        </Text>
+        <Text fill="#a9a9a9" layoutX="278.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="به اسانی و در بستری امنبه هر حسابی ارز جا به جا کنید">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <AnchorPane layoutX="16.0" layoutY="100.0" prefHeight="1.0" prefWidth="567.0" style="-fx-background-color: #464646; -fx-background-radius: 2;" />
+        <TextField fx:id="usernamee" alignment="CENTER_RIGHT" layoutX="16.0" layoutY="170.0" prefHeight="46.0" prefWidth="567.0" promptText="نام کاربری" style="-fx-background-color: #1e2329; -fx-border-color: #fca311; -fx-border-radius: 10;" styleClass="mytextfield" stylesheets="@Swap.css">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </TextField>
+        <Text fill="#fca311" layoutX="259.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="لطفا نام کاربری شخص مورد نظر را وارد کنید">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text fill="#fca311" layoutX="278.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="لطفا مقدار و نوع ارز مورد نظر را وارد کنید">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <MenuButton fx:id="menu" layoutX="339.0" layoutY="281.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="242.0" style="-fx-background-color: #1e2329;" text="USD" textFill="#fca311">
+            <items>
+                <MenuItem fx:id="USDitem" mnemonicParsing="false" onAction="#setmenutexttoUSD" text="USD" />
+                <MenuItem fx:id="TMNitem" mnemonicParsing="false" onAction="#setmenutexttoTMN" text="Toman" />
+                <MenuItem fx:id="EURitem" mnemonicParsing="false" onAction="#setmenutexttoEUR" text="EUR" />
+                <MenuItem fx:id="YENitem" mnemonicParsing="false" onAction="#setmenutexttoYEN" text="YEN" />
+                <MenuItem fx:id="GBTitem" mnemonicParsing="false" onAction="#setmenutexttoGBT" text="GBT" />
+            </items>
+            <font>
+                <Font size="18.0" />
+            </font>
+        </MenuButton>
+        <TextField fx:id="value" alignment="CENTER_RIGHT" layoutX="16.0" layoutY="280.0" prefHeight="46.0" prefWidth="288.0" promptText="مقدار" style="-fx-background-color: #1e2329; -fx-border-color: #fca311; -fx-border-radius: 10;" styleClass="mytextfield" stylesheets="@Swap.css">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </TextField>
+        <AnchorPane layoutX="20.0" layoutY="386.0" prefHeight="1.0" prefWidth="567.0" style="-fx-background-color: #464646; -fx-background-radius: 2;" />
+        <Text fill="DARKGRAY" layoutX="509.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="نرخ کمسیون">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text fill="DARKGRAY" layoutX="16.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 درصد">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Text fill="DARKGRAY" layoutX="532.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="کمسیون">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Label layoutX="21.0" layoutY="400.0" prefHeight="20.0" prefWidth="110.0" text="2.45 $" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>

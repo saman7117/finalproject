@@ -5,10 +5,6 @@
  */
 package com.example.demo;
 
-/**
- *
- * @author Ramin
- */
 
 import java.io.IOException;
 import java.net.ServerSocket;

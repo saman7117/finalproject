@@ -13,11 +13,9 @@ package com.example.demo;
 import com.example.demo.HelloApplication;
 import com.example.demo.Server5;
 
-import java.io.DataInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -31,6 +29,8 @@ public class ClientManager implements Runnable {
     OutputStream toClientStream;
     DataInputStream reader;
     PrintWriter writer;
+    ObjectOutputStream objectOutputStream;
+    ObjectInputStream objectInputStream;
 
     public ClientManager(Server5 server,Socket client) {
         serverHolder = server;
@@ -47,6 +47,11 @@ public class ClientManager implements Runnable {
 
             reader = new DataInputStream(fromClientStream);
             writer = new PrintWriter(toClientStream, true);
+            objectOutputStream = new ObjectOutputStream(clientHolder.getOutputStream());
+            ArrayList <String> test = new ArrayList<>();
+            test.add("na");
+            test.add("da");
+
 
             // send message to client
 //			writer.println("What is your name?");
@@ -62,18 +67,17 @@ public class ClientManager implements Runnable {
             serverHolder.addClientManager(name,this);
 
 
-//            while (true) {
-//                // read command from client
-//                String command = reader.readLine();
-//                // now decide by command ;-)
-//                if (command.equals("BYE")) {
-//                    System.out.println("Good Bye " + name);
-//                    break;
-//                }
-//                else if (command.equals("signIN")) {
-//                    writer.println("ok");
-//                }
-//            }
+            while (true) {
+                // read command from client
+                String command = reader.readLine();
+                // now decide by command ;-)
+                if (command.equals("e")) {
+                    test = (ArrayList<String>) objectInputStream.readObject();
+                    for(int i=0;i<test.size();i++){
+                        System.out.println(test.get(i));
+                    }
+                }
+            }
         }
         catch (Exception e) {
         }
