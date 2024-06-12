@@ -20,9 +20,6 @@ public class datas {
     public static double GBPPrice;
     public static double EURPrice;
     public static double YENPrice;
-
-
-
-
-
+    public static double[] MINPrice = new double[5];//0-USD / 1-TMN / 2-YEN / 3-GBP / 4-EUR
+    public static double[] MAXPrice = new double[5];//0-USD / 1-TMN / 2-YEN / 3-GBP / 4-EUR
 }

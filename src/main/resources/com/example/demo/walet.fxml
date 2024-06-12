@@ -24,8 +24,8 @@
             <MenuButton layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
                <items>
                   <MenuItem mnemonicParsing="false" text="تبادل" />
-                  <MenuItem mnemonicParsing="false" text="انتقال" />
-                  <MenuItem mnemonicParsing="false" text="معاوضه" />
+                  <MenuItem mnemonicParsing="false" onAction="#toTransfer" text="انتقال" />
+                  <MenuItem mnemonicParsing="false" onAction="#toSwap" text="معاوضه" />
                </items>
             </MenuButton>
             <Button layoutX="855.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="تاریخچه" textFill="#ededed" />
@@ -61,7 +61,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+            <Label fx:id="Tomannerkh" alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -81,7 +81,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+            <Label fx:id="Tomanval" alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -96,7 +96,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+            <Button fx:id="Tomantransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#toTransfer" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>
@@ -104,7 +104,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="414.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: white; -fx-border-color: transparent;" text="معامله">
+            <Button layoutX="414.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#toTransfer" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: white; -fx-border-color: transparent;" text="معامله">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>
@@ -166,7 +166,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+            <Label fx:id="GBTnerkh" alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -186,7 +186,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+            <Label fx:id="GBTval" alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -201,7 +201,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+            <Button onMouseClicked="#toTransfer" fx:id="GBTtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>
@@ -271,7 +271,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+            <Label fx:id="USDnerkh" alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -291,7 +291,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+            <Label fx:id="USDval" alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -306,7 +306,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+            <Button onMouseClicked="#toTransfer" fx:id="USDtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>
@@ -376,7 +376,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+            <Label fx:id="EURnerkh" alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -396,7 +396,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+            <Label fx:id="EURval" alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -411,7 +411,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+            <Button onMouseClicked="#toTransfer" fx:id="EURtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>
@@ -481,7 +481,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
+            <Label fx:id="YENnerkh" alignment="CENTER" layoutX="1251.0" layoutY="43.0" text="\$ 17" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -501,7 +501,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
+            <Label fx:id="YENval" alignment="CENTER" layoutX="964.0" layoutY="43.0" text="\$ 5" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -516,7 +516,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+            <Button onMouseClicked="#toTransfer" fx:id="YENtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>

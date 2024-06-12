@@ -5,9 +5,9 @@
 .chart-plot-background {
     -fx-background-color: #191a1f;
 }
-.chart-vertical-grid-lines {
-    -fx-background-color: #f1b514;
-}
+/*.chart-vertical-grid-lines {
+    -fx-stroke: #2af114;
+}*/
 .chart-horizontal-grid-lines {
-    -fx-background-color: #f1b514;
+    -fx-stroke: #191a1f;
 }

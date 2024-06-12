@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -45,6 +46,9 @@ public class HomepageController implements Initializable{
     private Label time;
     @FXML
     private Label date;
+    @FXML
+    private Button profile;
+
 
     private static int eee = 1;
     ObservableList <Stock> stocks = FXCollections.observableArrayList(
@@ -62,13 +66,6 @@ public class HomepageController implements Initializable{
     public HomepageController() throws FileNotFoundException {
     }
 
-
-    public void newPage() {
-        System.out.println("da");
-        /*Stage stage = new Stage();
-        stage.show();*/
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
 
@@ -82,14 +79,6 @@ public class HomepageController implements Initializable{
         setData();
         showTime();
         showDate();
-    }
-
-    public void Swap(){
-        System.out.println("swap");
-    }
-
-    public void Exchange(){
-        System.out.println("exchange");
     }
 
     @FXML
@@ -113,10 +102,10 @@ public class HomepageController implements Initializable{
                         TokenController tokenController = loader.getController();
                         tokenController.setFlagImage("src/main/resources/com/example/demo/iran.png");
                         tokenController.setTokenname("TMN");
-                    }else if (((Stock) selectedItem).getMarket().equals("GBT")) {
+                    }else if (((Stock) selectedItem).getMarket().equals("GBP")) {
                         TokenController tokenController = loader.getController();
                         tokenController.setFlagImage("src/main/resources/com/example/demo/gbt.png");
-                        tokenController.setTokenname("GBT");
+                        tokenController.setTokenname("GBP");
                     }else if (((Stock) selectedItem).getMarket().equals("EUR")) {
                         TokenController tokenController = loader.getController();
                         tokenController.setFlagImage("src/main/resources/com/example/demo/eur.png");
@@ -139,6 +128,32 @@ public class HomepageController implements Initializable{
             stage.close();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("walet.fxml"));
             Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+            stage.setTitle("Raze Exchange");
+            stage.setScene(registerScene);
+            stage.show();
+        }
+
+        public void toProfile() throws IOException {//:(
+            Stage stage = (Stage)tableView.getScene().getWindow();
+            stage.close();
+            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Profile.fxml"));
+            Scene registerScene = new Scene(registerLoader.load(), 800, 600);
+            stage.setTitle("Raze Exchange");
+            stage.setScene(registerScene);
+            stage.show();
+        }
+        public void toSwap() throws IOException {//:(
+            Stage stage = new Stage();
+            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Swap.fxml"));
+            Scene registerScene = new Scene(registerLoader.load(), 800, 600);
+            stage.setTitle("Raze Exchange");
+            stage.setScene(registerScene);
+            stage.show();
+        }
+        public void toTransfer() throws IOException {//:(
+            Stage stage = new Stage();
+            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Transfer.fxml"));
+            Scene registerScene = new Scene(registerLoader.load(), 800, 600);
             stage.setTitle("Raze Exchange");
             stage.setScene(registerScene);
             stage.show();
@@ -245,10 +260,12 @@ public class HomepageController implements Initializable{
             for (int i = 0; i < min.length; i++) {
                 min[i] = Math.min(min[i] , Double.parseDouble(parts[i + 2]));
             }
+            datas.MINPrice = Arrays.copyOf(min , min.length);
 
             for (int i = 0; i < min.length; i++) {
                 max[i] = Math.max(max[i] , Double.parseDouble(parts[i + 2]));
             }
+            datas.MAXPrice = Arrays.copyOf(max , max.length);
 
 
             Stock stock1 = new Stock("USD", usdPrice, UT,max[0] , min[0]);

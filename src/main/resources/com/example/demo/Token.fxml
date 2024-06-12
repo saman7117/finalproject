@@ -53,7 +53,7 @@
          </Label>
         </children>
     </AnchorPane>
-   <AnchorPane layoutY="75.0" prefHeight="137.0" prefWidth="1574.0">
+   <AnchorPane layoutX="6.0" layoutY="75.0" prefHeight="142.0" prefWidth="1551.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">
       <children>
          <ImageView fx:id="flag" fitHeight="128.0" fitWidth="124.0" layoutX="1401.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -65,74 +65,74 @@
                <Font size="32.0" />
             </font>
          </Label>
-         <Label layoutX="1070.0" layoutY="52.0" text="قیمت لحظه ای" textFill="#84898f">
+         <Label layoutX="1070.0" layoutY="34.0" text="قیمت لحظه ای" textFill="#84898f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="1071.0" layoutY="88.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="18.0" prefWidth="90.0" text="61" textFill="#ededed">
+         <Label fx:id="currentprice" alignment="CENTER" layoutX="1022.0" layoutY="70.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="194.0" text="61" textFill="#ededed">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="885.0" layoutY="52.0" text="حجم" textFill="#84898f">
+         <Label alignment="CENTER" layoutX="885.0" layoutY="34.0" text="حجم" textFill="#84898f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="848.0" layoutY="88.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="102.0" text="25" textFill="#ededed">
+         <Label alignment="CENTER" layoutX="848.0" layoutY="70.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="102.0" text="25" textFill="#ededed">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <Label layoutX="618.0" layoutY="52.0" text="کمترین قیمت" textFill="#84898f">
+         <Label layoutX="618.0" layoutY="34.0" text="کمترین قیمت" textFill="#84898f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="611.0" layoutY="88.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="102.0" text="50" textFill="#ededed">
+         <Label fx:id="minprice" alignment="CENTER" layoutX="611.0" layoutY="70.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="102.0" text="50" textFill="#ededed">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <Label layoutX="363.0" layoutY="52.0" text="بیشترین قیمت" textFill="#84898f">
+         <Label layoutX="363.0" layoutY="34.0" text="بیشترین قیمت" textFill="#84898f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="356.0" layoutY="88.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="111.0" text="150" textFill="#ededed">
+         <Label fx:id="maxprice" alignment="CENTER" layoutX="356.0" layoutY="70.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="111.0" text="150" textFill="#ededed">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
-         <Label layoutX="126.0" layoutY="52.0" text="تغییر روزانه" textFill="#84848f">
+         <Label layoutX="126.0" layoutY="34.0" text="تغییر روزانه" textFill="#84848f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="107.0" layoutY="88.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="111.0" text="25.8" textFill="#ededed">
+         <Label alignment="CENTER" layoutX="107.0" layoutY="70.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="111.0" text="25.8" textFill="#ededed">
             <font>
                <Font size="24.0" />
             </font>
          </Label>
       </children>
    </AnchorPane>
-   <AnchorPane layoutX="1.0" layoutY="208.0" prefHeight="650.0" prefWidth="869.0" style="-fx-background-color: #191a1f;">
+   <AnchorPane layoutY="236.0" prefHeight="550.0" prefWidth="867.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">
        <stylesheets>
            <URL value="@Token.css" />
        </stylesheets>
       <children>
-         <LineChart layoutX="82.0" layoutY="63.0" prefHeight="502.0" prefWidth="672.0" style="-fx-background-color: #191a1f;">
+         <LineChart fx:id="chart" layoutX="83.0" layoutY="31.0" prefHeight="502.0" prefWidth="672.0" style="-fx-background-color: #191a1f;">
            <xAxis>
-             <CategoryAxis side="BOTTOM" />
+             <CategoryAxis fx:id="category" side="BOTTOM" />
            </xAxis>
            <yAxis>
-             <NumberAxis side="LEFT" />
+             <NumberAxis fx:id="number" autoRanging="false" side="LEFT" />
            </yAxis>
          </LineChart>
       </children>
    </AnchorPane>
-   <AnchorPane layoutX="903.0" layoutY="245.0" prefHeight="618.0" prefWidth="672.0">
+   <AnchorPane layoutX="923.0" layoutY="236.0" prefHeight="557.0" prefWidth="598.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">
       <children>
          <Label alignment="CENTER" layoutX="379.0" layoutY="24.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="90.0" text="قیمت" textFill="#84898f">
             <font>
