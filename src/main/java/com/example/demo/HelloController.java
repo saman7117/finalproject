@@ -2,6 +2,7 @@ package com.example.demo;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -9,9 +10,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
+import java.util.Random;
+import java.util.ResourceBundle;
 
-public class HelloController {
+public class HelloController implements Initializable {
     @FXML
     private Label welcomeText;
     @FXML
@@ -20,6 +24,11 @@ public class HelloController {
     private PasswordField passfield;
     @FXML
     private Label warn;
+    @FXML
+    private Label captchalabel;
+    @FXML
+    private TextField captchafield;
+    private String currentCaptcha;
 
 
     @FXML
@@ -32,6 +41,9 @@ public class HelloController {
         stage.setScene(registerScene);
         stage.show();
     }
+    public void setCAPTCHAlabel(){
+        captchalabel.setText(generateCaptcha());
+    }
 
     public void goHomePage() throws IOException{
         String u = userfield.getText();
@@ -42,7 +54,7 @@ public class HelloController {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
             while (resultSet.next()){
-                if(u.equals(resultSet.getString("username")) && p.equals(resultSet.getString("password"))){
+                if(u.equals(resultSet.getString("username")) && p.equals(resultSet.getString("password")) && captchafield.getText().equals(captchalabel.getText())){
                     flag = true;
                     Stage stage = (Stage)userfield.getScene().getWindow();
                     stage.close();
@@ -85,5 +97,22 @@ public class HelloController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private String generateCaptcha() {
+        Random random = new Random();
+        StringBuilder captcha = new StringBuilder();
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (int i = 0; i < 6; i++) {
+            int index = random.nextInt(characters.length());
+            captcha.append(characters.charAt(index));
+        }
+        currentCaptcha = captcha.toString();
+        return currentCaptcha;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setCAPTCHAlabel();
     }
 }

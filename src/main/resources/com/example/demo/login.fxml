@@ -53,12 +53,12 @@
                   <Image url="@lock.png" />
                </image>
             </ImageView>
-            <Label fx:id="welcomeText" layoutX="32.0" layoutY="355.0" text="Forget your Password?">
+            <Label fx:id="welcomeText" layoutX="35.0" layoutY="407.0" text="Forget your Password?">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Button fx:id="loginbtn" layoutX="149.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#goHomePage" prefHeight="62.0" prefWidth="200.0" style="-fx-background-color: #262626;" text="Login" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="loginbtn" layoutX="149.0" layoutY="451.0" mnemonicParsing="false" onMouseClicked="#goHomePage" prefHeight="62.0" prefWidth="200.0" style="-fx-background-color: #262626;" text="Login" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -73,12 +73,12 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Label layoutX="240.0" layoutY="493.0" text="or">
+            <Label layoutX="240.0" layoutY="524.0" text="or">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="548.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@g.jpg" />
                </image>
@@ -86,12 +86,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label fx:id="RegisterLink" layoutX="321.0" layoutY="355.0" onMouseClicked="#onHelloButtonClick" text="don't have account ? Register">
+            <Label fx:id="RegisterLink" layoutX="321.0" layoutY="407.0" onMouseClicked="#onHelloButtonClick" text="don't have account ? Register">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label fx:id="warn" alignment="CENTER" layoutX="168.0" layoutY="394.0" prefHeight="20.0" prefWidth="157.0" textFill="RED" />
+            <Label fx:id="warn" alignment="CENTER" layoutX="168.0" layoutY="425.0" prefHeight="20.0" prefWidth="157.0" textFill="RED" />
+            <Label fx:id="captchalabel" alignment="CENTER" layoutX="166.0" layoutY="355.0" prefHeight="26.0" prefWidth="150.0" text="Label" textFill="#262626" />
+            <TextField fx:id="captchafield" focusTraversable="false" layoutX="170.0" layoutY="381.0" prefHeight="18.0" prefWidth="158.0" promptText="Enter the CAPTCHA code" />
          </children>
       </AnchorPane>
    </children>

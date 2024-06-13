@@ -54,6 +54,7 @@ public class registerController {
     @FXML
     private Label maillable;
 
+
     @FXML
     protected void Register() throws IOException {
         int a = checkUsername(user.getText());
