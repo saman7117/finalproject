@@ -105,28 +105,28 @@ public class TokenController implements Initializable {
 
     public void setLabelsdata(){
         if (Tokenname.getText().equals("USD")) {
-            maxprice.setText(String.valueOf(datas.MAXPrice[0]));
-            minprice.setText(String.valueOf(datas.MINPrice[0]));
+            maxprice.setText(String.valueOf(datas.USDMAX));
+            minprice.setText(String.valueOf(datas.USDMIN));
             currentprice.setText(String.valueOf(datas.USDPrice));
         }
         else if (Tokenname.getText().equals("TMN")) {
-            maxprice.setText(String.valueOf(datas.MAXPrice[1]));
-            minprice.setText(String.valueOf(datas.MINPrice[1]));
+            maxprice.setText(String.valueOf(datas.TMNMAX));
+            minprice.setText(String.valueOf(datas.TMNMIN));
             currentprice.setText(String.valueOf(datas.TMNPrice));
         }
         else if (Tokenname.getText().equals("YEN")) {
-            maxprice.setText(String.valueOf(datas.MAXPrice[2]));
-            minprice.setText(String.valueOf(datas.MINPrice[2]));
+            maxprice.setText(String.valueOf(datas.YENMAX));
+            minprice.setText(String.valueOf(datas.YENMIN));
             currentprice.setText(String.valueOf(datas.YENPrice));
         }
         else if (Tokenname.getText().equals("EUR")) {
-            maxprice.setText(String.valueOf(datas.MAXPrice[4]));
-            minprice.setText(String.valueOf(datas.MINPrice[4]));
+            maxprice.setText(String.valueOf(datas.EURMAX));
+            minprice.setText(String.valueOf(datas.EURMIN));
             currentprice.setText(String.valueOf(datas.EURPrice));
         }
         else if (Tokenname.getText().equals("GBP")) {
-            maxprice.setText(String.valueOf(datas.MAXPrice[3]));
-            minprice.setText(String.valueOf(datas.MINPrice[3]));
+            maxprice.setText(String.valueOf(datas.GBPMAX));
+            minprice.setText(String.valueOf(datas.GBPMIN));
             currentprice.setText(String.valueOf(datas.GBPPrice));
         }
 
@@ -156,32 +156,32 @@ public class TokenController implements Initializable {
                 parts = line.split("\\s+");
                 if (Tokenname.getText().equals("USD")) {
                     series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[2])));
-                    number.setUpperBound(datas.MAXPrice[0] + 0.1);
-                    number.setLowerBound(datas.MINPrice[0] - 0.1);
+                    number.setUpperBound(datas.USDMAX + 0.3);
+                    number.setLowerBound(datas.USDMIN - 0.1);
                     number.setTickUnit(0.01);
                 }
                 else if (Tokenname.getText().equals("TMN")) {
                     series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[4])));
-                    number.setUpperBound(datas.MAXPrice[1] + 1000);
-                    number.setLowerBound(datas.MINPrice[1] - 1000);
+                    number.setUpperBound(datas.TMNMAX + 1000);
+                    number.setLowerBound(datas.TMNMIN - 1000);
                     number.setTickUnit(500);
                 }
                 else if (Tokenname.getText().equals("EUR")) {
                     series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[3])));
-                    number.setUpperBound(datas.MAXPrice[4] + 0.1);
-                    number.setLowerBound(datas.MINPrice[4] - 0.1);
+                    number.setUpperBound(datas.EURMAX + 0.1);
+                    number.setLowerBound(datas.EURMIN - 0.1);
                     number.setTickUnit(0.01);
                 }
                 else if (Tokenname.getText().equals("YEN")) {
                     series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[5])));
-                    number.setUpperBound(datas.MAXPrice[2] + 1000);
-                    number.setLowerBound(datas.MINPrice[2] - 1000);
-                    number.setTickUnit(500);
+                    number.setUpperBound(datas.YENMAX + 10);
+                    number.setLowerBound(datas.YENMIN - 10);
+                    number.setTickUnit(5);
                 }
                 else if (Tokenname.getText().equals("GBP")) {
                     series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[6])));
-                    number.setUpperBound(datas.MAXPrice[3] + 0.1);
-                    number.setLowerBound(datas.MINPrice[3] - 0.1);
+                    number.setUpperBound(datas.GBPMAX + 0.1);
+                    number.setLowerBound(datas.GBPMIN - 0.1);
                     number.setTickUnit(0.01);
                 }
 

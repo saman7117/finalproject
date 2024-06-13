@@ -268,12 +268,21 @@ public class HomepageController implements Initializable{
             for (int i = 0; i < min.length; i++) {
                 min[i] = Math.min(min[i] , Double.parseDouble(parts[i + 2]));
             }
-            datas.MINPrice = Arrays.copyOf(min , min.length);
 
             for (int i = 0; i < min.length; i++) {
                 max[i] = Math.max(max[i] , Double.parseDouble(parts[i + 2]));
             }
-            datas.MAXPrice = Arrays.copyOf(max , max.length);
+            datas.USDMIN = min[0];
+            datas.EURMIN = min[1];
+            datas.TMNMIN = min[2];
+            datas.YENMIN = min[3];
+            datas.GBPMIN = min[4];
+
+            datas.USDMAX = max[0];
+            datas.EURMAX = max[1];
+            datas.TMNMAX = max[2];
+            datas.YENMAX = max[3];
+            datas.GBPMAX = max[4];
 
 
             Stock stock1 = new Stock("USD", usdPrice, UT,max[0] , min[0]);

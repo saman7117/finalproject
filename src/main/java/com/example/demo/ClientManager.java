@@ -22,6 +22,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 public class ClientManager implements Runnable {
+    private static ArrayList <StockQueue> test = new ArrayList<>();
     private static int id = 0;
     Socket clientHolder;
     Server5 serverHolder;
@@ -48,9 +49,7 @@ public class ClientManager implements Runnable {
             reader = new DataInputStream(fromClientStream);
             writer = new PrintWriter(toClientStream, true);
             objectOutputStream = new ObjectOutputStream(clientHolder.getOutputStream());
-            ArrayList <String> test = new ArrayList<>();
-            test.add("na");
-            test.add("da");
+
 
 
             // send message to client
@@ -72,10 +71,23 @@ public class ClientManager implements Runnable {
                 String command = reader.readLine();
                 // now decide by command ;-)
                 if (command.equals("e")) {
-                    test = (ArrayList<String>) objectInputStream.readObject();
-                    for(int i=0;i<test.size();i++){
-                        System.out.println(test.get(i));
+                    String string = reader.readLine();
+                    String [] strings = new String[4];
+                    if (string.equals("f")){
+                        for (int i = 0; i < 4; i++) {
+                            String r = reader.readLine();
+                            strings[i] = r;
+                        }
                     }
+                    StockQueue stockQueue = new StockQueue();
+                    stockQueue.type = strings[0];
+                    stockQueue.value = Integer.parseInt(strings[2]);
+                    stockQueue.price = Integer.parseInt(strings[3]);
+                    if (strings[1].equals("sell"))
+                        stockQueue.SB = false;
+                    else
+                        stockQueue.SB = true;
+                    test.add(stockQueue);
                 }
             }
         }

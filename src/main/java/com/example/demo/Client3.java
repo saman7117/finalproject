@@ -46,7 +46,7 @@ public class Client3 {
             datas.MainWriter = writer;
             datas.MainReader = reader;
             datas.objectMainReader = objectInputStream;
-            datas.objectOutputStream = objectOutputStream;
+            datas.objectMainWriter = objectOutputStream;
 
             // first : read server message
 //            String msg = reader.readLine();

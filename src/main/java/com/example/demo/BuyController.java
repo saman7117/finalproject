@@ -1,10 +1,11 @@
 package com.example.demo;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,10 +62,73 @@ public class BuyController {
     }
 
     public void setServerArraylist() throws IOException, ClassNotFoundException {
-        datas.MainWriter.println("e");
-        ArrayList<String> stockQueues = (ArrayList<String>) datas.objectMainReader.readObject();
-        stockQueues.add("na");
-        stockQueues.add("da");
-        datas.objectOutputStream.writeObject(stockQueues);
+        Alert alert = new Alert(Alert.AlertType.NONE);
+        if (value.getText().equals(null) || price.getText().equals(null)){
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("خطا در وارد کردن");
+            alert.setContentText("لطفا مقدار و قیمت را وارد کنید");
+            alert.showAndWait();
+        } else if (frommenu.getText().equals("USD") && Double.parseDouble(value.getText()) > datas.USD && status.equals("sell")) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("خطا در وارد کردن");
+            alert.setContentText("مقدار ناکافی");
+            alert.showAndWait();
+        }
+        else if (frommenu.getText().equals("TMN") && Double.parseDouble(value.getText()) > datas.TMN && status.equals("sell")) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("خطا در وارد کردن");
+            alert.setContentText("مقدار ناکافی");
+            alert.showAndWait();
+        }
+        else if (frommenu.getText().equals("YEN") && Double.parseDouble(value.getText()) > datas.YEN && status.equals("sell")) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("خطا در وارد کردن");
+            alert.setContentText("مقدار ناکافی");
+            alert.showAndWait();
+        }
+        else if (frommenu.getText().equals("EUR") && Double.parseDouble(value.getText()) > datas.EUR && status.equals("sell")) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("خطا در وارد کردن");
+            alert.setContentText("مقدار ناکافی");
+            alert.showAndWait();
+        }
+        else if (frommenu.getText().equals("GBP") && Double.parseDouble(value.getText()) > datas.GBT && status.equals("sell")) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("خطا در وارد کردن");
+            alert.setContentText("مقدار ناکافی");
+            alert.showAndWait();
+        }
+        else if (Double.parseDouble(value.getText()) * Double.parseDouble(price.getText()) > datas.total && status.equals("buy")) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("خطا در وارد کردن");
+            alert.setContentText("مقدار ناکافی");
+            alert.showAndWait();
+        }
+        else {
+            datas.MainWriter.println("e");
+            datas.MainWriter.println("f");
+            datas.MainWriter.println(frommenu.getText());
+            datas.MainWriter.println(status);
+            datas.MainWriter.println(value.getText());
+            datas.MainWriter.println(price.getText());
+            alert.setAlertType(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmed");
+            alert.setHeaderText("موفقیت ");
+            if (status.equals("sell"))
+                alert.setContentText("سفارش فروش با موفقیت ثبت شد");
+            else
+                alert.setContentText("سفارش خرید با موفقیت ثبت شد");
+            alert.show();
+            Stage stage = (Stage)frommenu.getScene().getWindow();
+            stage.close();
+        }
+
     }
 }
