@@ -19,10 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.*;
 
 public class TokenController implements Initializable {
     @FXML
@@ -45,6 +42,49 @@ public class TokenController implements Initializable {
     private Label maxprice;
     @FXML
     private Label currentprice;
+    @FXML
+    private Label sellprice5;
+    @FXML
+    private Label sellprice4;
+    @FXML
+    private Label sellprice3;
+    @FXML
+    private Label sellprice2;
+    @FXML
+    private Label sellprice1;
+    @FXML
+    private Label buyprice5;
+    @FXML
+    private Label buyprice4;
+    @FXML
+    private Label buyprice3;
+    @FXML
+    private Label buyprice2;
+    @FXML
+    private Label buyprice1;
+    @FXML
+    private Label sellvalue5;
+    @FXML
+    private Label sellvalue4;
+    @FXML
+    private Label sellvalue3;
+    @FXML
+    private Label sellvalue2;
+    @FXML
+    private Label sellvalue1;
+    @FXML
+    private Label buyvalue5;
+    @FXML
+    private Label buyvalue4;
+    @FXML
+    private Label buyvalue3;
+    @FXML
+    private Label buyvalue2;
+    @FXML
+    private Label buyvalue1;
+    @FXML
+    private Label warning;
+
     private static int sss = 0;
     private static int uuu = 43;
     public String [] parts = new String[6];
@@ -81,6 +121,13 @@ public class TokenController implements Initializable {
                         // A new minute has passed, call your update function here
                         setLabelsdata();
                         setchartdata();
+                        try {
+                            updateOrders();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        } catch (ClassNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
                         chart.getData().add(new XYChart.Series<>());
                         lastMinute = currentMinute;
                     }
@@ -229,5 +276,129 @@ public class TokenController implements Initializable {
             stage.setTitle("Raze Exchange");
             stage.setScene(registerScene);
             stage.show();
+        }
+
+        public void updateOrders() throws IOException, ClassNotFoundException {
+            buyprice1.setText("");
+            buyprice2.setText("");
+            buyprice3.setText("");
+            buyprice4.setText("");
+            buyprice5.setText("");
+            sellprice1.setText("");
+            sellprice2.setText("");
+            sellprice3.setText("");
+            sellprice4.setText("");
+            sellprice5.setText("");
+            buyvalue1.setText("");
+            buyvalue2.setText("");
+            buyvalue3.setText("");
+            buyvalue4.setText("");
+            buyvalue5.setText("");
+            sellvalue1.setText("");
+            sellvalue2.setText("");
+            sellvalue3.setText("");
+            sellvalue4.setText("");
+            sellvalue5.setText("");
+            datas.MainWriter.println("s");
+            datas.MainWriter.println(Tokenname.getText());
+            ArrayList<StockQueue> buyorder = new ArrayList<>();
+            ArrayList<StockQueue> sellorder = new ArrayList<>();
+            String line = datas.MainReader.readLine();
+            if (line.equals("buy")) {
+                buyorder = (ArrayList<StockQueue>) datas.objectMainReader.readObject();
+                Collections.sort(buyorder);
+            }
+            line = datas.MainReader.readLine();
+           if (line.equals("sell")){
+                sellorder = (ArrayList<StockQueue>) datas.objectMainReader.readObject();
+                Collections.sort(sellorder);
+            }
+            if(buyorder.size()==0 && sellorder.size()==0)
+                warning.setText("هیچ سفارشی ثبت نشده");
+            else {
+                warning.setText("");
+                System.out.println(buyorder.size());
+                System.out.println(sellorder.size());
+                if(buyorder.size() == 1){
+                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
+                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
+                }
+                else if(buyorder.size() == 2){
+                    buyvalue2.setText(String.valueOf(buyorder.get(1).value));
+                    buyprice2.setText(String.valueOf(buyorder.get(1).price));
+                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
+                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
+                }
+                else if(buyorder.size() == 3){
+                    buyvalue3.setText(String.valueOf(buyorder.get(2).value));
+                    buyprice3.setText(String.valueOf(buyorder.get(2).price));
+                    buyvalue2.setText(String.valueOf(buyorder.get(1).value));
+                    buyprice2.setText(String.valueOf(buyorder.get(1).price));
+                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
+                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
+                }
+                else if(buyorder.size() == 4){
+                    buyvalue4.setText(String.valueOf(buyorder.get(3).value));
+                    buyprice4.setText(String.valueOf(buyorder.get(3).price));
+                    buyvalue3.setText(String.valueOf(buyorder.get(2).value));
+                    buyprice3.setText(String.valueOf(buyorder.get(2).price));
+                    buyvalue2.setText(String.valueOf(buyorder.get(1).value));
+                    buyprice2.setText(String.valueOf(buyorder.get(1).price));
+                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
+                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
+                }
+                else if(buyorder.size() >= 5){
+                    buyvalue5.setText(String.valueOf(buyorder.get(4).value));
+                    buyprice5.setText(String.valueOf(buyorder.get(4).price));
+                    buyvalue4.setText(String.valueOf(buyorder.get(3).value));
+                    buyprice4.setText(String.valueOf(buyorder.get(3).price));
+                    buyvalue3.setText(String.valueOf(buyorder.get(2).value));
+                    buyprice3.setText(String.valueOf(buyorder.get(2).price));
+                    buyvalue2.setText(String.valueOf(buyorder.get(1).value));
+                    buyprice2.setText(String.valueOf(buyorder.get(1).price));
+                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
+                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
+                }
+                if(sellorder.size() == 1){
+                    sellvalue5.setText(String.valueOf(sellorder.get(0).value));
+                    sellprice5.setText(String.valueOf(sellorder.get(0).price));
+                }
+                else if(sellorder.size() == 2){
+                    sellvalue5.setText(String.valueOf(sellorder.get(1).value));
+                    sellprice5.setText(String.valueOf(sellorder.get(1).price));
+                    sellvalue4.setText(String.valueOf(sellorder.get(0).value));
+                    sellprice4.setText(String.valueOf(sellorder.get(0).price));
+                }
+                else if(sellorder.size() == 3){
+                    sellvalue5.setText(String.valueOf(sellorder.get(2).value));
+                    sellprice5.setText(String.valueOf(sellorder.get(2).price));
+                    sellvalue4.setText(String.valueOf(sellorder.get(1).value));
+                    sellprice4.setText(String.valueOf(sellorder.get(1).price));
+                    sellvalue3.setText(String.valueOf(sellorder.get(0).value));
+                    sellprice3.setText(String.valueOf(sellorder.get(0).price));
+                }
+                else if(sellorder.size() == 4){
+                    sellvalue5.setText(String.valueOf(sellorder.get(3).value));
+                    sellprice5.setText(String.valueOf(sellorder.get(3).price));
+                    sellvalue4.setText(String.valueOf(sellorder.get(2).value));
+                    sellprice4.setText(String.valueOf(sellorder.get(2).price));
+                    sellvalue3.setText(String.valueOf(sellorder.get(1).value));
+                    sellprice3.setText(String.valueOf(sellorder.get(1).price));
+                    sellvalue2.setText(String.valueOf(sellorder.get(0).value));
+                    sellprice2.setText(String.valueOf(sellorder.get(0).price));
+                }
+                else if(sellorder.size() >= 5){
+                    sellvalue5.setText(String.valueOf(sellorder.get(4).value));
+                    sellprice5.setText(String.valueOf(sellorder.get(4).price));
+                    sellvalue4.setText(String.valueOf(sellorder.get(3).value));
+                    sellprice4.setText(String.valueOf(sellorder.get(3).price));
+                    sellvalue3.setText(String.valueOf(sellorder.get(2).value));
+                    sellprice3.setText(String.valueOf(sellorder.get(2).price));
+                    sellvalue2.setText(String.valueOf(sellorder.get(1).value));
+                    sellprice2.setText(String.valueOf(sellorder.get(1).price));
+                    sellvalue1.setText(String.valueOf(sellorder.get(0).value));
+                    sellprice1.setText(String.valueOf(sellorder.get(0).price));
+                }
+            }
         }
 }

@@ -140,109 +140,114 @@
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="127.0" layoutY="24.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="مجموع" textFill="#84898f">
+         <Label layoutX="127.0" layoutY="24.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="مقدار" textFill="#84898f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label fx:id="buyprice3" layoutX="315.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="409.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label fx:id="buyprice4" layoutX="315.0" layoutY="409.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="129.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label fx:id="sellprice2" layoutX="315.0" layoutY="129.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="329.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label fx:id="buyprice2" layoutX="315.0" layoutY="329.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="209.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label fx:id="sellprice4" layoutX="315.0" layoutY="209.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="249.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label fx:id="sellprice5" layoutX="315.0" layoutY="249.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label fx:id="sellprice3" layoutX="315.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="289.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label fx:id="buyprice1" layoutX="315.0" layoutY="289.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#e06c5d">
+         <Label fx:id="sellprice1" layoutX="315.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label fx:id="sellvalue1" layoutX="151.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="129.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label fx:id="sellvalue2" layoutX="151.0" layoutY="129.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="209.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label fx:id="sellvalue4" layoutX="151.0" layoutY="209.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="249.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label fx:id="sellvalue5" layoutX="151.0" layoutY="249.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="3231664" textFill="#ededed">
+         <Label fx:id="sellvalue3" layoutX="151.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="315.0" layoutY="449.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="4569874" textFill="#30a18f">
+         <Label fx:id="buyprice5" layoutX="315.0" layoutY="449.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="289.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
+         <Label fx:id="buyvalue1" layoutX="151.0" layoutY="289.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="449.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
+         <Label fx:id="buyvalue5" layoutX="151.0" layoutY="449.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="329.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
+         <Label fx:id="buyvalue2" layoutX="151.0" layoutY="329.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="409.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
+         <Label fx:id="buyvalue4" layoutX="151.0" layoutY="409.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
             </font>
          </Label>
-         <Label layoutX="151.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" text="8963147" textFill="#ededed">
+         <Label fx:id="buyvalue3" layoutX="151.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
             <font>
                <Font size="16.0" />
+            </font>
+         </Label>
+         <Label fx:id="warning" layoutX="229.0" layoutY="288.0" textFill="#fca311">
+            <font>
+               <Font size="18.0" />
             </font>
          </Label>
       </children>

@@ -17,7 +17,8 @@ public class BuyController {
     private Button Buybtn;
     @FXML
     private Button Sellbtn;
-    String status;
+    String status = "sell";
+
     @FXML
     private Button confirmbtn;
     @FXML

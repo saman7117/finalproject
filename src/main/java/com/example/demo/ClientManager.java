@@ -65,7 +65,8 @@ public class ClientManager implements Runnable {
             //add "this" to Server "clientsMap" HashMap
             serverHolder.addClientManager(name,this);
 
-
+            ArrayList <StockQueue> BUY = new ArrayList<>();
+            ArrayList <StockQueue> SELL = new ArrayList<>();
             while (true) {
                 // read command from client
                 String command = reader.readLine();
@@ -88,6 +89,32 @@ public class ClientManager implements Runnable {
                     else
                         stockQueue.SB = true;
                     test.add(stockQueue);
+                }
+                else if(command.equals("s")){
+                    BUY.clear();
+                    SELL.clear();
+                    String type = reader.readLine();
+                    for (int i = 0; i < test.size(); i++) {
+                        if (test.get(i).type.equals(type)){
+                            if (test.get(i).SB)
+                                BUY.add(test.get(i));
+                            else
+                                SELL.add(test.get(i));
+                        }
+                    }
+                    if (BUY.size() > 0) {
+                        writer.println("buy");
+                        objectOutputStream.writeObject(BUY);
+                    }
+                    else
+                        writer.println("nobuy");
+                    if (SELL.size() > 0) {
+                        writer.println("sell");
+                        objectOutputStream.writeObject(SELL);
+                    }
+                    else
+                        writer.println("nosell");
+                    System.out.println("###################################################");
                 }
             }
         }
