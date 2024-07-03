@@ -20,16 +20,16 @@
                         <Font size="14.0" />
                     </font>
                 </TextField>
-            <TextField fx:id="price" alignment="CENTER_RIGHT" layoutX="321.0" layoutY="47.0" prefHeight="33.0" prefWidth="205.0" promptText="قیمت" style="-fx-background-color: #1e2329; -fx-border-color: #fca311; -fx-border-radius: 10;" styleClass="mytextfield" stylesheets="@Swap.css">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <Text fill="#fca311" layoutX="141.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="مقدار و قیمت مورد نظر را وارد کنید">
-               <font>
-                  <Font name="B Nazanin" size="26.0" />
-               </font>
-            </Text>
+                <TextField fx:id="price" alignment="CENTER_RIGHT" layoutX="321.0" layoutY="47.0" prefHeight="33.0" prefWidth="205.0" promptText="قیمت" style="-fx-background-color: #1e2329; -fx-border-color: #fca311; -fx-border-radius: 10;" styleClass="mytextfield" stylesheets="@Swap.css">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Text fill="#fca311" layoutX="141.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="مقدار و قیمت مورد نظر را وارد کنید">
+                    <font>
+                        <Font name="B Nazanin" size="26.0" />
+                    </font>
+                </Text>
             </children>
         </AnchorPane>
         <Button fx:id="confirmbtn" layoutX="16.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#setServerArraylist" prefHeight="46.0" prefWidth="567.0" style="-fx-background-color: #fca311; -fx-background-radius: 7;" text="تایید" textFill="#191a1f">
@@ -82,24 +82,24 @@
                 <Font size="14.0" />
             </font>
         </Label>
-      <Button fx:id="Sellbtn" layoutX="164.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#setButtontoSell" prefHeight="46.0" prefWidth="142.0" style="-fx-background-color: #fca311;" text="فروش" textFill="#191a1f" />
-      <Button fx:id="Buybtn" layoutX="306.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#setButtontoBuy" prefHeight="46.0" prefWidth="142.0" style="-fx-background-color: #191a1f; -fx-border-color: #fca311; -fx-border-width: 2;" text="خرید" textFill="#fca311" />
-      <Text fill="DARKGRAY" layoutX="14.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 درصد">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-          <MenuButton fx:id="frommenu" layoutX="222.0" layoutY="182.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="154.0" style="-fx-background-color: #191a1f;" text="USD" textFill="#fca311">
-              <items>
-                  <MenuItem fx:id="USDitem" mnemonicParsing="false" onAction="#setmenutexttoUSD" text="USD" />
-                  <MenuItem fx:id="TMNitem" mnemonicParsing="false" onAction="#setmenutexttoTMN" text="Toman" />
-                  <MenuItem fx:id="EURitem" mnemonicParsing="false" onAction="#setmenutexttoEUR" text="EUR" />
-                  <MenuItem fx:id="YENitem" mnemonicParsing="false" onAction="#setmenutexttoYEN" text="YEN" />
-                  <MenuItem fx:id="GBTitem" mnemonicParsing="false" onAction="#setmenutexttoGBT" text="GBT" />
-              </items>
-              <font>
-                  <Font size="18.0" />
-              </font>
-          </MenuButton>
+        <Button fx:id="Sellbtn" layoutX="164.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#setButtontoSell" prefHeight="46.0" prefWidth="142.0" style="-fx-background-color: #fca311;" text="فروش" textFill="#191a1f" />
+        <Button fx:id="Buybtn" layoutX="306.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#setButtontoBuy" prefHeight="46.0" prefWidth="142.0" style="-fx-background-color: #191a1f; -fx-border-color: #fca311; -fx-border-width: 2;" text="خرید" textFill="#fca311" />
+        <Text fill="DARKGRAY" layoutX="14.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 درصد">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <MenuButton fx:id="frommenu" layoutX="222.0" layoutY="182.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="154.0" style="-fx-background-color: #191a1f;" text="USD" textFill="#fca311">
+            <items>
+                <MenuItem fx:id="USDitem" mnemonicParsing="false" onAction="#setmenutexttoUSD" text="USD" />
+                <MenuItem fx:id="TMNitem" mnemonicParsing="false" onAction="#setmenutexttoTMN" text="Toman" />
+                <MenuItem fx:id="EURitem" mnemonicParsing="false" onAction="#setmenutexttoEUR" text="EUR" />
+                <MenuItem fx:id="YENitem" mnemonicParsing="false" onAction="#setmenutexttoYEN" text="YEN" />
+                <MenuItem fx:id="GBTitem" mnemonicParsing="false" onAction="#setmenutexttoGBT" text="GBT" />
+            </items>
+            <font>
+                <Font size="18.0" />
+            </font>
+        </MenuButton>
     </children>
 </AnchorPane>

@@ -43,10 +43,7 @@ public class Client3 {
             writer = new PrintWriter(toServerStream, true);
             objectInputStream = new ObjectInputStream(mSocket.getInputStream());
             objectOutputStream = new ObjectOutputStream(mSocket.getOutputStream());
-            datas.MainWriter = writer;
-            datas.MainReader = reader;
-            datas.objectMainReader = objectInputStream;
-            datas.objectMainWriter = objectOutputStream;
+
 
             // first : read server message
 //            String msg = reader.readLine();

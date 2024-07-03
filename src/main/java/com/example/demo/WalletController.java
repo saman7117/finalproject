@@ -55,11 +55,20 @@ public class WalletController implements Initializable{
     private Label YENval;
     private volatile boolean stop = false;
     String timenow;
+    public void toHomePage() throws IOException{
+        Stage stage = (Stage)Tomanval.getScene().getWindow();
+        stage.close();
+        FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
+        Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+        stage.setTitle("Raze Exchange");
+        stage.setScene(registerScene);
+        stage.show();
+    }
     public void toProfile() throws IOException {//:(
         Stage stage = (Stage)Tomanval.getScene().getWindow();
         stage.close();
         FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Profile.fxml"));
-        Scene registerScene = new Scene(registerLoader.load(), 800, 600);
+        Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
         stage.setTitle("Raze Exchange");
         stage.setScene(registerScene);
         stage.show();
@@ -67,7 +76,7 @@ public class WalletController implements Initializable{
     public void toSwap() throws IOException {//:(
         Stage stage = new Stage();
         FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Swap.fxml"));
-        Scene registerScene = new Scene(registerLoader.load(), 800, 600);
+        Scene registerScene = new Scene(registerLoader.load(), 600, 600);
         stage.setTitle("Raze Exchange");
         stage.setScene(registerScene);
         stage.show();
@@ -75,7 +84,7 @@ public class WalletController implements Initializable{
     public void toTransfer() throws IOException {//:(
         Stage stage = new Stage();
         FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Transfer.fxml"));
-        Scene registerScene = new Scene(registerLoader.load(), 800, 600);
+        Scene registerScene = new Scene(registerLoader.load(), 600, 600);
         stage.setTitle("Raze Exchange");
         stage.setScene(registerScene);
         stage.show();

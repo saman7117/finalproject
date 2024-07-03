@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
+import java.sql.*;
+
 public class SwapController {
     @FXML
     private TextField fromvalue;
@@ -89,13 +91,20 @@ public class SwapController {
         return a;
     }
 
-    public void Confirm(){
+    public void Confirm() throws SQLException {
         boolean flag = false;
+        Connection connection;
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+
         if (frommenu.getText().equals("USD")){
-            if (datas.USD >= Double.parseDouble(fromvalue.getText())){
+            if (datas.USD >= Double.parseDouble(fromvalue.getText()) && datas.total >= (Double.parseDouble(fromvalue.getText()) * datas.USDPrice) / 100 ){
                 if(tomenu.getText().equals("Toman")){
                     datas.USD -= Double.parseDouble(fromvalue.getText());
                     datas.TMN += Double.parseDouble(tovalue.getText());
+                    double adminmoney = resultSet.getDouble("Money")
+                    String s1 = "UPDATE users SET Money='" + String.valueOf(datas.USD) + "' WHERE role='" + "admin" + "'";
                 }
                 else if(tomenu.getText().equals("YEN")){
                     datas.USD -= Double.parseDouble(fromvalue.getText());

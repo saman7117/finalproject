@@ -14,7 +14,7 @@
    <children>
       <AnchorPane prefHeight="80.0" prefWidth="1536.0" style="-fx-background-color: #191a1f; -fx-border-width: 2px; -fx-border-radius: 25px;">
          <children>
-            <ImageView fitHeight="71.0" fitWidth="200.0" layoutX="1388.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="71.0" fitWidth="200.0" layoutX="1388.0" layoutY="5.0" onMouseClicked="#toHomePage" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@logo2.jpg" />
                </image>
@@ -201,7 +201,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button onMouseClicked="#toTransfer" fx:id="GBTtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+            <Button fx:id="GBTtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#toTransfer" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>
@@ -306,7 +306,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button onMouseClicked="#toTransfer" fx:id="USDtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+            <Button fx:id="USDtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#toTransfer" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>
@@ -411,7 +411,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button onMouseClicked="#toTransfer" fx:id="EURtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+            <Button fx:id="EURtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#toTransfer" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>
@@ -516,7 +516,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button onMouseClicked="#toTransfer" fx:id="YENtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
+            <Button fx:id="YENtransfer" layoutX="176.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#toTransfer" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: #ef233c;" text="ارسال" textFill="WHITE">
                <font>
                   <Font name="B Nazanin" size="18.0" />
                </font>

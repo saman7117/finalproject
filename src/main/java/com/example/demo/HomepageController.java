@@ -48,6 +48,8 @@ public class HomepageController implements Initializable{
     private Label date;
     @FXML
     private Button profile;
+    @FXML
+    private Label tag;
 
 
     private static int eee = 1;
@@ -76,6 +78,7 @@ public class HomepageController implements Initializable{
         minPriceColumn.setCellValueFactory(new PropertyValueFactory<Stock , Double>("minPrice"));
 
         tableView.setItems(stocks);
+        tag.setText(datas.username);
         setData();
         showTime();
         showDate();
@@ -101,7 +104,7 @@ public class HomepageController implements Initializable{
                     }else if (((Stock) selectedItem).getMarket().equals("TMN")) {
                         TokenController tokenController = loader.getController();
                         tokenController.setFlagImage("src/main/resources/com/example/demo/iran.png");
-                        tokenController.setTokenname("TMN");
+                        tokenController.setTokenname("Toman");
                     }else if (((Stock) selectedItem).getMarket().equals("GBP")) {
                         TokenController tokenController = loader.getController();
                         tokenController.setFlagImage("src/main/resources/com/example/demo/gbt.png");
@@ -197,8 +200,6 @@ public class HomepageController implements Initializable{
                 }
             });
             thread.start();
-
-
         }
     private void showDate(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE , MMM dd/yyyy");

@@ -63,6 +63,16 @@ public class ProfileController implements Initializable {
         stage.show();
     }
 
+    public void toHomePage() throws IOException{
+        Stage stage = (Stage)name.getScene().getWindow();
+        stage.close();
+        FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
+        Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+        stage.setTitle("Raze Exchange");
+        stage.setScene(registerScene);
+        stage.show();
+    }
+
     public void showTime(){
         Thread thread = new Thread(() -> {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss a");

@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class BuyController {
@@ -39,7 +40,7 @@ public class BuyController {
         frommenu.setText("YEN");
     }
     public void setmenutexttoGBT(){
-        frommenu.setText("GBT");
+        frommenu.setText("GBP");
     }
 
     public void setButtontoSell(){
@@ -62,7 +63,7 @@ public class BuyController {
         status = "buy";
     }
 
-    public void setServerArraylist() throws IOException, ClassNotFoundException {
+    public void setServerArraylist() throws IOException, ClassNotFoundException, SQLException {
         Alert alert = new Alert(Alert.AlertType.NONE);
         if (value.getText().equals(null) || price.getText().equals(null)){
             alert.setAlertType(Alert.AlertType.ERROR);
@@ -113,19 +114,63 @@ public class BuyController {
             alert.showAndWait();
         }
         else {
-            datas.MainWriter.println("e");
-            datas.MainWriter.println("f");
-            datas.MainWriter.println(frommenu.getText());
-            datas.MainWriter.println(status);
-            datas.MainWriter.println(value.getText());
-            datas.MainWriter.println(price.getText());
             alert.setAlertType(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmed");
             alert.setHeaderText("موفقیت ");
-            if (status.equals("sell"))
+            java.sql.Connection connection;
+            if (status.equals("sell")) {
+                try {
+                    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+                    Statement statement = connection.createStatement();
+                    statement.executeUpdate("INSERT INTO selltable (Type , Amount , Price , Trader) VALUES ('"+ frommenu.getText() +"','" + Double.parseDouble(value.getText()) + "','" + Double.parseDouble(price.getText()) + "','" + datas.username + "')");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+                if (frommenu.getText().equals("USD")){
+                    datas.USD -= Double.parseDouble(value.getText());
+                    String s1 = "UPDATE users SET USD='" + String.valueOf(datas.USD) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+                }
+                else if (frommenu.getText().equals("YEN")){
+                    datas.YEN -= Double.parseDouble(value.getText());
+
+                    String s1 = "UPDATE users SET YEN='" + String.valueOf(datas.YEN) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+                } else if (frommenu.getText().equals("GBP")) {
+                    datas.GBT -= Double.parseDouble(value.getText());
+                    String s1 = "UPDATE users SET GBT='" + String.valueOf(datas.GBT) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+                } else if (frommenu.getText().equals("EUR")) {
+                    datas.EUR -= Double.parseDouble(value.getText());
+                    String s1 = "UPDATE users SET EUR='" + String.valueOf(datas.EUR) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+                }
+                else if (frommenu.getText().equals("Toman")) {
+                    datas.TMN -= Double.parseDouble(value.getText());
+                    String s1 = "UPDATE users SET TMN='" + String.valueOf(datas.TMN) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+                }
                 alert.setContentText("سفارش فروش با موفقیت ثبت شد");
-            else
+            }
+            else {
+                try {
+                    connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+                    Statement statement = connection.createStatement();
+                    statement.executeUpdate("INSERT INTO buytable (Type , Amount , Price , Trader) VALUES ('"+ frommenu.getText() +"','" + Double.parseDouble(value.getText()) + "','" + Double.parseDouble(price.getText()) + "','" + datas.username + "')");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+                datas.total -= Double.parseDouble(value.getText()) * Double.parseDouble(price.getText());
+                String s1 = "UPDATE users SET Money='" + String.valueOf(datas.total) + "' WHERE fullname='" + datas.username + "'";
+                statement.executeUpdate(s1);
                 alert.setContentText("سفارش خرید با موفقیت ثبت شد");
+            }
             alert.show();
             Stage stage = (Stage)frommenu.getScene().getWindow();
             stage.close();

@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -24,10 +25,10 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="500.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: white;">
+      <AnchorPane layoutX="500.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fca311;">
          <children>
-            <TextField fx:id="userfield" focusTraversable="false" layoutX="32.0" layoutY="273.0" prefHeight="26.0" prefWidth="445.0" promptText="Username" />
-            <PasswordField fx:id="passfield" focusTraversable="false" layoutX="32.0" layoutY="320.0" prefHeight="26.0" prefWidth="446.0" promptText="Password" />
+            <TextField fx:id="userfield" focusTraversable="false" layoutX="32.0" layoutY="273.0" prefHeight="26.0" prefWidth="445.0" promptText="Username" style="-fx-background-color: #191a1f; -fx-background-radius: 10;" />
+            <PasswordField fx:id="passfield" focusTraversable="false" layoutX="32.0" layoutY="316.0" prefHeight="26.0" prefWidth="446.0" promptText="Password" style="-fx-background-color: #191a1f; -fx-background-radius: 10;" />
             <Text layoutX="150.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="48.0" />
@@ -48,17 +49,17 @@
                   <Image url="@username.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="9.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="9.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@lock.png" />
                </image>
             </ImageView>
-            <Label fx:id="welcomeText" layoutX="35.0" layoutY="407.0" text="Forget your Password?">
+            <Label fx:id="welcomeText" layoutX="77.0" layoutY="407.0" text="Forget your Password?">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Button fx:id="loginbtn" layoutX="149.0" layoutY="451.0" mnemonicParsing="false" onMouseClicked="#goHomePage" prefHeight="62.0" prefWidth="200.0" style="-fx-background-color: #262626;" text="Login" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="loginbtn" layoutX="147.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#goHomePage" prefHeight="62.0" prefWidth="200.0" style="-fx-background-color: #262626;" text="Login" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -66,34 +67,53 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <effect>
-                  <DropShadow blurType="GAUSSIAN" height="32.69" radius="17.0175" width="37.38">
+                  <DropShadow blurType="GAUSSIAN" height="0.0" offsetX="5.0" offsetY="5.0" radius="0.0" spread="1.0" width="0.0">
                      <color>
-                        <Color red="0.3684210479259491" green="0.3670565187931061" blue="0.3670565187931061" />
+                        <Color red="0.5789473652839661" green="0.38660818338394165" blue="0.07719298452138901" />
                      </color>
                   </DropShadow>
                </effect>
             </Button>
-            <Label layoutX="240.0" layoutY="524.0" text="or">
+            <Label layoutX="240.0" layoutY="503.0" text="or">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="548.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@g.jpg" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <Label fx:id="RegisterLink" layoutX="321.0" layoutY="407.0" onMouseClicked="#onHelloButtonClick" text="don't have account ? Register">
+            <Label fx:id="RegisterLink" layoutX="294.0" layoutY="407.0" onMouseClicked="#onHelloButtonClick" text="don't have account ? Register">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
             <Label fx:id="warn" alignment="CENTER" layoutX="168.0" layoutY="425.0" prefHeight="20.0" prefWidth="157.0" textFill="RED" />
-            <Label fx:id="captchalabel" alignment="CENTER" layoutX="166.0" layoutY="355.0" prefHeight="26.0" prefWidth="150.0" text="Label" textFill="#262626" />
-            <TextField fx:id="captchafield" focusTraversable="false" layoutX="170.0" layoutY="381.0" prefHeight="18.0" prefWidth="158.0" promptText="Enter the CAPTCHA code" />
+            <Label fx:id="captchalabel" alignment="CENTER" layoutX="265.0" layoutY="357.0" prefHeight="43.0" prefWidth="214.0" style="-fx-background-color: #191a1f; -fx-background-radius: 5;" text="Label" textAlignment="CENTER" textFill="#fca311">
+               <font>
+                  <Font name="MV Boli" size="24.0" />
+               </font></Label>
+            <TextField fx:id="captchafield" alignment="CENTER" focusTraversable="false" layoutX="33.0" layoutY="357.0" prefHeight="43.0" prefWidth="214.0" promptText="Enter the CAPTCHA code" style="-fx-background-color: #191a1f;" />
+            <Line endX="100.0" layoutX="239.0" layoutY="442.0" startX="-85.60003662109375" startY="-3.0517578125E-5" stroke="#fca311" strokeWidth="2.0" />
+            <Line endX="100.0" layoutX="239.0" layoutY="492.0" startX="-85.60003662109375" startY="-3.0517578125E-5" stroke="#fca311" strokeWidth="2.0" />
+            <Line endX="-97.0142822265625" endY="-58.585784912109375" layoutX="249.0" layoutY="502.0" startX="-97.0142822265625" startY="-10.800018310546875" stroke="#fca311" strokeWidth="2.0" />
+            <Line endX="-97.0142822265625" endY="-58.585784912109375" layoutX="437.0" layoutY="501.0" startX="-97.0142822265625" startY="-10.800018310546875" stroke="#fca311" strokeWidth="2.0" />
+            <Button fx:id="demobtn" layoutX="148.0" layoutY="523.0" mnemonicParsing="false" onMouseClicked="#goHomePage" prefHeight="62.0" prefWidth="200.0" style="-fx-background-color: #262626;" text="demo" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="0.0" offsetX="5.0" offsetY="5.0" radius="0.0" spread="1.0" width="0.0">
+                     <color>
+                        <Color red="0.5789473652839661" green="0.38660818338394165" blue="0.07719298452138901" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label fx:id="warn1" alignment="CENTER" layoutX="35.0" layoutY="253.0" prefHeight="20.0" prefWidth="157.0" textFill="RED" />
+            <Line endX="100.0" layoutX="240.0" layoutY="530.0" startX="-85.60003662109375" startY="-3.0517578125E-5" stroke="#fca311" strokeWidth="2.0" />
+            <Line endX="100.0" layoutX="240.0" layoutY="580.0" startX="-85.60003662109375" startY="-3.0517578125E-5" stroke="#fca311" strokeWidth="2.0" />
+            <Line endX="-97.0142822265625" endY="-58.585784912109375" layoutX="250.0" layoutY="590.0" startX="-97.0142822265625" startY="-10.800018310546875" stroke="#fca311" strokeWidth="2.0" />
+            <Line endX="-97.0142822265625" endY="-58.585784912109375" layoutX="438.0" layoutY="589.0" startX="-97.0142822265625" startY="-10.800018310546875" stroke="#fca311" strokeWidth="2.0" />
          </children>
       </AnchorPane>
    </children>

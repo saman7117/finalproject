@@ -18,8 +18,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Date;
 
 public class TokenController implements Initializable {
     @FXML
@@ -83,6 +85,26 @@ public class TokenController implements Initializable {
     @FXML
     private Label buyvalue1;
     @FXML
+    private Label buyNum5;
+    @FXML
+    private Label buyNum4;
+    @FXML
+    private Label buyNum3;
+    @FXML
+    private Label buyNum2;
+    @FXML
+    private Label buyNum1;
+    @FXML
+    private Label sellNum5;
+    @FXML
+    private Label sellNum4;
+    @FXML
+    private Label sellNum3;
+    @FXML
+    private Label sellNum2;
+    @FXML
+    private Label sellNum1;
+    @FXML
     private Label warning;
 
     private static int sss = 0;
@@ -127,6 +149,8 @@ public class TokenController implements Initializable {
                             throw new RuntimeException(e);
                         } catch (ClassNotFoundException e) {
                             throw new RuntimeException(e);
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
                         }
                         chart.getData().add(new XYChart.Series<>());
                         lastMinute = currentMinute;
@@ -156,7 +180,7 @@ public class TokenController implements Initializable {
             minprice.setText(String.valueOf(datas.USDMIN));
             currentprice.setText(String.valueOf(datas.USDPrice));
         }
-        else if (Tokenname.getText().equals("TMN")) {
+        else if (Tokenname.getText().equals("Toman")) {
             maxprice.setText(String.valueOf(datas.TMNMAX));
             minprice.setText(String.valueOf(datas.TMNMIN));
             currentprice.setText(String.valueOf(datas.TMNPrice));
@@ -278,127 +302,201 @@ public class TokenController implements Initializable {
             stage.show();
         }
 
-        public void updateOrders() throws IOException, ClassNotFoundException {
-            buyprice1.setText("");
-            buyprice2.setText("");
-            buyprice3.setText("");
-            buyprice4.setText("");
-            buyprice5.setText("");
-            sellprice1.setText("");
-            sellprice2.setText("");
-            sellprice3.setText("");
-            sellprice4.setText("");
-            sellprice5.setText("");
-            buyvalue1.setText("");
-            buyvalue2.setText("");
-            buyvalue3.setText("");
-            buyvalue4.setText("");
-            buyvalue5.setText("");
-            sellvalue1.setText("");
-            sellvalue2.setText("");
-            sellvalue3.setText("");
-            sellvalue4.setText("");
-            sellvalue5.setText("");
-            datas.MainWriter.println("s");
-            datas.MainWriter.println(Tokenname.getText());
-            ArrayList<StockQueue> buyorder = new ArrayList<>();
-            ArrayList<StockQueue> sellorder = new ArrayList<>();
-            String line = datas.MainReader.readLine();
-            if (line.equals("buy")) {
-                buyorder = (ArrayList<StockQueue>) datas.objectMainReader.readObject();
-                Collections.sort(buyorder);
-            }
-            line = datas.MainReader.readLine();
-           if (line.equals("sell")){
-                sellorder = (ArrayList<StockQueue>) datas.objectMainReader.readObject();
-                Collections.sort(sellorder);
-            }
-            if(buyorder.size()==0 && sellorder.size()==0)
-                warning.setText("هیچ سفارشی ثبت نشده");
-            else {
-                warning.setText("");
-                System.out.println(buyorder.size());
-                System.out.println(sellorder.size());
-                if(buyorder.size() == 1){
-                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
-                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
-                }
-                else if(buyorder.size() == 2){
-                    buyvalue2.setText(String.valueOf(buyorder.get(1).value));
-                    buyprice2.setText(String.valueOf(buyorder.get(1).price));
-                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
-                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
-                }
-                else if(buyorder.size() == 3){
-                    buyvalue3.setText(String.valueOf(buyorder.get(2).value));
-                    buyprice3.setText(String.valueOf(buyorder.get(2).price));
-                    buyvalue2.setText(String.valueOf(buyorder.get(1).value));
-                    buyprice2.setText(String.valueOf(buyorder.get(1).price));
-                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
-                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
-                }
-                else if(buyorder.size() == 4){
-                    buyvalue4.setText(String.valueOf(buyorder.get(3).value));
-                    buyprice4.setText(String.valueOf(buyorder.get(3).price));
-                    buyvalue3.setText(String.valueOf(buyorder.get(2).value));
-                    buyprice3.setText(String.valueOf(buyorder.get(2).price));
-                    buyvalue2.setText(String.valueOf(buyorder.get(1).value));
-                    buyprice2.setText(String.valueOf(buyorder.get(1).price));
-                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
-                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
-                }
-                else if(buyorder.size() >= 5){
-                    buyvalue5.setText(String.valueOf(buyorder.get(4).value));
-                    buyprice5.setText(String.valueOf(buyorder.get(4).price));
-                    buyvalue4.setText(String.valueOf(buyorder.get(3).value));
-                    buyprice4.setText(String.valueOf(buyorder.get(3).price));
-                    buyvalue3.setText(String.valueOf(buyorder.get(2).value));
-                    buyprice3.setText(String.valueOf(buyorder.get(2).price));
-                    buyvalue2.setText(String.valueOf(buyorder.get(1).value));
-                    buyprice2.setText(String.valueOf(buyorder.get(1).price));
-                    buyvalue1.setText(String.valueOf(buyorder.get(0).value));
-                    buyprice1.setText(String.valueOf(buyorder.get(0).price));
-                }
-                if(sellorder.size() == 1){
-                    sellvalue5.setText(String.valueOf(sellorder.get(0).value));
-                    sellprice5.setText(String.valueOf(sellorder.get(0).price));
-                }
-                else if(sellorder.size() == 2){
-                    sellvalue5.setText(String.valueOf(sellorder.get(1).value));
-                    sellprice5.setText(String.valueOf(sellorder.get(1).price));
-                    sellvalue4.setText(String.valueOf(sellorder.get(0).value));
-                    sellprice4.setText(String.valueOf(sellorder.get(0).price));
-                }
-                else if(sellorder.size() == 3){
-                    sellvalue5.setText(String.valueOf(sellorder.get(2).value));
-                    sellprice5.setText(String.valueOf(sellorder.get(2).price));
-                    sellvalue4.setText(String.valueOf(sellorder.get(1).value));
-                    sellprice4.setText(String.valueOf(sellorder.get(1).price));
-                    sellvalue3.setText(String.valueOf(sellorder.get(0).value));
-                    sellprice3.setText(String.valueOf(sellorder.get(0).price));
-                }
-                else if(sellorder.size() == 4){
-                    sellvalue5.setText(String.valueOf(sellorder.get(3).value));
-                    sellprice5.setText(String.valueOf(sellorder.get(3).price));
-                    sellvalue4.setText(String.valueOf(sellorder.get(2).value));
-                    sellprice4.setText(String.valueOf(sellorder.get(2).price));
-                    sellvalue3.setText(String.valueOf(sellorder.get(1).value));
-                    sellprice3.setText(String.valueOf(sellorder.get(1).price));
-                    sellvalue2.setText(String.valueOf(sellorder.get(0).value));
-                    sellprice2.setText(String.valueOf(sellorder.get(0).price));
-                }
-                else if(sellorder.size() >= 5){
-                    sellvalue5.setText(String.valueOf(sellorder.get(4).value));
-                    sellprice5.setText(String.valueOf(sellorder.get(4).price));
-                    sellvalue4.setText(String.valueOf(sellorder.get(3).value));
-                    sellprice4.setText(String.valueOf(sellorder.get(3).price));
-                    sellvalue3.setText(String.valueOf(sellorder.get(2).value));
-                    sellprice3.setText(String.valueOf(sellorder.get(2).price));
-                    sellvalue2.setText(String.valueOf(sellorder.get(1).value));
-                    sellprice2.setText(String.valueOf(sellorder.get(1).price));
-                    sellvalue1.setText(String.valueOf(sellorder.get(0).value));
-                    sellprice1.setText(String.valueOf(sellorder.get(0).price));
+        public void updateOrders() throws IOException, ClassNotFoundException, SQLException {
+            Connection connection;
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM selltable");
+            int checknum = 0;
+            while (resultSet.next()){
+                if (checknum == 5)
+                    break;
+                if(resultSet.getString("Type").equals(Tokenname.getText())) {
+                    String amount = (resultSet.getString("Amount"));
+                    String price = (resultSet.getString("Price"));
+                    if (checknum == 0) {
+                        sellNum1.setText("1");
+                        sellvalue1.setText(amount);
+                        sellprice1.setText(price);
+                        checknum ++;
+                    } else if (checknum == 1) {
+                        if (price.equals(sellprice1.getText())){
+                            sellvalue1.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue1.getText())));
+                            sellNum1.setText(String.valueOf(Double.parseDouble(sellNum1.getText())+1));
+                        }
+                        else {
+                            sellNum2.setText("1");
+                            sellvalue2.setText(amount);
+                            sellprice2.setText(price);
+                            checknum ++;
+                        }
+                    } else if (checknum == 2) {
+                        if (price.equals(sellprice1.getText())){
+                            sellvalue1.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue1.getText())));
+                            sellNum1.setText(String.valueOf(Double.parseDouble(sellNum1.getText())+1));
+                        }
+                        else if (price.equals(sellprice2.getText())){
+                            sellvalue2.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue2.getText())));
+                            sellNum2.setText(String.valueOf(Double.parseDouble(sellNum2.getText())+1));
+                        }
+                        else {
+                            sellNum3.setText("1");
+                            sellvalue3.setText(amount);
+                            sellprice3.setText(price);
+                            checknum ++;
+                        }
+                    } else if (checknum == 3) {
+                        if (price.equals(sellprice1.getText())){
+                            sellvalue1.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue1.getText())));
+                            sellNum1.setText(String.valueOf(Double.parseDouble(sellNum1.getText())+1));
+                        }
+                        else if (price.equals(sellprice2.getText())){
+                            sellvalue2.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue2.getText())));
+                            sellNum2.setText(String.valueOf(Double.parseDouble(sellNum2.getText())+1));
+                        }
+                        else if (price.equals(sellprice3.getText())){
+                            sellvalue3.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue3.getText())));
+                            sellNum3.setText(String.valueOf(Double.parseDouble(sellNum3.getText())+1));
+                        }
+                        else {
+                            sellNum4.setText("1");
+                            sellvalue4.setText(amount);
+                            sellprice4.setText(price);
+                        }
+                    } else if (checknum == 4) {
+                        if (price.equals(sellprice1.getText())){
+                            sellvalue1.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue1.getText())));
+                            sellNum1.setText(String.valueOf(Double.parseDouble(sellNum1.getText())+1));
+                        }
+                        else if (price.equals(sellprice2.getText())){
+                            sellvalue2.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue2.getText())));
+                            sellNum2.setText(String.valueOf(Double.parseDouble(sellNum2.getText())+1));
+                        }
+                        else if (price.equals(sellprice3.getText())){
+                            sellvalue3.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue3.getText())));
+                            sellNum3.setText(String.valueOf(Double.parseDouble(sellNum3.getText())+1));
+                        }
+                        else if (price.equals(sellprice4.getText())){
+                            sellvalue4.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(sellvalue4.getText())));
+                            sellNum4.setText(String.valueOf(Double.parseDouble(sellNum4.getText())+1));
+                        }
+                        else {
+                            sellNum5.setText("1");
+                            sellvalue5.setText(amount);
+                            sellprice5.setText(price);
+                        }
+                    }
                 }
             }
+            checknum = 0;
+            resultSet = statement.executeQuery("SELECT * FROM buytable");
+            while (resultSet.next()){
+                if (checknum == 5)
+                    break;
+                if(resultSet.getString("Type").equals(Tokenname.getText())) {
+                    String amount = (resultSet.getString("Amount"));
+                    String price = (resultSet.getString("Price"));
+                    if (checknum == 0) {
+                        buyNum1.setText("1");
+                        buyvalue1.setText(amount);
+                        buyprice1.setText(price);
+                        checknum ++;
+                    } else if (checknum == 1) {
+                        if (price.equals(buyprice1.getText())){
+                            buyvalue1.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue1.getText())));
+                            buyNum1.setText(String.valueOf(Double.parseDouble(buyNum1.getText())+1));
+                        }
+                        else {
+                            buyNum2.setText("1");
+                            buyvalue2.setText(amount);
+                            buyprice2.setText(price);
+                            checknum ++;
+                        }
+                    } else if (checknum == 2) {
+                        if (price.equals(buyprice1.getText())){
+                            buyvalue1.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue1.getText())));
+                            buyNum1.setText(String.valueOf(Double.parseDouble(buyNum1.getText())+1));
+                        }
+                        else if (price.equals(buyprice2.getText())){
+                            buyvalue2.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue2.getText())));
+                            buyNum2.setText(String.valueOf(Double.parseDouble(buyNum2.getText())+1));
+                        }
+                        else {
+                            buyNum3.setText("1");
+                            buyvalue3.setText(amount);
+                            buyprice3.setText(price);
+                            checknum ++;
+                        }
+                    } else if (checknum == 3) {
+                        if (price.equals(buyprice1.getText())){
+                            buyvalue1.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue1.getText())));
+                            buyNum1.setText(String.valueOf(Double.parseDouble(buyNum1.getText())+1));
+                        }
+                        else if (price.equals(buyprice2.getText())){
+                            buyvalue2.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue2.getText())));
+                            buyNum2.setText(String.valueOf(Double.parseDouble(buyNum2.getText())+1));
+                        }
+                        else if (price.equals(buyprice3.getText())){
+                            buyvalue3.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue3.getText())));
+                            buyNum3.setText(String.valueOf(Double.parseDouble(buyNum3.getText())+1));
+                        }
+                        else {
+                            buyNum4.setText("1");
+                            buyvalue4.setText(amount);
+                            buyprice4.setText(price);
+                        }
+                    } else if (checknum == 4) {
+                        if (price.equals(buyprice1.getText())){
+                            buyvalue1.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue1.getText())));
+                            buyNum1.setText(String.valueOf(Double.parseDouble(buyNum1.getText())+1));
+                        }
+                        else if (price.equals(buyprice2.getText())){
+                            buyvalue2.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue2.getText())));
+                            buyNum2.setText(String.valueOf(Double.parseDouble(buyNum2.getText())+1));
+                        }
+                        else if (price.equals(buyprice3.getText())){
+                            buyvalue3.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue3.getText())));
+                            buyNum3.setText(String.valueOf(Double.parseDouble(buyNum3.getText())+1));
+                        }
+                        else if (price.equals(buyprice4.getText())){
+                            buyvalue4.setText(String.valueOf(Double.parseDouble(amount) + Double.parseDouble(buyvalue4.getText())));
+                            buyNum4.setText(String.valueOf(Double.parseDouble(buyNum4.getText())+1));
+                        }
+                        else {
+                            buyNum5.setText("1");
+                            buyvalue5.setText(amount);
+                            buyprice5.setText(price);
+                        }
+                    }
+                }
+            }
+        }
+        public void matchOrders() throws SQLException {
+            double minsell = 100000000;
+            double maxbuy = -1;
+            if (Double.parseDouble(buyprice1.getText()) >= maxbuy)
+                maxbuy = Double.parseDouble(buyprice1.getText());
+            if (Double.parseDouble(buyprice2.getText()) >= maxbuy)
+                maxbuy = Double.parseDouble(buyprice2.getText());
+            if (Double.parseDouble(buyprice3.getText()) >= maxbuy)
+                maxbuy = Double.parseDouble(buyprice3.getText());
+            if (Double.parseDouble(buyprice4.getText()) >= maxbuy)
+                maxbuy = Double.parseDouble(buyprice4.getText());
+            if (Double.parseDouble(buyprice5.getText()) >= maxbuy)
+                maxbuy = Double.parseDouble(buyprice5.getText());
+
+
+            if (Double.parseDouble(sellprice1.getText()) <= minsell)
+                minsell = Double.parseDouble(sellprice1.getText());
+            if (Double.parseDouble(sellprice2.getText()) <= minsell)
+                minsell = Double.parseDouble(sellprice2.getText());
+            if (Double.parseDouble(sellprice3.getText()) <= minsell)
+                minsell = Double.parseDouble(sellprice3.getText());
+            if (Double.parseDouble(sellprice4.getText()) <= minsell)
+                minsell = Double.parseDouble(sellprice4.getText());
+            if (Double.parseDouble(sellprice5.getText()) <= minsell)
+                minsell = Double.parseDouble(sellprice5.getText());
+
+
         }
 }

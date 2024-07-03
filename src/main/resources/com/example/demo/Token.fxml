@@ -12,35 +12,36 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="864.0" prefWidth="1536.0" style="-fx-background-color: #191a1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.TokenController">
-    <AnchorPane layoutY="-2.0" prefHeight="85.0" prefWidth="1574.0" style="-fx-background-color: #191a1f; -fx-border-width: 2px; -fx-border-radius: 25px;">
-        <children>
-            <ImageView fitHeight="71.0" fitWidth="200.0" layoutX="1388.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@logo2.jpg" />
-                </image>
-            </ImageView>
-            <Button fx:id="profile" layoutX="1257.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#toProfile" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
-            <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#toWallet" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
-            <MenuButton alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
-                <items>
-                    <MenuItem mnemonicParsing="false" text="تبادل" />
-                    <MenuItem mnemonicParsing="false" onAction="#toTransfer" text="انتقال" />
-                    <MenuItem mnemonicParsing="false" onAction="#toSwap" text="معاوضه" />
-                </items>
-            </MenuButton>
-            <Button layoutX="855.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="تاریخچه" textFill="#ededed" />
-            <ImageView fitHeight="58.0" fitWidth="78.0" layoutX="11.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@Profile.png" />
-                </image>
-            </ImageView>
-            <Label layoutX="76.0" layoutY="23.0" prefHeight="35.0" prefWidth="194.0" style="-fx-text-fill: #f6b716;" text="saman007">
-                <font>
-                    <Font size="24.0" />
-                </font>
-            </Label>
+   <AnchorPane layoutY="-2.0" prefHeight="85.0" prefWidth="1574.0" style="-fx-background-color: #191a1f; -fx-border-width: 2px; -fx-border-radius: 25px;">
+      <children>
+         <ImageView fitHeight="71.0" fitWidth="200.0" layoutX="1388.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@logo2.jpg" />
+            </image>
+         </ImageView>
+         <Button fx:id="profile" layoutX="1257.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#toProfile" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
+         <Button layoutX="1122.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#toWallet" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="کیف پول" textFill="#ededed" />
+         <MenuButton alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="985.0" layoutY="22.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="101.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="خرید" textAlignment="RIGHT" textFill="#ededed">
+            <items>
+               <MenuItem mnemonicParsing="false" text="تبادل" />
+               <MenuItem mnemonicParsing="false" onAction="#toTransfer" text="انتقال" />
+               <MenuItem mnemonicParsing="false" onAction="#toSwap" text="معاوضه" />
+            </items>
+         </MenuButton>
+         <Button layoutX="855.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="تاریخچه" textFill="#ededed" />
+         <ImageView fitHeight="58.0" fitWidth="78.0" layoutX="11.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Profile.png" />
+            </image>
+         </ImageView>
+         <Label layoutX="76.0" layoutY="23.0" prefHeight="35.0" prefWidth="194.0" style="-fx-text-fill: #f6b716;" text="saman007">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Label>
          <Label fx:id="time" alignment="CENTER" layoutX="261.0" layoutY="16.0" prefHeight="63.0" prefWidth="126.0" textFill="#f1b514">
             <font>
                <Font size="16.0" />
@@ -52,8 +53,8 @@
             </font>
          </Label>
          <Button fx:id="profile1" layoutX="1267.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#toProfile" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #191a1f; -fx-font-size: 16;" text="پروفایل" textFill="#ededed" />
-        </children>
-    </AnchorPane>
+      </children>
+   </AnchorPane>
    <AnchorPane layoutX="6.0" layoutY="75.0" prefHeight="142.0" prefWidth="1551.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">
       <children>
          <ImageView fx:id="flag" fitHeight="128.0" fitWidth="124.0" layoutX="1401.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -119,135 +120,220 @@
       </children>
    </AnchorPane>
    <AnchorPane layoutY="236.0" prefHeight="550.0" prefWidth="867.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">
-       <stylesheets>
-           <URL value="@Token.css" />
-       </stylesheets>
+      <stylesheets>
+         <URL value="@Token.css" />
+      </stylesheets>
       <children>
          <LineChart fx:id="chart" layoutX="83.0" layoutY="31.0" prefHeight="502.0" prefWidth="672.0" style="-fx-background-color: #191a1f;">
-           <xAxis>
-             <CategoryAxis fx:id="category" side="BOTTOM" />
-           </xAxis>
-           <yAxis>
-             <NumberAxis fx:id="number" autoRanging="false" side="LEFT" />
-           </yAxis>
+            <xAxis>
+               <CategoryAxis fx:id="category" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis fx:id="number" autoRanging="false" side="LEFT" />
+            </yAxis>
          </LineChart>
       </children>
    </AnchorPane>
-   <AnchorPane layoutX="923.0" layoutY="236.0" prefHeight="557.0" prefWidth="598.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">
+   <AnchorPane layoutX="891.0" layoutY="237.0" prefHeight="252.0" prefWidth="635.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">
+      <stylesheets>
+         <URL value="@Token.css" />
+      </stylesheets>
       <children>
-         <Label alignment="CENTER" layoutX="379.0" layoutY="24.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="90.0" text="قیمت" textFill="#84898f">
+         <Text fill="#e06c5d" layoutX="570.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="فروش">
             <font>
-               <Font size="16.0" />
+               <Font name="B Nazanin" size="28.0" />
             </font>
-         </Label>
-         <Label layoutX="127.0" layoutY="24.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" text="مقدار" textFill="#84898f">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyprice3" layoutX="315.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyprice4" layoutX="315.0" layoutY="409.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellprice2" layoutX="315.0" layoutY="129.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyprice2" layoutX="315.0" layoutY="329.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellprice4" layoutX="315.0" layoutY="209.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellprice5" layoutX="315.0" layoutY="249.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellprice3" layoutX="315.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyprice1" layoutX="315.0" layoutY="289.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellprice1" layoutX="315.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#e06c5d">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellvalue1" layoutX="151.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellvalue2" layoutX="151.0" layoutY="129.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellvalue4" layoutX="151.0" layoutY="209.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellvalue5" layoutX="151.0" layoutY="249.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="sellvalue3" layoutX="151.0" layoutY="169.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyprice5" layoutX="315.0" layoutY="449.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="142.0" textFill="#30a18f">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyvalue1" layoutX="151.0" layoutY="289.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyvalue5" layoutX="151.0" layoutY="449.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyvalue2" layoutX="151.0" layoutY="329.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyvalue4" layoutX="151.0" layoutY="409.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="buyvalue3" layoutX="151.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="118.0" textFill="#ededed">
-            <font>
-               <Font size="16.0" />
-            </font>
-         </Label>
-         <Label fx:id="warning" layoutX="229.0" layoutY="288.0" textFill="#fca311">
+         </Text>
+         <Text fill="#84898f" layoutX="107.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="قیمت">
             <font>
                <Font size="18.0" />
+            </font>
+         </Text>
+         <Text fill="#84898f" layoutX="308.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="مقدار">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+         <Text fill="#84898f" layoutX="508.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="تعداد">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+         <Label fx:id="sellNum1" layoutX="505.0" layoutY="69.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellNum2" layoutX="505.0" layoutY="102.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellNum3" layoutX="505.0" layoutY="136.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellNum4" layoutX="505.0" layoutY="175.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellNum5" layoutX="505.0" layoutY="209.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellvalue1" layoutX="305.0" layoutY="65.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellvalue2" layoutX="305.0" layoutY="98.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellvalue3" layoutX="305.0" layoutY="132.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellvalue4" layoutX="305.0" layoutY="171.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellvalue5" layoutX="305.0" layoutY="207.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellprice1" layoutX="105.0" layoutY="65.0" textFill="#e06c5d">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellprice2" layoutX="105.0" layoutY="98.0" textFill="#e06c5d">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellprice3" layoutX="105.0" layoutY="132.0" textFill="#e06c5d">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellprice4" layoutX="105.0" layoutY="171.0" textFill="#e06c5d">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="sellprice5" layoutX="105.0" layoutY="207.0" textFill="#e06c5d">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+   <AnchorPane layoutX="891.0" layoutY="511.0" prefHeight="274.0" prefWidth="635.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">
+      <stylesheets>
+         <URL value="@Token.css" />
+      </stylesheets>
+      <children>
+         <Text fill="#30a18f" layoutX="579.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="خرید">
+            <font>
+               <Font name="B Nazanin" size="28.0" />
+            </font>
+         </Text>
+         <Text fill="#84898f" layoutX="108.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="قیمت">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+         <Text fill="#84898f" layoutX="309.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="مقدار">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+         <Text fill="#84898f" layoutX="509.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="تعداد">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+         <Label fx:id="buyNum1" layoutX="506.0" layoutY="76.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyNum2" layoutX="506.0" layoutY="109.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyNum3" layoutX="506.0" layoutY="143.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyNum4" layoutX="506.0" layoutY="182.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyNum5" layoutX="506.0" layoutY="216.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyvalue1" layoutX="306.0" layoutY="72.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyvalue2" layoutX="306.0" layoutY="105.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyvalue3" layoutX="306.0" layoutY="139.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyvalue4" layoutX="306.0" layoutY="178.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyvalue5" layoutX="306.0" layoutY="214.0" textFill="WHITE">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyprice1" layoutX="106.0" layoutY="72.0" textFill="#30a18f">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyprice2" layoutX="106.0" layoutY="105.0" textFill="#30a18f">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyprice3" layoutX="106.0" layoutY="139.0" textFill="#30a18f">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyprice4" layoutX="106.0" layoutY="178.0" textFill="#30a18f">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label fx:id="buyprice5" layoutX="106.0" layoutY="214.0" textFill="#30a18f">
+            <font>
+               <Font size="14.0" />
             </font>
          </Label>
       </children>

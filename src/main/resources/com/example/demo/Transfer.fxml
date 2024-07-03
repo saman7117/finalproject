@@ -14,7 +14,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #191a1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.TransferController">
     <children>
         <Label fx:id="warn" layoutX="351.0" layoutY="341.0" textFill="#ff9523" />
-        <Button fx:id="confirmbtn" layoutX="16.0" layoutY="534.0" mnemonicParsing="false" onMouseClicked="#Confirm" prefHeight="46.0" prefWidth="567.0" style="-fx-background-color: #fca311; -fx-background-radius: 7;" text="تایید" textFill="#191a1f">
+        <Button fx:id="confirmbtn" layoutX="16.0" layoutY="534.0" mnemonicParsing="false" onMouseClicked="#Transfer" prefHeight="46.0" prefWidth="567.0" style="-fx-background-color: #fca311; -fx-background-radius: 7;" text="تایید" textFill="#191a1f">
             <font>
                 <Font name="B Nazanin Bold" size="24.0" />
             </font>

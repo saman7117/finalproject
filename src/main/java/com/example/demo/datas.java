@@ -39,10 +39,7 @@ public class datas {
     public static double GBPMAX;
 
     public static double[] MAXPrice = new double[5];//0-USD / 1-TMN / 2-YEN / 3-GBP / 4-EUR
-    public static DataInputStream MainReader;
-    public static PrintWriter MainWriter;
-    public static ObjectInputStream objectMainReader;
-    public static ObjectOutputStream objectMainWriter;
+
 
 
 }
