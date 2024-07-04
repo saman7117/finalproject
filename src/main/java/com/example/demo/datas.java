@@ -37,6 +37,7 @@ public class datas {
     public static double EURMAX;
     public static double YENMAX;
     public static double GBPMAX;
+    public static int forgetcode;
 
     public static double[] MAXPrice = new double[5];//0-USD / 1-TMN / 2-YEN / 3-GBP / 4-EUR
 

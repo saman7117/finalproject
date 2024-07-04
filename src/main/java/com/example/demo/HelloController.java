@@ -110,6 +110,15 @@ public class HelloController implements Initializable {
         currentCaptcha = captcha.toString();
         return currentCaptcha;
     }
+    public void gotoforgetPass() throws IOException {
+        Stage stage = (Stage)welcomeText.getScene().getWindow();
+        stage.close();
+        FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("forgetPass.fxml"));
+        Scene registerScene = new Scene(registerLoader.load(), 1000, 600);
+        stage.setTitle("Raze Exchange");
+        stage.setScene(registerScene);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -2,12 +2,34 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ForgetPassController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ForgetPassController">
    <children>
-      <TextField layoutX="195.0" layoutY="168.0" prefHeight="63.0" prefWidth="210.0" />
-      <Button fx:id="confirm" layoutX="274.0" layoutY="268.0" mnemonicParsing="false" onAction="#sendEmail" text="Confirm" />
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@iii.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="email" alignment="CENTER" layoutX="500.0" layoutY="314.0" prefHeight="46.0" prefWidth="374.0" promptText="Email" style="-fx-background-color: #2c2d30; -fx-border-color: #e29d56; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="mytextfield" stylesheets="@ForgetPass.css" />
+      <Text fill="#e29d56" layoutX="570.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="فراموشی رمز عبور">
+         <font>
+            <Font name="B Nazanin" size="43.0" />
+         </font>
+      </Text>
+      <Text fill="#e29d56" layoutX="582.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="لطفا نام کاربری خود را وارد کنید" wrappingWidth="209.59995117187486">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="confirm" layoutX="500.0" layoutY="383.0" mnemonicParsing="false" onMouseClicked="#Confirm" prefHeight="46.0" prefWidth="374.0" style="-fx-background-color: #de9e58; -fx-background-radius: 10;" text="تایید" textFill="#2c2d30">
+         <font>
+            <Font name="B Nazanin" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

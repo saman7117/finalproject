@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.resetPassController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@iii.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="pass" alignment="CENTER" layoutX="500.0" layoutY="314.0" prefHeight="46.0" prefWidth="374.0" promptText="password" style="-fx-background-color: #2c2d30; -fx-border-color: #e29d56; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="mytextfield" stylesheets="@ForgetPass.css" />
+      <Text fill="#e29d56" layoutX="570.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="فراموشی رمز عبور">
+         <font>
+            <Font name="B Nazanin" size="43.0" />
+         </font>
+      </Text>
+      <Text fill="#e29d56" layoutX="543.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="لطفا رمز عبور جدید خود را وارد و تایید کنید" wrappingWidth="288.80002441406236">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="confirm" layoutX="500.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#checkPass" prefHeight="46.0" prefWidth="374.0" style="-fx-background-color: #de9e58; -fx-background-radius: 10;" text="تایید" textFill="#2c2d30">
+         <font>
+            <Font name="B Nazanin" size="20.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="Cpass" alignment="CENTER" layoutX="500.0" layoutY="370.0" prefHeight="46.0" prefWidth="374.0" promptText="confirm password" style="-fx-background-color: #2c2d30; -fx-border-color: #e29d56; -fx-background-radius: 10; -fx-border-radius: 10;" styleClass="mytextfield" stylesheets="@ForgetPass.css" />
+   </children>
+</AnchorPane>
