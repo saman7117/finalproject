@@ -9,7 +9,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class BuyController {
     @FXML
@@ -122,7 +125,9 @@ public class BuyController {
                 try {
                     connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
                     Statement statement = connection.createStatement();
-                    statement.executeUpdate("INSERT INTO selltable (Type , Amount , Price , Trader) VALUES ('"+ frommenu.getText() +"','" + Double.parseDouble(value.getText()) + "','" + Double.parseDouble(price.getText()) + "','" + datas.username + "')");
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss a");
+                    Date date = Calendar.getInstance().getTime();
+                    statement.executeUpdate("INSERT INTO selltable (Type , Amount , Price , Trader , date) VALUES ('"+ frommenu.getText() +"','" + Double.parseDouble(value.getText()) + "','" + Double.parseDouble(price.getText()) + "','" + datas.username + "','" + simpleDateFormat.format(date) +"')");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
@@ -159,7 +164,9 @@ public class BuyController {
                 try {
                     connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
                     Statement statement = connection.createStatement();
-                    statement.executeUpdate("INSERT INTO buytable (Type , Amount , Price , Trader) VALUES ('"+ frommenu.getText() +"','" + Double.parseDouble(value.getText()) + "','" + Double.parseDouble(price.getText()) + "','" + datas.username + "')");
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss a");
+                    Date date = Calendar.getInstance().getTime();
+                    statement.executeUpdate("INSERT INTO buytable (Type , Amount , Price , Trader , date) VALUES ('"+ frommenu.getText() +"','" + Double.parseDouble(value.getText()) + "','" + Double.parseDouble(price.getText()) + "','" + datas.username + "','" + simpleDateFormat.format(date) +"')");
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

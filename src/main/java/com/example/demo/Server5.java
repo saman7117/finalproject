@@ -9,6 +9,7 @@ package com.example.demo;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -19,7 +20,7 @@ public class Server5 {
     int limit = 100;
     HashMap<String, ClientManager> clientsMap=new HashMap<String, ClientManager>();
 
-    public Server5() {
+    public Server5() throws SQLException {
         try {
             // create server socket!
             mServer = new ServerSocket(serverPort);
@@ -57,7 +58,8 @@ public class Server5 {
         clientsMap.put(clientName, cm);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         new Server5();
     }
+
 }

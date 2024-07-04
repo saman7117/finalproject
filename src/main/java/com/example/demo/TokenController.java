@@ -113,6 +113,10 @@ public class TokenController implements Initializable {
 
 
     private volatile boolean stop = false;
+
+    public TokenController() throws SQLException {
+    }
+
     public void setFlagImage(String string){
         File file = new File(string);
         Image image = new Image(file.toURI().toString());
@@ -302,9 +306,11 @@ public class TokenController implements Initializable {
             stage.show();
         }
 
+        Connection connection =  DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+        String [][] currentsells = new String[5][4];
+        String [][] currentbuys = new String[5][4];
         public void updateOrders() throws IOException, ClassNotFoundException, SQLException {
-            Connection connection;
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM selltable");
             int checknum = 0;
@@ -470,33 +476,6 @@ public class TokenController implements Initializable {
                     }
                 }
             }
-        }
-        public void matchOrders() throws SQLException {
-            double minsell = 100000000;
-            double maxbuy = -1;
-            if (Double.parseDouble(buyprice1.getText()) >= maxbuy)
-                maxbuy = Double.parseDouble(buyprice1.getText());
-            if (Double.parseDouble(buyprice2.getText()) >= maxbuy)
-                maxbuy = Double.parseDouble(buyprice2.getText());
-            if (Double.parseDouble(buyprice3.getText()) >= maxbuy)
-                maxbuy = Double.parseDouble(buyprice3.getText());
-            if (Double.parseDouble(buyprice4.getText()) >= maxbuy)
-                maxbuy = Double.parseDouble(buyprice4.getText());
-            if (Double.parseDouble(buyprice5.getText()) >= maxbuy)
-                maxbuy = Double.parseDouble(buyprice5.getText());
-
-
-            if (Double.parseDouble(sellprice1.getText()) <= minsell)
-                minsell = Double.parseDouble(sellprice1.getText());
-            if (Double.parseDouble(sellprice2.getText()) <= minsell)
-                minsell = Double.parseDouble(sellprice2.getText());
-            if (Double.parseDouble(sellprice3.getText()) <= minsell)
-                minsell = Double.parseDouble(sellprice3.getText());
-            if (Double.parseDouble(sellprice4.getText()) <= minsell)
-                minsell = Double.parseDouble(sellprice4.getText());
-            if (Double.parseDouble(sellprice5.getText()) <= minsell)
-                minsell = Double.parseDouble(sellprice5.getText());
-
 
         }
 }

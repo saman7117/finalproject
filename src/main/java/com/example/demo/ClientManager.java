@@ -22,7 +22,6 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 public class ClientManager implements Runnable {
-    private static ArrayList <StockQueue> test = new ArrayList<>();
     private static int id = 0;
     Socket clientHolder;
     Server5 serverHolder;
@@ -31,7 +30,6 @@ public class ClientManager implements Runnable {
     DataInputStream reader;
     PrintWriter writer;
     ObjectOutputStream objectOutputStream;
-    ObjectInputStream objectInputStream;
 
     public ClientManager(Server5 server,Socket client) {
         serverHolder = server;

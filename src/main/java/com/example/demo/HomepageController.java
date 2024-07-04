@@ -21,9 +21,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.text.DecimalFormat;
+import java.util.Date;
 
 
 public class HomepageController implements Initializable{
@@ -65,7 +67,7 @@ public class HomepageController implements Initializable{
     String[] pastparts = new String[6];
     int lastMinute = -1;
 
-    public HomepageController() throws FileNotFoundException {
+    public HomepageController() throws FileNotFoundException, SQLException {
     }
 
     @Override
@@ -127,8 +129,7 @@ public class HomepageController implements Initializable{
         }
 
         public void toWallet() throws IOException {//:)
-            Stage stage = (Stage)tableView.getScene().getWindow();
-            stage.close();
+            Stage stage = new Stage();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("walet.fxml"));
             Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
             stage.setTitle("Raze Exchange");
@@ -137,8 +138,7 @@ public class HomepageController implements Initializable{
         }
 
         public void toProfile() throws IOException {//:(
-            Stage stage = (Stage)tableView.getScene().getWindow();
-            stage.close();
+            Stage stage = new Stage();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Profile.fxml"));
             Scene registerScene = new Scene(registerLoader.load(), 800, 600);
             stage.setTitle("Raze Exchange");
@@ -194,6 +194,15 @@ public class HomepageController implements Initializable{
                             // A new minute has passed, call your update function here
 
                             setData();
+                            try {
+                                matchOrders("USD");
+                                matchOrders("Toman");
+                                matchOrders("EUR");
+                                matchOrders("GBP");
+                                matchOrders("YEN");
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            }
                             lastMinute = currentMinute;
                         }
                     });
@@ -300,9 +309,132 @@ public class HomepageController implements Initializable{
             stocks.add(stock5);
             tableView.setItems(stocks);
             tableView.getItems().remove(0,5);
+    }
+    //###################################### SQL Match ################################3
+    Connection connection =  DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+    public void matchOrders(String types) throws SQLException {
+        Statement statement = connection.createStatement();
+        double [] Sprice = new double[5];
+        double [] Samount = new double[5];
+        String [] Sname = new String[5];
+        String [] Sdate = new String[5];
+        String [] Bdate = new String[5];
+        double [] Bprice = new double[5];
+        double [] Bamount = new double[5];
+        String [] Bname = new String[5];
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM selltable");
+        int i = 0;
+        while (resultSet.next()){
+            if(i==5){
+                break;
+            }
+            else{
+                if(resultSet.getString("Type").equals(types)){
+                    Sprice[i] = resultSet.getDouble("Price");
+                    Samount[i] = resultSet.getDouble("Amount");
+                    Sname[i] = resultSet.getString("Trader");
+                    Sdate[i] = resultSet.getString("date");
+                    i++;
+                }
+            }
+        }
+        resultSet = statement.executeQuery("SELECT * FROM buytable");
+        i = 0;
+        while (resultSet.next()){
+            if(i==5){
+                break;
+            }
+            else{
+                if(resultSet.getString("Type").equals(types)){
+                    Bprice[i] = resultSet.getDouble("Price");
+                    Bamount[i] = resultSet.getDouble("Amount");
+                    Bname[i] = resultSet.getString("Trader");
+                    Bdate[i] = resultSet.getString("date");
+                    i++;
+                }
+            }
+        }
+        System.out.println("******************* " + types + " ********************");
+        System.out.println("BUY : ");
+        for(int g=0;g<Bprice.length;g++){
+            System.out.println(Bprice[g]);
+        }
+        System.out.println("SELL : ");
+        for(int g=0;g<Sprice.length;g++){
+            System.out.println(Sprice[g]);
+        }
+        double maxBuy = -1, minSell = 10000000;
+        int maxBuyIndex = 0,minSellIndex = 0;
+        for(int j = 0;j<5;j++){
+            if(Bprice[j] > maxBuy && Bprice[j]!=0){
+                maxBuy = Bprice[j];
+                maxBuyIndex = j;
+            }
+            if(Sprice[j] < minSell && Sprice[j]!=0){
+                minSell = Sprice[j];
+                minSellIndex = j;
+            }
+        }
+        if(Bprice[maxBuyIndex] >= Sprice[minSellIndex]){
+            System.out.println(types + " : " + Bprice[maxBuyIndex] + " " + Sprice[minSellIndex]);
+            if(Bamount[maxBuyIndex] >= Samount[minSellIndex]){
+                updateUserSql(Sname[minSellIndex],Samount[minSellIndex]*Sprice[minSellIndex]);// پول فروشنده را انداختم جلوش
+                deleteSellSql(Sname[minSellIndex] , Sdate[minSellIndex]);
+                updateBuySql(Bname[maxBuyIndex],Samount[minSellIndex],Bdate[maxBuyIndex]);
+//                matchOrders(types);
+            } else{
+                updateUserSql(Sname[minSellIndex],Bamount[maxBuyIndex]*Bprice[maxBuyIndex]);
+                deleteBuySql(Bname[maxBuyIndex] , Bdate[maxBuyIndex]);
+                updateSellSql(Sname[minSellIndex] , Bamount[maxBuyIndex] , Sdate[minSellIndex]);
+//                matchOrders(types);
+            }
+        }
+    }
+    public void updateUserSql(String name, double money) throws SQLException {
+        PreparedStatement updateUserMoney = connection.prepareStatement("UPDATE users SET Money = Money + ? WHERE fullname = ?");
+        updateUserMoney.setDouble(1,money);
+        updateUserMoney.setString(2,name);
+        updateUserMoney.executeUpdate();
+    }
+    public void deleteSellSql(String name , String date) throws SQLException {
+        PreparedStatement deleteOrder = connection.prepareStatement("DELETE FROM selltable"+  " WHERE Trader = ? AND date  = ?");
+        deleteOrder.setString(1 , name);
+        deleteOrder.setString(2 , date);
+        deleteOrder.executeUpdate();
+    }
+    public void updateBuySql(String name, double money, String Date) throws SQLException {
+        PreparedStatement updateUserMoney = connection.prepareStatement("UPDATE buytable SET Amount = Amount - ? WHERE Trader = ? AND date = ?");
+        updateUserMoney.setDouble(1,money);
+        updateUserMoney.setString(2,name);
+        updateUserMoney.setString(3,Date);
+        updateUserMoney.executeUpdate();
+    }
+    public void deleteBuySql(String name , String date) throws SQLException {
+        PreparedStatement deleteOrder = connection.prepareStatement("DELETE FROM buytable"+  " WHERE Trader = ? AND date  = ?");
+        deleteOrder.setString(1 , name);
+        deleteOrder.setString(2 , date);
+        deleteOrder.executeUpdate();
+    }
+    public void updateSellSql(String name, double money, String Date) throws SQLException {
+        PreparedStatement updateUserMoney = connection.prepareStatement("UPDATE selltable SET Amount = Amount - ? WHERE Trader = ? AND date = ?");
+        updateUserMoney.setDouble(1,money);
+        updateUserMoney.setString(2,name);
+        updateUserMoney.setString(3,Date);
+        updateUserMoney.executeUpdate();
+    }
+    /*
+    private void setEUR() throws SQLException {
+        PreparedStatement updateMoneyStatement1 = Main.connection.prepareStatement("UPDATE usersdata SET amountOfEUR = amountOfEUR + ? WHERE username = ?");
+        updateMoneyStatement1.setDouble(1, output*0.99);
+        updateMoneyStatement1.setString(2, Main.username);
+        PreparedStatement updateMoneyStatementAdmin = Main.connection.prepareStatement("UPDATE usersdata SET amountOfEUR = amountOfEUR + ? WHERE username = ?");
+        updateMoneyStatementAdmin.setDouble(1, output*0.01);
+        updateMoneyStatementAdmin.setString(2, "admin");
+        updateMoneyStatement1.executeUpdate();
+        updateMoneyStatementAdmin.executeUpdate();
 
     }
-
+     */
 }
 
 

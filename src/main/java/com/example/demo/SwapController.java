@@ -103,7 +103,7 @@ public class SwapController {
                 if(tomenu.getText().equals("Toman")){
                     datas.USD -= Double.parseDouble(fromvalue.getText());
                     datas.TMN += Double.parseDouble(tovalue.getText());
-                    double adminmoney = resultSet.getDouble("Money")
+                    double adminmoney = resultSet.getDouble("Money");
                     String s1 = "UPDATE users SET Money='" + String.valueOf(datas.USD) + "' WHERE role='" + "admin" + "'";
                 }
                 else if(tomenu.getText().equals("YEN")){
