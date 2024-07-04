@@ -58,15 +58,24 @@ public class HelloController implements Initializable {
                     flag = true;
                     Stage stage = (Stage)userfield.getScene().getWindow();
                     stage.close();
-                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load(), 1536, 864);
-                    stage.setTitle("Raze Exchange");
-                    stage.setScene(scene);
+
                     datas.username = resultSet.getString("fullname");
                     datas.Gmail = resultSet.getString("email");
                     datas.Password = p;
                     datas.phoneNumber = resultSet.getString("mobile");
                     datas.role = resultSet.getString("role");
+                    if (datas.role.equals("admin")){
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("admin.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load(), 1536, 864);
+                        stage.setTitle("Raze Exchange");
+                        stage.setScene(scene);
+                    }
+                    else if (datas.role.equals("trader")){
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load(), 1536, 864);
+                        stage.setTitle("Raze Exchange");
+                        stage.setScene(scene);
+                    }
                     String name = "";
                     String lastname = "";
                     int i = 0;

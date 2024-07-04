@@ -189,8 +189,24 @@ public class HomepageController implements Initializable{
                         calendar.setTime(now[0]);
                         int currentMinute = calendar.get(Calendar.MINUTE);
 
-
-                        if (currentMinute != lastMinute) {
+                        double status = -0;
+                        Statement statement = null;
+                        try {
+                            statement = connection.createStatement();
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
+                        try {
+                            ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+                            while (resultSet.next()){
+                            if (resultSet.getString("role").equals("admin")){
+                                    status = resultSet.getDouble("USD");
+                                }
+                            }
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
+                        if (currentMinute != lastMinute && status == 0) {
                             // A new minute has passed, call your update function here
 
                             setData();
@@ -422,19 +438,7 @@ public class HomepageController implements Initializable{
         updateUserMoney.setString(3,Date);
         updateUserMoney.executeUpdate();
     }
-    /*
-    private void setEUR() throws SQLException {
-        PreparedStatement updateMoneyStatement1 = Main.connection.prepareStatement("UPDATE usersdata SET amountOfEUR = amountOfEUR + ? WHERE username = ?");
-        updateMoneyStatement1.setDouble(1, output*0.99);
-        updateMoneyStatement1.setString(2, Main.username);
-        PreparedStatement updateMoneyStatementAdmin = Main.connection.prepareStatement("UPDATE usersdata SET amountOfEUR = amountOfEUR + ? WHERE username = ?");
-        updateMoneyStatementAdmin.setDouble(1, output*0.01);
-        updateMoneyStatementAdmin.setString(2, "admin");
-        updateMoneyStatement1.executeUpdate();
-        updateMoneyStatementAdmin.executeUpdate();
 
-    }
-     */
 }
 
 

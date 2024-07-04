@@ -67,8 +67,23 @@ public class BuyController {
     }
 
     public void setServerArraylist() throws IOException, ClassNotFoundException, SQLException {
+        Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+        Statement statement2 = connection2.createStatement();
+        ResultSet resultSet2 = statement2.executeQuery("SELECT * FROM users");
+        double Marketstatus = 0;
+        while (resultSet2.next()){
+            if (resultSet2.getString("role").equals("admin")){
+               Marketstatus = resultSet2.getDouble("USD");
+            }
+        }
         Alert alert = new Alert(Alert.AlertType.NONE);
         if (value.getText().equals(null) || price.getText().equals(null)){
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("خطا در وارد کردن");
+            alert.setContentText("لطفا مقدار و قیمت را وارد کنید");
+            alert.showAndWait();
+        } else if (Double.parseDouble(value.getText()) == 0 && Double.parseDouble(price.getText()) == 0) {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("خطا در وارد کردن");
@@ -115,12 +130,17 @@ public class BuyController {
             alert.setHeaderText("خطا در وارد کردن");
             alert.setContentText("مقدار ناکافی");
             alert.showAndWait();
-        }
-        else {
+        } else if (Marketstatus != 0) {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("بازار بسته است");
+            alert.setContentText("بازار توسط ادمین بسته شده است!");
+            alert.showAndWait();
+        } else {
             alert.setAlertType(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmed");
             alert.setHeaderText("موفقیت ");
-            java.sql.Connection connection;
+            Connection connection;
             if (status.equals("sell")) {
                 try {
                     connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");

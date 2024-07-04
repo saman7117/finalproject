@@ -65,4 +65,43 @@ public class forgetPssCodeController {
             }
         }
     }
+
+    @FXML
+    private void initialize(){
+        code1.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue!=""){
+                code2.requestFocus();
+            }
+        });
+        code2.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue!=""){
+                code3.requestFocus();
+            }
+            else{
+                code1.requestFocus();
+            }
+        });
+        code3.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue!=""){
+                code4.requestFocus();
+            }
+            else{
+                code2.requestFocus();
+            }
+        });
+        code4.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue!=""){
+                try {
+                    checkCode();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            else{
+                code3.requestFocus();
+            }
+        });
+    }
 }
