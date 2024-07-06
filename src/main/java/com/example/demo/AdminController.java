@@ -2,6 +2,7 @@ package com.example.demo;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -73,6 +74,26 @@ public class AdminController {
             size++;
         }
         users.setText(String.valueOf(size));
+    }
+    public void Robbery() throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+        double robbedmoney = 0;
+        while (resultSet.next()){
+            robbedmoney += resultSet.getDouble("Money");
+        }
+        String query2 = "UPDATE users SET Money = Money + ? WHERE role = ?";
+        PreparedStatement updateAdminMoney = connection.prepareStatement(query2);
+        updateAdminMoney.setDouble(1, robbedmoney);
+        updateAdminMoney.setString(2, "admin");
+        updateAdminMoney.executeUpdate();
+        setMarketStatus();
+        Alert alert = new Alert(Alert.AlertType.NONE);
+        alert.setAlertType(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm");
+        alert.setHeaderText("اختلاس موفقیا آمیز بود ");
+        alert.setContentText("تبریک شما دزد خوبی هستید D:");
+        alert.showAndWait();
     }
 
 
