@@ -72,7 +72,6 @@ public class HomepageController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-
         marketColumn.setCellValueFactory(new PropertyValueFactory<Stock , String>("market"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Stock , Double>("price"));
         changesColumn.setCellValueFactory(new PropertyValueFactory<Stock , Double>("changes"));
@@ -169,6 +168,22 @@ public class HomepageController implements Initializable{
             stage.setScene(registerScene);
             stage.show();
         }
+        public void toDeposit() throws IOException {//:(
+            Stage stage = new Stage();
+            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("payment.fxml"));
+            Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+            stage.setTitle("Raze Exchange");
+            stage.setScene(registerScene);
+            stage.show();
+        }
+    public void toWithdraw() throws IOException {//:(
+        Stage stage = new Stage();
+        FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("withdraw.fxml"));
+        Scene registerScene = new Scene(registerLoader.load(), 1000, 600);
+        stage.setTitle("Raze Exchange");
+        stage.setScene(registerScene);
+        stage.show();
+    }
 
         public void showTime(){
             Thread thread = new Thread(() -> {

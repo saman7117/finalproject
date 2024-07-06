@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class registerController {
 
@@ -106,7 +108,7 @@ public class registerController {
             llable.setText("");
             f=0;
         }
-        if(mail.getText().isEmpty()){
+        if(mail.getText().isEmpty() || checkEmailValidity(mail.getText()) == false){
             maillable.setText("Email is required .");
             maillable.setTextFill(Color.RED);
             f=1;
@@ -142,6 +144,17 @@ public class registerController {
             stage.setTitle("RAZE Exchange");
             stage.setScene(scene);
             stage.show();
+        }
+    }
+    public static boolean checkEmailValidity(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(email);
+        if (matcher.matches()) {
+            return true;
+        } else {
+            return false;
         }
     }
     private int checkUsername(String s){

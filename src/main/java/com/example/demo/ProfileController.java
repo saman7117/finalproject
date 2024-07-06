@@ -72,6 +72,14 @@ public class ProfileController implements Initializable {
         stage.setScene(registerScene);
         stage.show();
     }
+    public void toDeposit() throws IOException {//:(
+        Stage stage = new Stage();
+        FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("payment.fxml"));
+        Scene registerScene = new Scene(registerLoader.load(), 600, 600);
+        stage.setTitle("Raze Exchange");
+        stage.setScene(registerScene);
+        stage.show();
+    }
 
     public void showTime(){
         Thread thread = new Thread(() -> {

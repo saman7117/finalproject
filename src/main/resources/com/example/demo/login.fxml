@@ -27,8 +27,8 @@
       </AnchorPane>
       <AnchorPane layoutX="500.0" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #fca311;">
          <children>
-            <TextField fx:id="userfield" focusTraversable="false" layoutX="32.0" layoutY="273.0" prefHeight="26.0" prefWidth="445.0" promptText="Username" style="-fx-background-color: #191a1f; -fx-background-radius: 10;" />
-            <PasswordField fx:id="passfield" focusTraversable="false" layoutX="32.0" layoutY="316.0" prefHeight="26.0" prefWidth="446.0" promptText="Password" style="-fx-background-color: #191a1f; -fx-background-radius: 10;" />
+            <TextField fx:id="userfield" focusTraversable="false" layoutX="32.0" layoutY="273.0" prefHeight="26.0" prefWidth="445.0" promptText="Username" style="-fx-background-color: #191a1f; -fx-background-radius: 10;" styleClass="logintextfield" stylesheets="@Login.css" />
+            <PasswordField fx:id="passfield" focusTraversable="false" layoutX="32.0" layoutY="316.0" prefHeight="26.0" prefWidth="446.0" promptText="Password" style="-fx-background-color: #191a1f; -fx-background-radius: 10;" styleClass="logintextfield" stylesheets="@Login.css" />
             <Text layoutX="150.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="48.0" />
@@ -89,7 +89,7 @@
                <font>
                   <Font name="MV Boli" size="24.0" />
                </font></Label>
-            <TextField fx:id="captchafield" alignment="CENTER" focusTraversable="false" layoutX="33.0" layoutY="357.0" prefHeight="43.0" prefWidth="214.0" promptText="Enter the CAPTCHA code" style="-fx-background-color: #191a1f;" />
+            <TextField fx:id="captchafield" alignment="CENTER" focusTraversable="false" layoutX="33.0" layoutY="357.0" prefHeight="43.0" prefWidth="214.0" promptText="Enter the CAPTCHA code" style="-fx-background-color: #191a1f;" styleClass="logintextfield" stylesheets="@Login.css" />
             <Line endX="100.0" layoutX="239.0" layoutY="442.0" startX="-85.60003662109375" startY="-3.0517578125E-5" stroke="#fca311" strokeWidth="2.0" />
             <Line endX="100.0" layoutX="239.0" layoutY="492.0" startX="-85.60003662109375" startY="-3.0517578125E-5" stroke="#fca311" strokeWidth="2.0" />
             <Line endX="-97.0142822265625" endY="-58.585784912109375" layoutX="249.0" layoutY="502.0" startX="-97.0142822265625" startY="-10.800018310546875" stroke="#fca311" strokeWidth="2.0" />

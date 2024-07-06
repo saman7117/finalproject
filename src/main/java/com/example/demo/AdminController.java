@@ -33,6 +33,8 @@ public class AdminController {
 
         String s1 = "UPDATE users SET USD='" + 1 + "' WHERE role='" + "admin" + "'";// 1 : disable
         statement.executeUpdate(s1);
+
+        setMarketStatus();
     }
 
     public void enable() throws SQLException {
@@ -46,10 +48,16 @@ public class AdminController {
 
         String s1 = "UPDATE users SET USD='" + 0 + "' WHERE role='" + "admin" + "'";// 0 : enable
         statement.executeUpdate(s1);
+
+        setMarketStatus();
+
     }
 
     @FXML
     private void initialize() throws SQLException {
+        setMarketStatus();
+    }
+    public void setMarketStatus() throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
         int size = 0;

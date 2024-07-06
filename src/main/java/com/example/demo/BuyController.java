@@ -131,9 +131,9 @@ public class BuyController {
             alert.setContentText("مقدار ناکافی");
             alert.showAndWait();
         } else if (Marketstatus != 0) {
-            alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("بازار بسته است");
+            alert.setAlertType(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("بازار بسته ");
             alert.setContentText("بازار توسط ادمین بسته شده است!");
             alert.showAndWait();
         } else {
