@@ -79,7 +79,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="RegisterLink" layoutX="294.0" layoutY="407.0" onMouseClicked="#onHelloButtonClick" text="don't have account ? Register">
+            <Label fx:id="RegisterLink" layoutX="284.0" layoutY="407.0" onMouseClicked="#onHelloButtonClick" text="don't have account ? Register">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -114,6 +114,11 @@
             <Line endX="100.0" layoutX="240.0" layoutY="580.0" startX="-85.60003662109375" startY="-3.0517578125E-5" stroke="#fca311" strokeWidth="2.0" />
             <Line endX="-97.0142822265625" endY="-58.585784912109375" layoutX="250.0" layoutY="590.0" startX="-97.0142822265625" startY="-10.800018310546875" stroke="#fca311" strokeWidth="2.0" />
             <Line endX="-97.0142822265625" endY="-58.585784912109375" layoutX="438.0" layoutY="589.0" startX="-97.0142822265625" startY="-10.800018310546875" stroke="#fca311" strokeWidth="2.0" />
+            <ImageView fx:id="refreshCaptcha" fitHeight="37.0" fitWidth="53.0" layoutX="449.0" layoutY="397.0" onMouseClicked="#RefreshCaptcha" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@refresh.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

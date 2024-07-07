@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -52,6 +49,8 @@ public class HomepageController implements Initializable{
     private Button profile;
     @FXML
     private Label tag;
+    @FXML
+    private Button logout;
 
 
     private static int eee = 1;
@@ -83,6 +82,24 @@ public class HomepageController implements Initializable{
         setData();
         showTime();
         showDate();
+    }
+
+
+
+    public void logout() throws IOException {
+        Stage stage = (Stage) tableView.getScene().getWindow();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("خروج");
+        alert.setHeaderText("شما در حال خروج از صرافی انلاین هستید");
+        alert.setContentText("آیا مطمئنید که میخواهید از صرافی خراج شوید؟");
+        if (alert.showAndWait().get() == ButtonType.OK){
+            stage.close();
+            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+            Scene registerScene = new Scene(registerLoader.load(), 800, 600);
+            stage.setTitle("Raze Exchange");
+            stage.setScene(registerScene);
+            stage.show();
+        }
     }
 
     @FXML
@@ -118,7 +135,7 @@ public class HomepageController implements Initializable{
 
                     Stage stage = new Stage();
                     stage.setTitle("Raze Exchange");
-                    stage.setScene(new Scene(root, 1536, 864));
+                    stage.setScene(new Scene(root, 1536, 800));
                     stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -130,7 +147,7 @@ public class HomepageController implements Initializable{
         public void toWallet() throws IOException {//:)
             Stage stage = new Stage();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("walet.fxml"));
-            Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+            Scene registerScene = new Scene(registerLoader.load(), 1536, 800);
             stage.setTitle("Raze Exchange");
             stage.setScene(registerScene);
             stage.show();
@@ -171,7 +188,7 @@ public class HomepageController implements Initializable{
         public void toDeposit() throws IOException {//:(
             Stage stage = new Stage();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("payment.fxml"));
-            Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+            Scene registerScene = new Scene(registerLoader.load(), 1536, 800);
             stage.setTitle("Raze Exchange");
             stage.setScene(registerScene);
             stage.show();

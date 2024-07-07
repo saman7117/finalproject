@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #191a1f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.WithdrawController">
    <children>
-      <Label fx:id="imgNum" layoutX="527.0" layoutY="201.0" style="-fx-text-fill: #cda864;">
+      <Label fx:id="imgNum" layoutX="527.0" layoutY="201.0" style="-fx-text-fill: #cda800;">
          <font>
             <Font size="51.0" />
          </font>

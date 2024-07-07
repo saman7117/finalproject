@@ -59,7 +59,7 @@ public class WalletController implements Initializable{
         Stage stage = (Stage)Tomanval.getScene().getWindow();
         stage.close();
         FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
-        Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+        Scene registerScene = new Scene(registerLoader.load(), 1536, 800);
         stage.setTitle("Raze Exchange");
         stage.setScene(registerScene);
         stage.show();
@@ -68,7 +68,7 @@ public class WalletController implements Initializable{
         Stage stage = (Stage)Tomanval.getScene().getWindow();
         stage.close();
         FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("Profile.fxml"));
-        Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+        Scene registerScene = new Scene(registerLoader.load(), 1536, 800);
         stage.setTitle("Raze Exchange");
         stage.setScene(registerScene);
         stage.show();

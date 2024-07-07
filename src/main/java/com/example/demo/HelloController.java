@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,6 +29,8 @@ public class HelloController implements Initializable {
     private Label captchalabel;
     @FXML
     private TextField captchafield;
+    @FXML
+    private ImageView refreshCaptcha;
     private String currentCaptcha;
 
 
@@ -40,6 +43,10 @@ public class HelloController implements Initializable {
         stage.setTitle("Raze Exchange");
         stage.setScene(registerScene);
         stage.show();
+    }
+
+    public void RefreshCaptcha(){
+        setCAPTCHAlabel();
     }
     public void setCAPTCHAlabel(){
         captchalabel.setText(generateCaptcha());
@@ -66,13 +73,13 @@ public class HelloController implements Initializable {
                     datas.role = resultSet.getString("role");
                     if (datas.role.equals("admin")){
                         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("admin.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load(), 1536, 864);
+                        Scene scene = new Scene(fxmlLoader.load(), 1536, 800);
                         stage.setTitle("Raze Exchange");
                         stage.setScene(scene);
                     }
                     else if (datas.role.equals("trader")){
                         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load(), 1536, 864);
+                        Scene scene = new Scene(fxmlLoader.load(), 1536, 800);
                         stage.setTitle("Raze Exchange");
                         stage.setScene(scene);
                     }

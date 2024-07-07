@@ -274,7 +274,7 @@ public class TokenController implements Initializable {
         Stage stage = (Stage)Tokenname.getScene().getWindow();
         stage.close();
         FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("walet.fxml"));
-        Scene registerScene = new Scene(registerLoader.load(), 1536, 864);
+        Scene registerScene = new Scene(registerLoader.load(), 1536, 800);
         stage.setTitle("Raze Exchange");
         stage.setScene(registerScene);
         stage.show();

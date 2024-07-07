@@ -28,7 +28,7 @@ public class resetPassController {
             Stage stage = (Stage) pass.getScene().getWindow();
             stage.close();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
-            Scene scene = new Scene(fxmlLoader.load() , 1536 , 864);
+            Scene scene = new Scene(fxmlLoader.load() , 1536 , 800);
             stage.setTitle("RAZE Exchange");
             stage.setScene(scene);
             stage.show();
