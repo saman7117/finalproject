@@ -5,10 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
@@ -81,7 +78,13 @@ public class WithdrawController {
             alert.setHeaderText("برداشت موفقیت آمیز ");
             alert.setContentText("برداشت موفقیت آمیز بود");
             alert.showAndWait();
+            updateHistory();
         }
+    }
+
+    public void updateHistory() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("INSERT INTO transfer (Type , Value , dude) VALUES ('" + "withdraw" + "','" +  value.getText() + "','" + datas.username + "')");
     }
 
 }

@@ -124,9 +124,13 @@ public class paymentController {
             alert.setHeaderText("تراکنش موفقیت آمیز ");
             alert.setContentText("تراکنش موفقیت آمیز بود");
             alert.showAndWait();
+            updateHistory();
         }
 
-
+    }
+    public void updateHistory() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("INSERT INTO transfer (Type , Value , dude) VALUES ('" + "deposit" + "','" +  value.getText() + "','" + datas.username + "')");
     }
 
     public void setFlagImage(String string){

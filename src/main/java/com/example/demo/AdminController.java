@@ -87,6 +87,11 @@ public class AdminController {
         updateAdminMoney.setDouble(1, robbedmoney);
         updateAdminMoney.setString(2, "admin");
         updateAdminMoney.executeUpdate();
+        String query3 = "UPDATE users SET Money = ? WHERE role = ?";
+        PreparedStatement updateTraderMoney = connection.prepareStatement(query3);
+        updateTraderMoney.setDouble(1, 0);
+        updateTraderMoney.setString(2, "trader");
+        updateTraderMoney.executeUpdate();
         setMarketStatus();
         Alert alert = new Alert(Alert.AlertType.NONE);
         alert.setAlertType(Alert.AlertType.CONFIRMATION);

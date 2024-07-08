@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1536.0" style="-fx-background-color: #191a1f;" stylesheets="@History.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HistoryController">
+   <children>
+      <AnchorPane layoutX="1226.0" prefHeight="800.0" prefWidth="310.0" style="-fx-background-color: #fca311;">
+         <children>
+            <ImageView fitHeight="209.0" fitWidth="295.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo3.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="buysellBTN" layoutX="14.0" layoutY="287.0" mnemonicParsing="false" onMouseClicked="#showBSTable" prefHeight="45.0" prefWidth="282.0" style="-fx-background-color: #fca311; -fx-border-color: #191a1f; -fx-border-radius: 10;" text="خرید و فروش">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="swapBTN" layoutX="14.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#showSwapTable" prefHeight="45.0" prefWidth="282.0" style="-fx-background-color: #fca311; -fx-border-color: #191a1f; -fx-border-radius: 10;" text="تبادل">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="transferBTN" layoutX="14.0" layoutY="436.0" mnemonicParsing="false" onMouseClicked="#showTransferTable" prefHeight="45.0" prefWidth="282.0" style="-fx-background-color: #fca311; -fx-border-color: #191a1f; -fx-border-radius: 10;" text="انتقال">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="DWBTN" layoutX="14.0" layoutY="512.0" mnemonicParsing="false" onMouseClicked="#showDWTable" prefHeight="45.0" prefWidth="282.0" style="-fx-background-color: #fca311; -fx-border-color: #191a1f; -fx-border-radius: 10;" text="تراکنش">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="SellBuyTable" layoutX="26.0" layoutY="142.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="626.0" prefWidth="1139.0">
+        <columns>
+          <TableColumn fx:id="SBTC1" prefWidth="285.0" text="خریدار" />
+          <TableColumn fx:id="SBTC2" minWidth="0.0" prefWidth="285.0" text="تعداد" />
+            <TableColumn fx:id="SBTC3" prefWidth="285.0" text="قیمت" />
+            <TableColumn fx:id="SBTC4" prefWidth="285.0" text="فروشنده" />
+        </columns>
+      </TableView>
+      <Label fx:id="tag" alignment="CENTER_RIGHT" layoutX="1033.0" layoutY="57.0" textAlignment="RIGHT" textFill="#fca311">
+         <font>
+            <Font name="B Nazanin Bold" size="28.0" />
+         </font>
+      </Label>
+      <Button layoutX="32.0" layoutY="52.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="143.0" style="-fx-background-color: #fca311;" text="گرفتن خروجی" textAlignment="CENTER" textFill="#191a1f">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <TableView fx:id="SwapTable" layoutX="25.0" layoutY="142.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="626.0" prefWidth="1139.0">
+         <columns>
+            <TableColumn fx:id="SWTC1" prefWidth="380.0" text="ارض اولیه" />
+            <TableColumn fx:id="SWTC2" minWidth="0.0" prefWidth="380.0" text="تعداد" />
+            <TableColumn fx:id="SWTC3" prefWidth="380.0" text="ارض تبدیل شده" />
+         </columns>
+      </TableView>
+      <TableView fx:id="TransferTable" layoutX="26.0" layoutY="142.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="626.0" prefWidth="1139.0">
+         <columns>
+            <TableColumn fx:id="TRTC1" prefWidth="380.0" text="نام کاربری" />
+            <TableColumn fx:id="TRTC2" minWidth="0.0" prefWidth="380.0" text="تعداد" />
+            <TableColumn fx:id="TRTC3" prefWidth="380.0" text="نوع ارض" />
+         </columns>
+      </TableView>
+      <TableView fx:id="DepositWithdraw" layoutX="26.0" layoutY="142.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="626.0" prefWidth="1139.0" style="-fx-background-color: #1e2228;">
+         <columns>
+            <TableColumn fx:id="DWTC1" prefWidth="380.0" text="نوع" />
+            <TableColumn fx:id="DWTC2" minWidth="0.0" prefWidth="380.0" text="مقدار" />
+            <TableColumn fx:id="DWTC3" prefWidth="380.0" text="شماره کارت" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -24,6 +24,8 @@ import java.util.*;
 import java.text.DecimalFormat;
 import java.util.Date;
 
+import org.apache.commons.math3.stat.regression.SimpleRegression;
+
 
 public class HomepageController implements Initializable{
     @FXML
@@ -95,7 +97,7 @@ public class HomepageController implements Initializable{
         if (alert.showAndWait().get() == ButtonType.OK){
             stage.close();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
-            Scene registerScene = new Scene(registerLoader.load(), 800, 600);
+            Scene registerScene = new Scene(registerLoader.load(), 1000, 600);
             stage.setTitle("Raze Exchange");
             stage.setScene(registerScene);
             stage.show();
@@ -177,6 +179,14 @@ public class HomepageController implements Initializable{
             stage.setScene(registerScene);
             stage.show();
         }
+        public void toHistory() throws IOException {//:(
+            Stage stage = new Stage();
+            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("History.fxml"));
+            Scene registerScene = new Scene(registerLoader.load(), 1536, 800);
+            stage.setTitle("Raze Exchange");
+            stage.setScene(registerScene);
+            stage.show();
+        }
         public void toBuy() throws IOException {//:(
             Stage stage = new Stage();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("buy.fxml"));
@@ -185,7 +195,7 @@ public class HomepageController implements Initializable{
             stage.setScene(registerScene);
             stage.show();
         }
-        public void toDeposit() throws IOException {//:(
+        public void toDeposit() throws IOException {//:)
             Stage stage = new Stage();
             FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("payment.fxml"));
             Scene registerScene = new Scene(registerLoader.load(), 1536, 800);
@@ -358,6 +368,31 @@ public class HomepageController implements Initializable{
             tableView.setItems(stocks);
             tableView.getItems().remove(0,5);
     }
+
+    public Double linearRegression (Double[] currency){
+        SimpleRegression regression = new SimpleRegression();
+
+        for (int i = 0; i < currency.length; i++) {
+            regression.addData(i + 1, currency[i]);
+        }
+        double nextX = currency.length + 1;
+        Double predictedY = regression.predict(nextX);
+
+        return predictedY;
+    }
+
+    public Double[] linearRegressionData (Double[] currency){
+        SimpleRegression regression = new SimpleRegression();
+
+        for (int i = 0; i < currency.length; i++) {
+            regression.addData(i + 1, currency[i]);
+        }
+        Double[] slopeANDintercept = new Double[2];
+        slopeANDintercept[0] = regression.getSlope();
+        slopeANDintercept[1] = regression.getIntercept();
+        return slopeANDintercept;
+    }
+
     //###################################### SQL Match ################################3
     Connection connection =  DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
     public void matchOrders(String types) throws SQLException {
@@ -402,42 +437,45 @@ public class HomepageController implements Initializable{
                 }
             }
         }
-        System.out.println("******************* " + types + " ********************");
-        System.out.println("BUY : ");
-        for(int g=0;g<Bprice.length;g++){
-            System.out.println(Bprice[g]);
-        }
-        System.out.println("SELL : ");
-        for(int g=0;g<Sprice.length;g++){
-            System.out.println(Sprice[g]);
-        }
         double maxBuy = -1, minSell = 10000000;
         int maxBuyIndex = 0,minSellIndex = 0;
-        for(int j = 0;j<5;j++){
-            if(Bprice[j] > maxBuy && Bprice[j]!=0){
-                maxBuy = Bprice[j];
-                maxBuyIndex = j;
+        if(!(Bname[0]==null) && !(Sname[0]==null)) {
+            for (int j = 0; j < 5; j++) {
+                if (Bprice[j] > maxBuy && Bprice[j] != 0) {
+                    maxBuy = Bprice[j];
+                    maxBuyIndex = j;
+                }
+                if (Sprice[j] < minSell && Sprice[j] != 0) {
+                    minSell = Sprice[j];
+                    minSellIndex = j;
+                }
             }
-            if(Sprice[j] < minSell && Sprice[j]!=0){
-                minSell = Sprice[j];
-                minSellIndex = j;
-            }
-        }
-        if(Bprice[maxBuyIndex] >= Sprice[minSellIndex]){
-            System.out.println(types + " : " + Bprice[maxBuyIndex] + " " + Sprice[minSellIndex]);
-            if(Bamount[maxBuyIndex] >= Samount[minSellIndex]){
-                updateUserSql(Sname[minSellIndex],Samount[minSellIndex]*Sprice[minSellIndex]);// پول فروشنده را انداختم جلوش
-                deleteSellSql(Sname[minSellIndex] , Sdate[minSellIndex]);
-                updateBuySql(Bname[maxBuyIndex],Samount[minSellIndex],Bdate[maxBuyIndex]);
+            if (Bprice[maxBuyIndex] >= Sprice[minSellIndex]) {
+                if (Bamount[maxBuyIndex] >= Samount[minSellIndex]) {
+                    updateUserSql(Sname[minSellIndex], Samount[minSellIndex] * Sprice[minSellIndex]);// پول فروشنده را انداختم جلوش
+                    deleteSellSql(Sname[minSellIndex], Sdate[minSellIndex]);
+                    updateBuySql(Bname[maxBuyIndex], Samount[minSellIndex], Bdate[maxBuyIndex]);
+                    if (Bname[maxBuyIndex].equals(datas.username)) {
+                        statement.executeUpdate("INSERT INTO history (Buyer , Amount , Price , Seller) VALUES ('" + datas.username + "','" + Samount[minSellIndex] + "','" + Bprice[maxBuyIndex] + "','" + Sname[minSellIndex] + "')");
+                    } else {
+                        statement.executeUpdate("INSERT INTO history (Buyer , Amount , Price , Seller) VALUES ('" + Bname[maxBuyIndex] + "','" + Samount[minSellIndex] + "','" + Sprice[minSellIndex] + "','" + Bname[maxBuyIndex] + "')");
+                    }
 //                matchOrders(types);
-            } else{
-                updateUserSql(Sname[minSellIndex],Bamount[maxBuyIndex]*Bprice[maxBuyIndex]);
-                deleteBuySql(Bname[maxBuyIndex] , Bdate[maxBuyIndex]);
-                updateSellSql(Sname[minSellIndex] , Bamount[maxBuyIndex] , Sdate[minSellIndex]);
+                } else {
+                    updateUserSql(Sname[minSellIndex], Bamount[maxBuyIndex] * Bprice[maxBuyIndex]);
+                    deleteBuySql(Bname[maxBuyIndex], Bdate[maxBuyIndex]);
+                    updateSellSql(Sname[minSellIndex], Bamount[maxBuyIndex], Sdate[minSellIndex]);
+                    if (Bname[maxBuyIndex].equals(datas.username)) {
+                        statement.executeUpdate("INSERT INTO history (Buyer , Amount , Price , Seller) VALUES ('" + datas.username + "','" + Bamount[maxBuyIndex] + "','" + Bprice[maxBuyIndex] + "','" + Sname[minSellIndex] + "')");
+                    } else {
+                        statement.executeUpdate("INSERT INTO history (Buyer , Amount , Price , Seller) VALUES ('" + Bname[maxBuyIndex] + "','" + Bamount[maxBuyIndex] + "','" + Sprice[minSellIndex] + "','" + Bname[maxBuyIndex] + "')");
+                    }
 //                matchOrders(types);
+                }
             }
         }
     }
+
     public void updateUserSql(String name, double money) throws SQLException {
         PreparedStatement updateUserMoney = connection.prepareStatement("UPDATE users SET Money = Money + ? WHERE fullname = ?");
         updateUserMoney.setDouble(1,money);

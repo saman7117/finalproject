@@ -5,6 +5,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
 import java.sql.*;
+import java.text.DecimalFormat;
+import java.time.format.DecimalStyle;
 
 public class SwapController {
     @FXML
@@ -32,38 +34,59 @@ public class SwapController {
     @FXML
     private Label warn;
 
-    double USDprice = datas.USDPrice;
-    double Tomanprince = datas.TMNPrice;
+    public SwapController() throws SQLException {
+    }
+
     public void setmenutexttoUSD(){
         frommenu.setText("USD");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
     public void setmenutexttoTMN(){
         frommenu.setText("Toman");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
     public void setmenutexttoEUR(){
         frommenu.setText("EUR");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
     public void setmenutexttoYEN(){
         frommenu.setText("YEN");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
     public void setmenutexttoGBT(){
         frommenu.setText("GBT");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
 
     public void setmenutextto2USD(){
         tomenu.setText("USD");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
     public void setmenutextto2TMN(){
         tomenu.setText("Toman");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
     public void setmenutextto2EUR(){
         tomenu.setText("EUR");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
     public void setmenutextto2YEN(){
         tomenu.setText("YEN");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
     public void setmenutextto2GBT(){
         tomenu.setText("GBT");
+        double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+        tovalue.setText(String.valueOf(convertedAmount));
     }
 
     public void SwapFT(){
@@ -79,25 +102,117 @@ public class SwapController {
     private void initialize(){
         fromvalue.textProperty().addListener((observable, oldValue, newValue) -> {
             // Perform the conversion logic here
+            if(!newValue.isEmpty()){
             double amount = Double.parseDouble(newValue); // Assuming the input is a valid number
-            double convertedAmount = convertCurrency(amount); // Implement your currency conversion logic here
+            double convertedAmount = convertCurrency(amount,frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
             tovalue.setText(String.valueOf(convertedAmount));
+            }
         });
     }
 
-    private double convertCurrency(double amount) {
-        double a = amount/USDprice;
-        a*=Tomanprince;
+    private double convertCurrency(double amount, String t1, String t2) {
+        double a = 0;
+        DecimalFormat df = new DecimalFormat("#.##");
+        if(t1.equals("USD")){
+            a = amount/datas.USDPrice;
+            if(t2.equals("Toman")){
+                a*=datas.TMNPrice;
+            }
+            else if(t2.equals("YEN")){
+                a*=datas.YENPrice;
+            }
+            else if(t2.equals("GBT")){
+                a*=datas.GBPPrice;
+            }
+            else if(t2.equals("EUR")){
+                a*=datas.EURPrice;
+            }
+            else if(t2.equals("USD")){
+                a*=datas.USDPrice;
+            }
+        }
+        else if(t1.equals("Toman")){
+            a = amount/datas.TMNPrice;
+            if(t2.equals("Toman")){
+                a*=datas.TMNPrice;
+            }
+            else if(t2.equals("YEN")){
+                a*=datas.YENPrice;
+            }
+            else if(t2.equals("GBT")){
+                a*=datas.GBPPrice;
+            }
+            else if(t2.equals("EUR")){
+                a*=datas.EURPrice;
+            }
+            else if(t2.equals("USD")){
+                a*=datas.USDPrice;
+            }
+        }
+        else if(t1.equals("GBT")){
+            a = amount/datas.GBPPrice;
+            if(t2.equals("Toman")){
+                a*=datas.TMNPrice;
+            }
+            else if(t2.equals("YEN")){
+                a*=datas.YENPrice;
+            }
+            else if(t2.equals("GBT")){
+                a*=datas.GBPPrice;
+            }
+            else if(t2.equals("EUR")){
+                a*=datas.EURPrice;
+            }
+            else if(t2.equals("USD")){
+                a*=datas.USDPrice;
+            }
+        }
+        else if(t1.equals("EUR")){
+            a = amount/datas.EURPrice;
+            if(t2.equals("Toman")){
+                a*=datas.TMNPrice;
+            }
+            else if(t2.equals("YEN")){
+                a*=datas.YENPrice;
+            }
+            else if(t2.equals("GBT")){
+                a*=datas.GBPPrice;
+            }
+            else if(t2.equals("EUR")){
+                a*=datas.EURPrice;
+            }
+            else if(t2.equals("USD")){
+                a*=datas.USDPrice;
+            }
+        }
+        else if(t1.equals("YEN")){
+            a = amount/datas.YENPrice;
+            if(t2.equals("Toman")){
+                a*=datas.TMNPrice;
+            }
+            else if(t2.equals("YEN")){
+                a*=datas.YENPrice;
+            }
+            else if(t2.equals("GBT")){
+                a*=datas.GBPPrice;
+            }
+            else if(t2.equals("EUR")){
+                a*=datas.EURPrice;
+            }
+            else if(t2.equals("USD")){
+                a*=datas.USDPrice;
+            }
+        }
+        a = Double.parseDouble(df.format(a));
         return a;
     }
+
+    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
 
     public void Confirm() throws SQLException {
         double adminmoney = 0;
         boolean flag = false;
         Alert alert = new Alert(Alert.AlertType.NONE);
-        Connection connection;
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
-
         double status = 0;
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
@@ -106,7 +221,6 @@ public class SwapController {
                 status = resultSet.getDouble("USD");
             }
         }
-
         if (status == 0) {
             if (frommenu.getText().equals("USD")) {
                 if (datas.USD >= Double.parseDouble(fromvalue.getText()) && datas.total >= (Double.parseDouble(fromvalue.getText()) * datas.USDPrice) / 100) {
@@ -119,6 +233,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("YEN")) {
                         datas.USD -= Double.parseDouble(fromvalue.getText());
                         datas.YEN += Double.parseDouble(tovalue.getText());
@@ -128,6 +243,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("GBT")) {
                         datas.USD -= Double.parseDouble(fromvalue.getText());
                         datas.GBT += Double.parseDouble(tovalue.getText());
@@ -137,6 +253,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("EUR")) {
                         datas.USD -= Double.parseDouble(fromvalue.getText());
                         datas.EUR += Double.parseDouble(tovalue.getText());
@@ -146,6 +263,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("USD")) {
                         warn.setText("ارزها یکسان است");
                     }
@@ -161,7 +279,8 @@ public class SwapController {
                     alert.setContentText("تبادل موفقیت آمیز بود");
                     alert.showAndWait();
                 }
-            } else if (frommenu.getText().equals("Toman")) {
+            }
+            else if (frommenu.getText().equals("Toman")) {
                 if (datas.TMN >= Double.parseDouble(fromvalue.getText()) && datas.total >= (Double.parseDouble(fromvalue.getText()) * datas.TMNPrice) / 100) {
                     if (tomenu.getText().equals("USD")) {
                         datas.TMN -= Double.parseDouble(fromvalue.getText());
@@ -172,6 +291,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("YEN")) {
                         datas.TMN -= Double.parseDouble(fromvalue.getText());
                         datas.YEN += Double.parseDouble(tovalue.getText());
@@ -181,6 +301,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("GBT")) {
                         datas.TMN -= Double.parseDouble(fromvalue.getText());
                         datas.GBT += Double.parseDouble(tovalue.getText());
@@ -190,6 +311,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("EUR")) {
                         datas.TMN -= Double.parseDouble(fromvalue.getText());
                         datas.EUR += Double.parseDouble(tovalue.getText());
@@ -199,6 +321,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("Toman")) {
                         warn.setText("ارزها یکسان است");
                     }
@@ -214,7 +337,8 @@ public class SwapController {
                     alert.setContentText("تبادل موفقیت آمیز بود");
                     alert.showAndWait();
                 }
-            } else if (frommenu.getText().equals("YEN")) {
+            }
+            else if (frommenu.getText().equals("YEN")) {
                 if (datas.YEN >= Double.parseDouble(fromvalue.getText()) && datas.total >= (Double.parseDouble(fromvalue.getText()) * datas.YENPrice) / 100) {
                     if (tomenu.getText().equals("Toman")) {
                         datas.YEN -= Double.parseDouble(fromvalue.getText());
@@ -225,6 +349,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("USD")) {
                         datas.YEN -= Double.parseDouble(fromvalue.getText());
                         datas.USD += Double.parseDouble(tovalue.getText());
@@ -234,6 +359,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("GBT")) {
                         datas.YEN -= Double.parseDouble(fromvalue.getText());
                         datas.GBT += Double.parseDouble(tovalue.getText());
@@ -243,6 +369,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("EUR")) {
                         datas.YEN -= Double.parseDouble(fromvalue.getText());
                         datas.EUR += Double.parseDouble(tovalue.getText());
@@ -252,6 +379,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("YEN")) {
                         warn.setText("ارزها یکسان است");
                     }
@@ -267,7 +395,8 @@ public class SwapController {
                     alert.setContentText("تبادل موفقیت آمیز بود");
                     alert.showAndWait();
                 }
-            } else if (frommenu.getText().equals("GBT")) {
+            }
+            else if (frommenu.getText().equals("GBT")) {
                 if (datas.GBT >= Double.parseDouble(fromvalue.getText()) && datas.total >= (Double.parseDouble(fromvalue.getText()) * datas.GBPPrice) / 100) {
                     if (tomenu.getText().equals("Toman")) {
                         datas.GBT -= Double.parseDouble(fromvalue.getText());
@@ -278,6 +407,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("YEN")) {
                         datas.GBT -= Double.parseDouble(fromvalue.getText());
                         datas.YEN += Double.parseDouble(tovalue.getText());
@@ -287,6 +417,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("USD")) {
                         datas.GBT -= Double.parseDouble(fromvalue.getText());
                         datas.USD += Double.parseDouble(tovalue.getText());
@@ -296,6 +427,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("EUR")) {
                         datas.GBT -= Double.parseDouble(fromvalue.getText());
                         datas.EUR += Double.parseDouble(tovalue.getText());
@@ -305,6 +437,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("GBT")) {
                         warn.setText("ارزها یکسان است");
                     }
@@ -320,7 +453,8 @@ public class SwapController {
                     alert.setContentText("تبادل موفقیت آمیز بود");
                     alert.showAndWait();
                 }
-            } else if (frommenu.getText().equals("EUR")) {
+            }
+            else if (frommenu.getText().equals("EUR")) {
                 if (datas.EUR >= Double.parseDouble(fromvalue.getText()) && datas.total >= (Double.parseDouble(fromvalue.getText()) * datas.EURPrice) / 100) {
                     if (tomenu.getText().equals("Toman")) {
                         datas.EUR -= Double.parseDouble(fromvalue.getText());
@@ -331,6 +465,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("YEN")) {
                         datas.EUR -= Double.parseDouble(fromvalue.getText());
                         datas.YEN += Double.parseDouble(tovalue.getText());
@@ -340,6 +475,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("GBT")) {
                         datas.EUR -= Double.parseDouble(fromvalue.getText());
                         datas.GBT += Double.parseDouble(tovalue.getText());
@@ -349,6 +485,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("USD")) {
                         datas.EUR -= Double.parseDouble(fromvalue.getText());
                         datas.USD += Double.parseDouble(tovalue.getText());
@@ -358,6 +495,7 @@ public class SwapController {
                         updateUserMoney.setDouble(2, Double.parseDouble(tovalue.getText()));
                         updateUserMoney.setString(3, datas.username);
                         updateUserMoney.executeUpdate();
+                        updateHistory();
                     } else if (tomenu.getText().equals("EUR")) {
                         warn.setText("ارزها یکسان است");
                     }
@@ -382,6 +520,11 @@ public class SwapController {
             alert.setContentText("بازار توسط ادمین بسته شده است!");
             alert.showAndWait();
         }
+    }
+
+    public void updateHistory() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("INSERT INTO swaphistory (fromType , toType , Amount , dude) VALUES ('" + frommenu.getText() + "','" +  tomenu.getText() + "','" + fromvalue.getText() + "','" + datas.username +"')");
     }
 
 }

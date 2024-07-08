@@ -16,6 +16,9 @@ public class TransferController {
     @FXML
     private MenuButton menu;
 
+    public TransferController() throws SQLException {
+    }
+
     public void setmenutexttoUSD(){
         menu.setText("USD");
     }
@@ -32,8 +35,9 @@ public class TransferController {
         menu.setText("GBT");
     }
 
+    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+
     public void Transfer() throws SQLException {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
         double status = 0;
@@ -41,79 +45,84 @@ public class TransferController {
         ResultSet resultSet2 = statement2.executeQuery("SELECT * FROM users");
         while (resultSet2.next()){
             if (resultSet2.getString("role").equals("admin")){
-                status = resultSet.getDouble("USD");
+                status = resultSet2.getDouble("USD");
             }
         }
         if (status == 0) {
-            if (menu.getText().equals("USD") && datas.USD >= Integer.parseInt(value.getText())) {
-                datas.USD -= Integer.parseInt(value.getText());
-                double d = 0;
-                while (resultSet.next()) {
-                    if (usernamee.getText().equals(resultSet.getString("username"))) {
-                        d += Double.parseDouble(resultSet.getString("USD"));
-                    }
-                }
-                d += Double.parseDouble(value.getText());
-                String s1 = "UPDATE users SET USD='" + String.valueOf(datas.USD) + "' WHERE fullname='" + datas.username + "'";
-                statement.executeUpdate(s1);
-                String s2 = "UPDATE users SET USD='" + String.valueOf(d) + "' WHERE username='" + usernamee.getText() + "'";
-                statement.executeUpdate(s2);
+            if(!findusername()){
+                Alert alert = new Alert(Alert.AlertType.NONE);
+                alert.setAlertType(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("عدم تطابق ");
+                alert.setContentText("نام کاربری در بانک اطلاعاتی موجود نیست!");
+                alert.showAndWait();
             }
-            if (menu.getText().equals("Toman") && datas.TMN >= Integer.parseInt(value.getText())) {
-                datas.TMN -= Integer.parseInt(value.getText());
-                double d = 0;
-                while (resultSet.next()) {
-                    if (usernamee.getText().equals(resultSet.getString("username"))) {
-                        d += Double.parseDouble(resultSet.getString("Toman"));
-                    }
+            else {
+                if (menu.getText().equals("USD") && datas.USD >= Double.parseDouble(value.getText())) {
+                    datas.USD -= Double.parseDouble(value.getText());
+
+                    PreparedStatement updateUserMoney = connection.prepareStatement("UPDATE users SET USD = USD + ? WHERE username = ? ");
+                    updateUserMoney.setDouble(1, Double.parseDouble(value.getText()));
+                    updateUserMoney.setString(2, usernamee.getText());
+                    updateUserMoney.executeUpdate();
+
+                    String s1 = "UPDATE users SET USD='" + String.valueOf(datas.USD) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+
+                    updateHistory();
                 }
-                d += Double.parseDouble(value.getText());
-                String s1 = "UPDATE users SET TMN='" + String.valueOf(datas.TMN) + "' WHERE fullname='" + datas.username + "'";
-                statement.executeUpdate(s1);
-                String s2 = "UPDATE users SET TMN='" + String.valueOf(d) + "' WHERE username='" + usernamee.getText() + "'";
-                statement.executeUpdate(s2);
-            }
-            if (menu.getText().equals("EUR") && datas.EUR >= Integer.parseInt(value.getText())) {
-                datas.EUR -= Integer.parseInt(value.getText());
-                double d = 0;
-                while (resultSet.next()) {
-                    if (usernamee.getText().equals(resultSet.getString("username"))) {
-                        d += Double.parseDouble(resultSet.getString("EUR"));
-                    }
+                if (menu.getText().equals("Toman") && datas.TMN >= Double.parseDouble(value.getText())) {
+                    datas.TMN -= Double.parseDouble(value.getText());
+
+                    PreparedStatement updateUserMoney = connection.prepareStatement("UPDATE users SET TMN = TMN + ? WHERE username = ? ");
+                    updateUserMoney.setDouble(1, Double.parseDouble(value.getText()));
+                    updateUserMoney.setString(2, usernamee.getText());
+                    updateUserMoney.executeUpdate();
+
+                    String s1 = "UPDATE users SET TMN='" + String.valueOf(datas.TMN) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+
+                    updateHistory();
                 }
-                d += Double.parseDouble(value.getText());
-                String s1 = "UPDATE users SET EUR='" + String.valueOf(datas.USD) + "' WHERE fullname='" + datas.username + "'";
-                statement.executeUpdate(s1);
-                String s2 = "UPDATE users SET EUR='" + String.valueOf(d) + "' WHERE username='" + usernamee.getText() + "'";
-                statement.executeUpdate(s2);
-            }
-            if (menu.getText().equals("YEN") && datas.YEN >= Integer.parseInt(value.getText())) {
-                datas.YEN -= Integer.parseInt(value.getText());
-                double d = 0;
-                while (resultSet.next()) {
-                    if (usernamee.getText().equals(resultSet.getString("username"))) {
-                        d += Double.parseDouble(resultSet.getString("YEN"));
-                    }
+                if (menu.getText().equals("EUR") && datas.EUR >= Double.parseDouble(value.getText())) {
+                    datas.EUR -= Double.parseDouble(value.getText());
+
+                    PreparedStatement updateUserMoney = connection.prepareStatement("UPDATE users SET EUR = EUR + ? WHERE username = ? ");
+                    updateUserMoney.setDouble(1, Double.parseDouble(value.getText()));
+                    updateUserMoney.setString(2, usernamee.getText());
+                    updateUserMoney.executeUpdate();
+
+                    String s1 = "UPDATE users SET EUR='" + String.valueOf(datas.EUR) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+
+                    updateHistory();
                 }
-                d += Double.parseDouble(value.getText());
-                String s1 = "UPDATE users SET YEN='" + String.valueOf(datas.USD) + "' WHERE fullname='" + datas.username + "'";
-                statement.executeUpdate(s1);
-                String s2 = "UPDATE users SET YEN='" + String.valueOf(d) + "' WHERE username='" + usernamee.getText() + "'";
-                statement.executeUpdate(s2);
-            }
-            if (menu.getText().equals("GBT") && datas.GBT >= Integer.parseInt(value.getText())) {
-                datas.GBT -= Integer.parseInt(value.getText());
-                double d = 0;
-                while (resultSet.next()) {
-                    if (usernamee.getText().equals(resultSet.getString("username"))) {
-                        d += Double.parseDouble(resultSet.getString("GBT"));
-                    }
+                if (menu.getText().equals("YEN") && datas.YEN >= Double.parseDouble(value.getText())) {
+                    datas.YEN -= Double.parseDouble(value.getText());
+
+                    PreparedStatement updateUserMoney = connection.prepareStatement("UPDATE users SET YEN = YEN + ? WHERE username = ? ");
+                    updateUserMoney.setDouble(1, Double.parseDouble(value.getText()));
+                    updateUserMoney.setString(2, usernamee.getText());
+                    updateUserMoney.executeUpdate();
+
+                    String s1 = "UPDATE users SET YEN='" + String.valueOf(datas.YEN) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+
+                    updateHistory();
                 }
-                d += Double.parseDouble(value.getText());
-                String s1 = "UPDATE users SET GBT='" + String.valueOf(datas.GBT) + "' WHERE fullname='" + datas.username + "'";
-                statement.executeUpdate(s1);
-                String s2 = "UPDATE users SET GBT='" + String.valueOf(d) + "' WHERE username='" + usernamee.getText() + "'";
-                statement.executeUpdate(s2);
+                if (menu.getText().equals("GBT") && datas.GBT >= Double.parseDouble(value.getText())) {
+                    datas.GBT -= Double.parseDouble(value.getText());
+
+                    PreparedStatement updateUserMoney = connection.prepareStatement("UPDATE users SET GBT = GBT + ? WHERE username = ? ");
+                    updateUserMoney.setDouble(1, Double.parseDouble(value.getText()));
+                    updateUserMoney.setString(2, usernamee.getText());
+                    updateUserMoney.executeUpdate();
+
+                    String s1 = "UPDATE users SET GBT='" + String.valueOf(datas.GBT) + "' WHERE fullname='" + datas.username + "'";
+                    statement.executeUpdate(s1);
+
+                    updateHistory();
+                }
             }
         }
         else {
@@ -125,4 +134,19 @@ public class TransferController {
             alert.showAndWait();
         }
     }
+    public void updateHistory() throws SQLException {
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("INSERT INTO transfer (Amount , Type , fromdude , todude) VALUES ('" + value.getText() + "','" +  menu.getText() + "','" + datas.username + "','" + usernamee.getText() +"')");
+    }
+
+    public boolean findusername() throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+        while (resultSet.next()){
+            if(resultSet.getString("username").equals(usernamee.getText()))
+                return true;
+        }
+        return false;
+    }
+
 }
