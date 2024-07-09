@@ -39,6 +39,15 @@ public class TokenController implements Initializable {
     @FXML
     private LineChart chart;
     @FXML
+    private NumberAxis Hournumber;
+
+    @FXML
+    private LineChart charthour;
+    @FXML
+    private NumberAxis daynumber;
+    @FXML
+    private LineChart chartday;
+    @FXML
     private Label minprice;
     @FXML
     private Label maxprice;
@@ -108,7 +117,9 @@ public class TokenController implements Initializable {
     private Label warning;
 
     private static int sss = 0;
+    private static int sss2 = 0;
     private static int uuu = 43;
+    private static int rrr = 243;
     public String [] parts = new String[6];
 
 
@@ -126,10 +137,11 @@ public class TokenController implements Initializable {
         Tokenname.setText(s);
     }
     int lastMinute = -1;
-    public void showTime(){
+    int lastHour = -1;
+    public void showTime() {
         Thread thread = new Thread(() -> {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss a");
-            while (!stop){
+            while (!stop) {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -140,12 +152,31 @@ public class TokenController implements Initializable {
 
                 Platform.runLater(() -> {
                     time.setText(timenow);
+
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTime(now[0]);
                     int currentMinute = calendar.get(Calendar.MINUTE);
-                    if (currentMinute != lastMinute) {
+                    int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+
+                    double status = -0;
+                    Statement statement = null;
+                    try {
+                        statement = connection.createStatement();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+                        while (resultSet.next()) {
+                            if (resultSet.getString("role").equals("admin")) {
+                                status = resultSet.getDouble("USD");
+                            }
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    if (currentMinute != lastMinute && status == 0) {
                         // A new minute has passed, call your update function here
-                        setLabelsdata();
                         setchartdata();
                         try {
                             updateOrders();
@@ -156,14 +187,86 @@ public class TokenController implements Initializable {
                         } catch (SQLException e) {
                             throw new RuntimeException(e);
                         }
-                        chart.getData().add(new XYChart.Series<>());
                         lastMinute = currentMinute;
                     }
+
+//                    if (currentHour != lastHour) {
+//                        System.out.println(currentHour + "   " + lastHour);
+//                        // An hour has passed, call your hourly update function here
+//                        setHourlyData();
+//                        lastHour = currentHour;
+//                    }
                 });
             }
         });
         thread.start();
     }
+
+//    public void setHourlyData() {
+//        XYChart.Series series2 = new XYChart.Series();
+//        HourlyupdateChart(series2);
+//        chart.getData().add(series2);
+//        series2.getNode().setStyle("-fx-stroke:  #f6b716;");
+//    }
+//
+//    public void HourlyupdateChart(XYChart.Series series){
+//        try {
+//            File file = new File("src/main/resources/com/example/demo/currency_prices2.csv");
+//            Scanner scanner = new Scanner(file);
+//            for(int i=0;i<sss2;i++){
+//                String s = scanner.nextLine();
+//                s = scanner.nextLine();
+//            }
+//            for(int i = 0 ; i<rrr ;i+=2){
+//                String s = scanner.nextLine();
+//                System.out.println(s);
+//                String line = scanner.nextLine();
+//                System.out.println(line);
+//                parts = line.split("\\s+");
+//                if (Tokenname.getText().equals("USD")) {
+//                    series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[2])));
+//                    Hournumber.setUpperBound(datas.USDMAX + 0.3);
+//                    Hournumber.setLowerBound(datas.USDMIN - 0.1);
+//                    Hournumber.setTickUnit(0.01);
+//                }
+//                else if (Tokenname.getText().equals("TMN")) {
+//                    series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[4])));
+//                    Hournumber.setUpperBound(datas.TMNMAX + 1000);
+//                    Hournumber.setLowerBound(datas.TMNMIN - 1000);
+//                    Hournumber.setTickUnit(500);
+//                }
+//                else if (Tokenname.getText().equals("EUR")) {
+//                    series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[3])));
+//                    Hournumber.setUpperBound(datas.EURMAX + 0.1);
+//                    Hournumber.setLowerBound(datas.EURMIN - 0.1);
+//                    Hournumber.setTickUnit(0.01);
+//                }
+//                else if (Tokenname.getText().equals("YEN")) {
+//                    series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[5])));
+//                    Hournumber.setUpperBound(datas.YENMAX + 10);
+//                    Hournumber.setLowerBound(datas.YENMIN - 10);
+//                    Hournumber.setTickUnit(5);
+//                }
+//                else if (Tokenname.getText().equals("GBP")) {
+//                    series.getData().add(new XYChart.Data(String.valueOf(parts[1]), Double.parseDouble(parts[6])));
+//                    Hournumber.setUpperBound(datas.GBPMAX + 0.1);
+//                    Hournumber.setLowerBound(datas.GBPMIN - 0.1);
+//                    Hournumber.setTickUnit(0.01);
+//                }
+//
+//            }
+//            sss2++;
+//            scanner.close();
+//            chartday.setVisible(false);
+//            chart.setVisible(false);
+//            charthour.setVisible(true);
+//        } catch (NumberFormatException e) {
+//            System.out.println("Error parsing data: " + e.getMessage());
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
 
     private void showDate(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE , MMM dd/yyyy");
@@ -176,6 +279,8 @@ public class TokenController implements Initializable {
         showDate();
         setLabelsdata();
         setchartdata();
+
+
     }
 
     public void setLabelsdata(){
@@ -208,11 +313,7 @@ public class TokenController implements Initializable {
     }
     public void setchartdata(){
         XYChart.Series series = new XYChart.Series();
-
         updateChart(series);
-
-
-
         chart.getData().add(series);
         series.getNode().setStyle("-fx-stroke:  #f6b716;");
     }
@@ -263,6 +364,9 @@ public class TokenController implements Initializable {
             }
             sss++;
             scanner.close();
+            charthour.setVisible(false);
+            chartday.setVisible(false);
+            chart.setVisible(true);
         } catch (NumberFormatException e) {
             System.out.println("Error parsing data: " + e.getMessage());
         } catch (FileNotFoundException e) {

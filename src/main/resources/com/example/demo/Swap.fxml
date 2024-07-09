@@ -97,7 +97,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Label layoutX="17.0" layoutY="365.0" prefHeight="20.0" prefWidth="278.0" text="1 USD = 42500 TMN" textFill="DARKGRAY">
+      <Label fx:id="swapcom" layoutX="17.0" layoutY="365.0" prefHeight="20.0" prefWidth="278.0" text="1 USD = 42500 TMN" textFill="DARKGRAY">
          <font>
             <Font size="14.0" />
          </font>
@@ -107,7 +107,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Label layoutX="17.0" layoutY="413.0" prefHeight="20.0" prefWidth="110.0" text="2.45 $" textFill="WHITE">
+      <Label fx:id="commision" layoutX="17.0" layoutY="413.0" prefHeight="20.0" prefWidth="110.0" text="2.45 $" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -117,7 +117,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Label layoutX="17.0" layoutY="444.0" prefHeight="20.0" prefWidth="110.0" text="710.21 $" textFill="WHITE">
+      <Label fx:id="losemoney" layoutX="17.0" layoutY="444.0" prefHeight="20.0" prefWidth="110.0" text="710.21 $" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -127,7 +127,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Label layoutX="17.0" layoutY="475.0" prefHeight="20.0" prefWidth="110.0" text="710.21 $" textFill="WHITE">
+      <Label fx:id="gainmoney" layoutX="17.0" layoutY="475.0" prefHeight="20.0" prefWidth="110.0" text="710.21 $" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

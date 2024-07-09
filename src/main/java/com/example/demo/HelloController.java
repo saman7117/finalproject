@@ -115,6 +115,37 @@ public class HelloController implements Initializable {
         }
     }
 
+    public void demologin() throws SQLException, IOException {
+        String s = "";
+        Random rnd = new Random();
+        int g = rnd.nextInt(10000);
+        int gg = rnd.nextInt(100);
+        datas.username = "user"+String.valueOf(g)+"_"+String.valueOf(gg);
+        datas.firstName = "demo";
+        datas.lastName = "user";
+        datas.USD = 0;
+        datas.YEN = 0;
+        datas.EUR = 0;
+        datas.TMN = 0;
+        datas.GBT = 0;
+        datas.total = 5000;
+        datas.Gmail = "";
+        datas.Password = "123456789";
+        datas.phoneNumber = "";
+        datas.role = "demo";
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "");
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("INSERT INTO users (username,password,email,fullname,mobile,USD,EUR,GBT,TMN,YEN,Money , role) VALUES ('" + datas.username + "','" + datas.Password + "','" + datas.Gmail + "','" + datas.username + "','" + datas.phoneNumber + "','" + datas.USD + "','" + datas.EUR + "','" + datas.TMN + "','" + datas.GBT + "','" + datas.YEN + "','" + datas.total + "','" + datas.role +"')");
+        Stage stage = (Stage)userfield.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HomePage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1536, 800);
+        stage.setTitle("Raze Exchange");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
     private String generateCaptcha() {
         Random random = new Random();
         StringBuilder captcha = new StringBuilder();

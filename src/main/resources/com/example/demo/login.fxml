@@ -94,7 +94,7 @@
             <Line endX="100.0" layoutX="239.0" layoutY="492.0" startX="-85.60003662109375" startY="-3.0517578125E-5" stroke="#fca311" strokeWidth="2.0" />
             <Line endX="-97.0142822265625" endY="-58.585784912109375" layoutX="249.0" layoutY="502.0" startX="-97.0142822265625" startY="-10.800018310546875" stroke="#fca311" strokeWidth="2.0" />
             <Line endX="-97.0142822265625" endY="-58.585784912109375" layoutX="437.0" layoutY="501.0" startX="-97.0142822265625" startY="-10.800018310546875" stroke="#fca311" strokeWidth="2.0" />
-            <Button fx:id="demobtn" layoutX="148.0" layoutY="523.0" mnemonicParsing="false" onMouseClicked="#goHomePage" prefHeight="62.0" prefWidth="200.0" style="-fx-background-color: #262626;" text="demo" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="demobtn" layoutX="148.0" layoutY="523.0" mnemonicParsing="false" onMouseClicked="#demologin" prefHeight="62.0" prefWidth="200.0" style="-fx-background-color: #262626;" text="demo" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>

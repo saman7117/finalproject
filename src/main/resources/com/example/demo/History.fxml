@@ -53,7 +53,7 @@
             <Font name="B Nazanin Bold" size="28.0" />
          </font>
       </Label>
-      <Button layoutX="32.0" layoutY="52.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="143.0" style="-fx-background-color: #fca311;" text="گرفتن خروجی" textAlignment="CENTER" textFill="#191a1f">
+      <Button layoutX="32.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#ClickOnCVSSwap" prefHeight="46.0" prefWidth="143.0" style="-fx-background-color: #fca311;" text="گرفتن خروجی" textAlignment="CENTER" textFill="#191a1f">
          <font>
             <Font size="16.0" />
          </font>
@@ -72,7 +72,7 @@
             <TableColumn fx:id="TRTC3" prefWidth="380.0" text="نوع ارض" />
          </columns>
       </TableView>
-      <TableView fx:id="DepositWithdraw" layoutX="26.0" layoutY="142.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="626.0" prefWidth="1139.0" style="-fx-background-color: #1e2228;">
+      <TableView fx:id="DepositWithdraw" layoutX="26.0" layoutY="142.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#ClickOnCVSSwap" prefHeight="626.0" prefWidth="1139.0" style="-fx-background-color: #1e2228;">
          <columns>
             <TableColumn fx:id="DWTC1" prefWidth="380.0" text="نوع" />
             <TableColumn fx:id="DWTC2" minWidth="0.0" prefWidth="380.0" text="مقدار" />

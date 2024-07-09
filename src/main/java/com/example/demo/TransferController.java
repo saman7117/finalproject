@@ -1,10 +1,7 @@
 package com.example.demo;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.*;
 
@@ -15,6 +12,8 @@ public class TransferController {
     private TextField value;
     @FXML
     private MenuButton menu;
+    @FXML
+    private Label commision;
 
     public TransferController() throws SQLException {
     }
@@ -149,4 +148,30 @@ public class TransferController {
         return false;
     }
 
+    public void setCommision(){
+        if(menu.getText().equals("USD")){
+            commision.setText(String.valueOf(datas.USDPrice/100) + '$');
+        }
+        else if(menu.getText().equals("YEN")){
+            commision.setText(String.valueOf(datas.YENPrice/100) + '$');
+        }
+        else if(menu.getText().equals("EUR")){
+            commision.setText(String.valueOf(datas.EURPrice/100) + '$');
+        }
+        else if(menu.getText().equals("Toman")){
+            commision.setText(String.valueOf(datas.TMNPrice/100) + '$');
+        }
+        else{
+            commision.setText(String.valueOf(datas.GBPPrice/100) + '$');
+        }
+    }
+
+    @FXML
+    private void initialize(){
+        value.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(!newValue.isEmpty()){
+                setCommision();
+            }
+        });
+    }
 }

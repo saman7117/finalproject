@@ -33,60 +33,97 @@ public class SwapController {
     private MenuItem EURitem;
     @FXML
     private Label warn;
+    @FXML
+    private Label swapcom;
+    @FXML
+    private Label commision;
+    @FXML
+    private Label losemoney;
+    @FXML
+    private Label gainmoney;
 
     public SwapController() throws SQLException {
     }
-
     public void setmenutexttoUSD(){
         frommenu.setText("USD");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
     public void setmenutexttoTMN(){
         frommenu.setText("Toman");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
     public void setmenutexttoEUR(){
         frommenu.setText("EUR");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
     public void setmenutexttoYEN(){
         frommenu.setText("YEN");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
     public void setmenutexttoGBT(){
         frommenu.setText("GBT");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
 
     public void setmenutextto2USD(){
         tomenu.setText("USD");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
     public void setmenutextto2TMN(){
         tomenu.setText("Toman");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
     public void setmenutextto2EUR(){
         tomenu.setText("EUR");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
     public void setmenutextto2YEN(){
         tomenu.setText("YEN");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
     public void setmenutextto2GBT(){
         tomenu.setText("GBT");
         double convertedAmount = convertCurrency(Double.parseDouble(fromvalue.getText()),frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
         tovalue.setText(String.valueOf(convertedAmount));
+        setCOM();
+        setCommision();
+        setLoseandGain();
     }
 
     public void SwapFT(){
@@ -101,13 +138,225 @@ public class SwapController {
     @FXML
     private void initialize(){
         fromvalue.textProperty().addListener((observable, oldValue, newValue) -> {
-            // Perform the conversion logic here
             if(!newValue.isEmpty()){
-            double amount = Double.parseDouble(newValue); // Assuming the input is a valid number
-            double convertedAmount = convertCurrency(amount,frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
-            tovalue.setText(String.valueOf(convertedAmount));
+                double amount = Double.parseDouble(newValue); // Assuming the input is a valid number
+                double convertedAmount = convertCurrency(amount,frommenu.getText(),tomenu.getText()); // Implement your currency conversion logic here
+                tovalue.setText(String.valueOf(convertedAmount));
+                setCOM();
+                setCommision();
+                setLoseandGain();
             }
         });
+    }
+
+    public void setCOM(){
+        String s;
+        if(frommenu.getText().equals("USD")){
+            s = "1 USD = ";
+            if(tomenu.getText().equals("USD")){
+                s+="1 USD";
+            }
+            else if(tomenu.getText().equals("Toman")){
+                s+=String.valueOf(datas.TMNPrice) + " Toman";
+            }
+            else if(tomenu.getText().equals("EUR")){
+                s+=String.valueOf(datas.EURPrice) + " EUR";
+            }
+            else if(tomenu.getText().equals("YEN")){
+                s+=String.valueOf(datas.YENPrice) + " YEN";
+            }
+            else{
+                s+=String.valueOf(datas.GBPPrice) + " GBP";
+            }
+            swapcom.setText(s);
+        }
+        else if(frommenu.getText().equals("Toman")){
+            s = "1 Toman = ";
+            if(tomenu.getText().equals("Toman")){
+                s+="1 Toman";
+            }
+            else if(tomenu.getText().equals("USD")){
+                s+=String.valueOf(datas.USDPrice) + " USD";
+            }
+            else if(tomenu.getText().equals("EUR")){
+                s+=String.valueOf(datas.EURPrice) + " EUR";
+            }
+            else if(tomenu.getText().equals("YEN")){
+                s+=String.valueOf(datas.YENPrice) + " YEN";
+            }
+            else{
+                s+=String.valueOf(datas.GBPPrice) + " GBP";
+            }
+            swapcom.setText(s);
+        }
+        else if(frommenu.getText().equals("EUR")){
+            s = "1 EUR = ";
+            if(tomenu.getText().equals("EUR")){
+                s+="1 EUR";
+            }
+            else if(tomenu.getText().equals("Toman")){
+                s+=String.valueOf(datas.TMNPrice) + " Toman";
+            }
+            else if(tomenu.getText().equals("USD")){
+                s+=String.valueOf(datas.USDPrice) + " USD";
+            }
+            else if(tomenu.getText().equals("YEN")){
+                s+=String.valueOf(datas.YENPrice) + " YEN";
+            }
+            else{
+                s+=String.valueOf(datas.GBPPrice) + " GBP";
+            }
+            swapcom.setText(s);
+        }
+        else if(frommenu.getText().equals("YEN")){
+            s = "1 YEN = ";
+            if(tomenu.getText().equals("YEN")){
+                s+="1 YEN";
+            }
+            else if(tomenu.getText().equals("Toman")){
+                s+=String.valueOf(datas.TMNPrice) + " Toman";
+            }
+            else if(tomenu.getText().equals("EUR")){
+                s+=String.valueOf(datas.EURPrice) + " EUR";
+            }
+            else if(tomenu.getText().equals("USD")){
+                s+=String.valueOf(datas.USDPrice) + " USD";
+            }
+            else{
+                s+=String.valueOf(datas.GBPPrice) + " GBP";
+            }
+            swapcom.setText(s);
+        }
+        else{
+            s = "1 GBP = ";
+            if(tomenu.getText().equals("GPP")){
+                s+="1 GBP";
+            }
+            else if(tomenu.getText().equals("Toman")){
+                s+=String.valueOf(datas.TMNPrice) + " Toman";
+            }
+            else if(tomenu.getText().equals("EUR")){
+                s+=String.valueOf(datas.EURPrice) + " EUR";
+            }
+            else if(tomenu.getText().equals("YEN")){
+                s+=String.valueOf(datas.YENPrice) + " YEN";
+            }
+            else{
+                s+=String.valueOf(datas.USDPrice) + " USD";
+            }
+            swapcom.setText(s);
+        }
+    }
+
+    public void setCommision(){
+        if(frommenu.getText().equals("USD")){
+            commision.setText(String.valueOf(datas.USDPrice/100) + '$');
+        }
+        else if(frommenu.getText().equals("YEN")){
+            commision.setText(String.valueOf(datas.YENPrice/100) + '$');
+        }
+        else if(frommenu.getText().equals("Toman")){
+            commision.setText(String.valueOf(datas.TMNPrice/100) + '$');
+        }
+        else if(frommenu.getText().equals("EUR")){
+            commision.setText(String.valueOf(datas.EURPrice/100) + '$');
+        }
+        else{
+            commision.setText(String.valueOf(datas.GBPPrice/100) + '$');
+        }
+    }
+
+    public void setLoseandGain(){
+        if(frommenu.getText().equals("USD")){
+            losemoney.setText(String.valueOf(datas.USDPrice * Double.parseDouble(fromvalue.getText())));
+            if(tomenu.getText().equals("USD")){
+                gainmoney.setText(String.valueOf(datas.USDPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("Toman")){
+                gainmoney.setText(String.valueOf(datas.TMNPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("EUR")){
+                gainmoney.setText(String.valueOf(datas.EURPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("YEN")){
+                gainmoney.setText(String.valueOf(datas.YENPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else{
+                gainmoney.setText(String.valueOf(datas.GBPPrice * Double.parseDouble(tovalue.getText())));
+            }
+        }
+        else if(frommenu.getText().equals("Toman")){
+            losemoney.setText(String.valueOf(datas.TMNPrice * Double.parseDouble(fromvalue.getText())));
+            if(tomenu.getText().equals("Toman")){
+                gainmoney.setText(String.valueOf(datas.TMNPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("USD")){
+                gainmoney.setText(String.valueOf(datas.USDPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("EUR")){
+                gainmoney.setText(String.valueOf(datas.EURPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("YEN")){
+                gainmoney.setText(String.valueOf(datas.YENPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else{
+                gainmoney.setText(String.valueOf(datas.GBPPrice * Double.parseDouble(tovalue.getText())));
+            }
+        }
+        else if(frommenu.getText().equals("EUR")){
+            losemoney.setText(String.valueOf(datas.EURPrice * Double.parseDouble(fromvalue.getText())));
+            if(tomenu.getText().equals("Toman")){
+                gainmoney.setText(String.valueOf(datas.TMNPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("USD")){
+                gainmoney.setText(String.valueOf(datas.USDPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("EUR")){
+                gainmoney.setText(String.valueOf(datas.EURPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("YEN")){
+                gainmoney.setText(String.valueOf(datas.YENPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else{
+                gainmoney.setText(String.valueOf(datas.GBPPrice * Double.parseDouble(tovalue.getText())));
+            }
+        }
+        else if(frommenu.getText().equals("YEN")){
+            losemoney.setText(String.valueOf(datas.YENPrice * Double.parseDouble(fromvalue.getText())));
+            if(tomenu.getText().equals("Toman")){
+                gainmoney.setText(String.valueOf(datas.TMNPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("USD")){
+                gainmoney.setText(String.valueOf(datas.USDPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("EUR")){
+                gainmoney.setText(String.valueOf(datas.EURPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("YEN")){
+                gainmoney.setText(String.valueOf(datas.YENPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else{
+                gainmoney.setText(String.valueOf(datas.GBPPrice * Double.parseDouble(tovalue.getText())));
+            }
+        }
+        else{
+            losemoney.setText(String.valueOf(datas.GBPPrice * Double.parseDouble(fromvalue.getText())));
+            if(tomenu.getText().equals("Toman")){
+                gainmoney.setText(String.valueOf(datas.TMNPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("USD")){
+                gainmoney.setText(String.valueOf(datas.USDPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("EUR")){
+                gainmoney.setText(String.valueOf(datas.EURPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else if(tomenu.getText().equals("YEN")){
+                gainmoney.setText(String.valueOf(datas.YENPrice * Double.parseDouble(tovalue.getText())));
+            }
+            else{
+                gainmoney.setText(String.valueOf(datas.GBPPrice * Double.parseDouble(tovalue.getText())));
+            }
+        }
     }
 
     private double convertCurrency(double amount, String t1, String t2) {

@@ -85,7 +85,7 @@
                 <Font size="14.0" />
             </font>
         </Text>
-        <Label layoutX="21.0" layoutY="400.0" prefHeight="20.0" prefWidth="110.0" text="2.45 $" textFill="WHITE">
+        <Label fx:id="commision" layoutX="21.0" layoutY="400.0" prefHeight="20.0" prefWidth="110.0" text="2.45 $" textFill="WHITE">
             <font>
                 <Font size="14.0" />
             </font>

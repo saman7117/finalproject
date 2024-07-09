@@ -130,5 +130,6 @@
             </MenuButton>
          </children>
       </AnchorPane>
+      <Button layoutX="78.0" layoutY="721.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="40.0" prefWidth="78.0" style="-fx-background-color: #c91010; -fx-font-size: 16; -fx-border-color: #191a1f; -fx-background-radius: 10;" text="خروج" textFill="#ededed" />
    </children>
 </AnchorPane>

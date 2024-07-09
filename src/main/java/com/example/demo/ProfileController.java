@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -51,6 +53,22 @@ public class ProfileController implements Initializable {
         tag.setText(datas.username);
         username.setText(datas.username);
         role.setText(datas.role);
+    }
+
+    public void logout() throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("خروج");
+        alert.setHeaderText("شما در حال خروج از صرافی انلاین هستید");
+        alert.setContentText("آیا مطمئنید که میخواهید از صرافی خراج شوید؟");
+        if (alert.showAndWait().get() == ButtonType.OK){
+            stage.close();
+            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+            Scene registerScene = new Scene(registerLoader.load(), 1000, 600);
+            stage.setTitle("Raze Exchange");
+            stage.setScene(registerScene);
+            stage.show();
+        }
     }
 
     public void toWallet() throws IOException {//:)

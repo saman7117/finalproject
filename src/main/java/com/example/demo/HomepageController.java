@@ -53,9 +53,8 @@ public class HomepageController implements Initializable{
     private Label tag;
     @FXML
     private Button logout;
-
-
     private static int eee = 1;
+    private static int rrr = 1;
     ObservableList <Stock> stocks = FXCollections.observableArrayList(
             new Stock(),
             new Stock(),
@@ -72,36 +71,18 @@ public class HomepageController implements Initializable{
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        marketColumn.setCellValueFactory(new PropertyValueFactory<Stock , String>("market"));
-        priceColumn.setCellValueFactory(new PropertyValueFactory<Stock , Double>("price"));
-        changesColumn.setCellValueFactory(new PropertyValueFactory<Stock , Double>("changes"));
-        maxPriceColumn.setCellValueFactory(new PropertyValueFactory<Stock , Double>("maxPrice"));
-        minPriceColumn.setCellValueFactory(new PropertyValueFactory<Stock , Double>("minPrice"));
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        marketColumn.setCellValueFactory(new PropertyValueFactory<Stock, String>("market"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<Stock, Double>("price"));
+        changesColumn.setCellValueFactory(new PropertyValueFactory<Stock, Double>("changes"));
+        maxPriceColumn.setCellValueFactory(new PropertyValueFactory<Stock, Double>("maxPrice"));
+        minPriceColumn.setCellValueFactory(new PropertyValueFactory<Stock, Double>("minPrice"));
 
         tableView.setItems(stocks);
         tag.setText(datas.username);
         setData();
         showTime();
         showDate();
-    }
-
-
-
-    public void logout() throws IOException {
-        Stage stage = (Stage) tableView.getScene().getWindow();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("خروج");
-        alert.setHeaderText("شما در حال خروج از صرافی انلاین هستید");
-        alert.setContentText("آیا مطمئنید که میخواهید از صرافی خراج شوید؟");
-        if (alert.showAndWait().get() == ButtonType.OK){
-            stage.close();
-            FXMLLoader registerLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
-            Scene registerScene = new Scene(registerLoader.load(), 1000, 600);
-            stage.setTitle("Raze Exchange");
-            stage.setScene(registerScene);
-            stage.show();
-        }
     }
 
     @FXML
@@ -280,8 +261,8 @@ public class HomepageController implements Initializable{
             File file = new File("src/main/resources/com/example/demo/currency_prices.csv");
             Scanner scanner = new Scanner(file);
             String pastline = null;
-            for(int i=0;i<eee;i++){
-                if(i==eee-1){
+            for (int i = 0; i < eee; i++) {
+                if (i == eee - 1) {
                     pastline = scanner.nextLine();
                     scanner.nextLine();
                 }
@@ -302,7 +283,6 @@ public class HomepageController implements Initializable{
     }
 
     public void updatetable(){
-        //System.out.println(parts);
             double usdPrice = Double.parseDouble(parts[2]);
             double eurPrice = Double.parseDouble(parts[3]);
             double tomanPrice = Double.parseDouble(parts[4]);
@@ -369,6 +349,7 @@ public class HomepageController implements Initializable{
             tableView.getItems().remove(0,5);
     }
 
+
     public Double linearRegression (Double[] currency){
         SimpleRegression regression = new SimpleRegression();
 
@@ -391,6 +372,10 @@ public class HomepageController implements Initializable{
         slopeANDintercept[0] = regression.getSlope();
         slopeANDintercept[1] = regression.getIntercept();
         return slopeANDintercept;
+    }
+
+    public void frf(){
+        datas.stg = (Stage) tableView.getScene().getWindow();
     }
 
     //###################################### SQL Match ################################3

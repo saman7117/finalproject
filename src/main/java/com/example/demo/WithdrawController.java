@@ -84,7 +84,7 @@ public class WithdrawController {
 
     public void updateHistory() throws SQLException {
         Statement statement = connection.createStatement();
-        statement.executeUpdate("INSERT INTO transfer (Type , Value , dude) VALUES ('" + "withdraw" + "','" +  value.getText() + "','" + datas.username + "')");
+        statement.executeUpdate("INSERT INTO transfer (Type , Value , dude, CardNum) VALUES ('" + "withdraw" + "','" +  value.getText() + "','" + datas.username + "','" + cardNum.getText() + "')");
     }
 
 }

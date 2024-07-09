@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javafx.stage.Stage;
+
 import java.io.DataInputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -38,6 +40,7 @@ public class datas {
     public static double YENMAX;
     public static double GBPMAX;
     public static int forgetcode;
+    public static Stage stg;
 
     public static double[] MAXPrice = new double[5];//0-USD / 1-TMN / 2-YEN / 3-GBP / 4-EUR
 

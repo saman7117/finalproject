@@ -132,6 +132,22 @@
                <NumberAxis fx:id="number" autoRanging="false" side="LEFT" />
             </yAxis>
          </LineChart>
+         <LineChart fx:id="charthour" layoutX="84.0" layoutY="32.0" prefHeight="502.0" prefWidth="672.0" style="-fx-background-color: #191a1f;">
+            <xAxis>
+               <CategoryAxis fx:id="category1" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis fx:id="Hournumber" autoRanging="false" side="LEFT" />
+            </yAxis>
+         </LineChart>
+         <LineChart fx:id="chartday" layoutX="83.0" layoutY="31.0" prefHeight="502.0" prefWidth="672.0" style="-fx-background-color: #191a1f;">
+            <xAxis>
+               <CategoryAxis fx:id="category11" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+               <NumberAxis fx:id="daynumber" autoRanging="false" side="LEFT" />
+            </yAxis>
+         </LineChart>
       </children>
    </AnchorPane>
    <AnchorPane layoutX="891.0" layoutY="237.0" prefHeight="252.0" prefWidth="635.0" style="-fx-background-color: #1e2329; -fx-border-color: #2f434e; -fx-border-radius: 20;">
